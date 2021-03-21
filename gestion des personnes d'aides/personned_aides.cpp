@@ -69,3 +69,20 @@ QSqlQueryModel* Personned_aides::afficher()
         model->setHeaderData(7, Qt::Horizontal, QObject::tr("prix par heure"));
    return  model;
 }
+
+bool Personned_aides::modifier()
+{ QSqlQuery query;
+    QString id_string=QString::number(identifiant);
+     QString num_tel_string=QString::number(num_tel);
+       QString prix_heure_string=QString::number(prix_heure);
+  query.prepare("Update personne set identifiant=:identifiant, nom=:nom, prenom=:prenom, adresse=:adresse ,email=:email, metier=:metier, num_tel=:num_tel,prix_heure=:prix_heure where identifiant=:identifiant");
+  query.bindValue(":identifiant",identifiant);
+  query.bindValue(":nom",nom);
+  query.bindValue(":prenom",prenom);
+  query.bindValue(":adresse",adresse);
+  query.bindValue(":email",email);
+  query.bindValue(":metier",metier);
+  query.bindValue(":num_tel",num_tel_string);
+  query.bindValue(":prix_heure",prix_heure_string);
+  return query.exec();
+}

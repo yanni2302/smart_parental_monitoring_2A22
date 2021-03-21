@@ -30,8 +30,8 @@
    <widget class="QLabel" name="label_11">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>40</y>
+      <x>310</x>
+      <y>30</y>
       <width>901</width>
       <height>151</height>
      </rect>
@@ -148,10 +148,11 @@ QTabBar::tab:selected, QTabBar::tab:hover {
 QTabBar::tab:selected {
     border-color: #9B9B9B;
     border-bottom-color: #C2C7CB; /* same as pane color */
-}</string>
+}
+</string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="Ajouter_E_3">
        <attribute name="title">
@@ -388,7 +389,7 @@ background: white;
 selection-background-color: gray;</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="Ajouter_Employe_3">
+       <widget class="QPushButton" name="ajouter">
         <property name="geometry">
          <rect>
           <x>520</x>
@@ -536,10 +537,10 @@ selection-background-color: gray;</string>
        <widget class="QTableView" name="afficher_personne">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>20</y>
-          <width>951</width>
-          <height>381</height>
+          <x>60</x>
+          <y>60</y>
+          <width>431</width>
+          <height>261</height>
          </rect>
         </property>
         <property name="showDropIndicator" stdset="0">
@@ -549,17 +550,12 @@ selection-background-color: gray;</string>
          <bool>true</bool>
         </property>
        </widget>
-      </widget>
-      <widget class="QWidget" name="tab_2">
-       <attribute name="title">
-        <string>Modifier</string>
-       </attribute>
-       <widget class="QLineEdit" name="lineEdit_num_tel_a_2">
+       <widget class="QLineEdit" name="lineEdit_id_a_3">
         <property name="geometry">
          <rect>
-          <x>720</x>
-          <y>200</y>
-          <width>221</width>
+          <x>280</x>
+          <y>330</y>
+          <width>191</width>
           <height>20</height>
          </rect>
         </property>
@@ -571,12 +567,12 @@ background: white;
 selection-background-color: gray;</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="identifiant_2">
+       <widget class="QLineEdit" name="identifiant_3">
         <property name="geometry">
          <rect>
-          <x>92</x>
-          <y>70</y>
-          <width>181</width>
+          <x>70</x>
+          <y>330</y>
+          <width>191</width>
           <height>20</height>
          </rect>
         </property>
@@ -603,134 +599,39 @@ text-align:center;
 </string>
         </property>
         <property name="text">
-         <string>   Identifiant</string>
+         <string>   Identifiant à supprimer</string>
         </property>
         <property name="readOnly">
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QLineEdit" name="prix_heure_2">
+       <widget class="QPushButton" name="supprimer">
         <property name="geometry">
          <rect>
-          <x>510</x>
-          <y>260</y>
-          <width>181</width>
-          <height>20</height>
+          <x>180</x>
+          <y>370</y>
+          <width>211</width>
+          <height>23</height>
          </rect>
         </property>
         <property name="styleSheet">
          <string notr="true">border: 2px solid black;
-font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-background: #AFEEEE;
-font: bold, &quot;Comic Sans MS&quot;;;
-text-align:center;</string>
+color: rgb(255, 255, 255);
+background:#085394	;
+font: bold, &quot;Comic Sans MS&quot;;
+</string>
         </property>
         <property name="text">
-         <string>Prix par heure</string>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
+         <string>supprimer</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="adresse_2">
+       <widget class="QPushButton" name="modifier">
         <property name="geometry">
          <rect>
-          <x>92</x>
-          <y>230</y>
-          <width>181</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid black;
-font: 75 8pt &quot;MS Shell Dlg 2&quot;;
-border-radius: 10px;
-padding: 0 8px;
-background: #AFEEEE;
-font: bold, &quot;Comic Sans MS&quot;;;
-text-align:center;</string>
-        </property>
-        <property name="text">
-         <string>   Adresse</string>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="nom_2">
-        <property name="geometry">
-         <rect>
-          <x>92</x>
-          <y>120</y>
-          <width>181</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid black;
-font: 75 8pt &quot;MS Shell Dlg 2&quot;;
-border-radius: 10px;
-padding: 0 8px;
-background: #AFEEEE;
-font: bold, &quot;Comic Sans MS&quot;;;
-text-align:center;</string>
-        </property>
-        <property name="text">
-         <string>       Nom</string>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="prenom_2">
-        <property name="geometry">
-         <rect>
-          <x>510</x>
-          <y>140</y>
-          <width>181</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid black;
-font: 75 8pt &quot;MS Shell Dlg 2&quot;;
-border-radius: 10px;
-padding: 0 8px;
-background: #AFEEEE;
-font: bold, &quot;Comic Sans MS&quot;;;
-text-align:center;</string>
-        </property>
-        <property name="text">
-         <string>     Prénom</string>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_pernom_a_2">
-        <property name="geometry">
-         <rect>
-          <x>720</x>
-          <y>140</y>
-          <width>221</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid black;
-border-radius: 10px;
-padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="Ajouter_Employe_4">
-        <property name="geometry">
-         <rect>
-          <x>520</x>
-          <y>340</y>
+          <x>570</x>
+          <y>360</y>
           <width>341</width>
           <height>23</height>
          </rect>
@@ -748,11 +649,11 @@ font: bold, &quot;Comic Sans MS&quot;;
          <string>Modifier</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_adresse_a_2">
+       <widget class="QLineEdit" name="lineEdit_pernom_a_2">
         <property name="geometry">
          <rect>
-          <x>300</x>
-          <y>230</y>
+          <x>780</x>
+          <y>110</y>
           <width>191</width>
           <height>20</height>
          </rect>
@@ -765,12 +666,29 @@ background: white;
 selection-background-color: gray;</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_prix_heure_a_2">
+       <widget class="QLineEdit" name="lineEdit_num_tel_a_2">
         <property name="geometry">
          <rect>
-          <x>720</x>
-          <y>260</y>
-          <width>221</width>
+          <x>780</x>
+          <y>270</y>
+          <width>191</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_nom_a_2">
+        <property name="geometry">
+         <rect>
+          <x>780</x>
+          <y>70</y>
+          <width>191</width>
           <height>20</height>
          </rect>
         </property>
@@ -785,8 +703,8 @@ selection-background-color: gray;</string>
        <widget class="QLineEdit" name="mteier_2">
         <property name="geometry">
          <rect>
-          <x>92</x>
-          <y>290</y>
+          <x>550</x>
+          <y>230</y>
           <width>181</width>
           <height>20</height>
          </rect>
@@ -807,45 +725,28 @@ text-align:center;</string>
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_id_a_2">
+       <widget class="QLineEdit" name="lineEdit_prix_heure_a_2">
         <property name="geometry">
          <rect>
-          <x>300</x>
+          <x>780</x>
+          <y>310</y>
+          <width>191</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="nom_2">
+        <property name="geometry">
+         <rect>
+          <x>550</x>
           <y>70</y>
-          <width>191</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid black;
-border-radius: 10px;
-padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_nom_a_2">
-        <property name="geometry">
-         <rect>
-          <x>300</x>
-          <y>120</y>
-          <width>191</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid black;
-border-radius: 10px;
-padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="numero_tel_2">
-        <property name="geometry">
-         <rect>
-          <x>510</x>
-          <y>200</y>
           <width>181</width>
           <height>20</height>
          </rect>
@@ -860,7 +761,7 @@ font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;</string>
         </property>
         <property name="text">
-         <string>Numéro de téléphone</string>
+         <string>       Nom</string>
         </property>
         <property name="readOnly">
          <bool>true</bool>
@@ -869,8 +770,8 @@ text-align:center;</string>
        <widget class="QLineEdit" name="email_2">
         <property name="geometry">
          <rect>
-          <x>92</x>
-          <y>170</y>
+          <x>550</x>
+          <y>190</y>
           <width>181</width>
           <height>20</height>
          </rect>
@@ -891,50 +792,11 @@ text-align:center;</string>
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_email_a_2">
+       <widget class="QLineEdit" name="identifiant_2">
         <property name="geometry">
          <rect>
-          <x>302</x>
-          <y>170</y>
-          <width>191</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid black;
-border-radius: 10px;
-padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_metier_a_2">
-        <property name="geometry">
-         <rect>
-          <x>300</x>
-          <y>290</y>
-          <width>191</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid black;
-border-radius: 10px;
-padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="tab">
-       <attribute name="title">
-        <string>supprimer</string>
-       </attribute>
-       <widget class="QLineEdit" name="identifiant_3">
-        <property name="geometry">
-         <rect>
-          <x>200</x>
-          <y>90</y>
+          <x>550</x>
+          <y>30</y>
           <width>181</width>
           <height>20</height>
          </rect>
@@ -968,11 +830,78 @@ text-align:center;
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_id_a_3">
+       <widget class="QLineEdit" name="lineEdit_id_a_2">
         <property name="geometry">
          <rect>
-          <x>408</x>
-          <y>90</y>
+          <x>780</x>
+          <y>30</y>
+          <width>191</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="prix_heure_2">
+        <property name="geometry">
+         <rect>
+          <x>550</x>
+          <y>310</y>
+          <width>181</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: #AFEEEE;
+font: bold, &quot;Comic Sans MS&quot;;;
+text-align:center;</string>
+        </property>
+        <property name="text">
+         <string>Prix par heure</string>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="numero_tel_2">
+        <property name="geometry">
+         <rect>
+          <x>550</x>
+          <y>270</y>
+          <width>181</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: #AFEEEE;
+font: bold, &quot;Comic Sans MS&quot;;;
+text-align:center;</string>
+        </property>
+        <property name="text">
+         <string>Numéro de téléphone</string>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_email_a_2">
+        <property name="geometry">
+         <rect>
+          <x>780</x>
+          <y>190</y>
           <width>191</width>
           <height>20</height>
          </rect>
@@ -985,27 +914,130 @@ background: white;
 selection-background-color: gray;</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="supprimer">
+       <widget class="QLineEdit" name="adresse_2">
         <property name="geometry">
          <rect>
-          <x>460</x>
-          <y>190</y>
-          <width>341</width>
-          <height>23</height>
+          <x>550</x>
+          <y>150</y>
+          <width>181</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: #AFEEEE;
+font: bold, &quot;Comic Sans MS&quot;;;
+text-align:center;</string>
+        </property>
+        <property name="text">
+         <string>   Adresse</string>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_metier_a_2">
+        <property name="geometry">
+         <rect>
+          <x>780</x>
+          <y>230</y>
+          <width>191</width>
+          <height>20</height>
          </rect>
         </property>
         <property name="styleSheet">
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-color: rgb(255, 255, 255);
-background:#085394	;
-font: bold, &quot;Comic Sans MS&quot;;
-</string>
+background: white;
+selection-background-color: gray;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_adresse_a_2">
+        <property name="geometry">
+         <rect>
+          <x>780</x>
+          <y>150</y>
+          <width>191</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="prenom_2">
+        <property name="geometry">
+         <rect>
+          <x>550</x>
+          <y>110</y>
+          <width>181</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: #AFEEEE;
+font: bold, &quot;Comic Sans MS&quot;;;
+text-align:center;</string>
         </property>
         <property name="text">
-         <string>supprimer</string>
+         <string>     Prénom</string>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_id_a_4">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>20</y>
+          <width>231</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>20</y>
+          <width>181</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: #AFEEEE;
+font: bold, &quot;Comic Sans MS&quot;;;
+text-align:center;</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>id à modifier</string>
+         </property>
+        </item>
        </widget>
       </widget>
      </widget>

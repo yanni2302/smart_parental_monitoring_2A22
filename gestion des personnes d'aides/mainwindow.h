@@ -16,12 +16,24 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_Ajouter_Employe_3_clicked();
+
+
+
+    void on_ajouter_clicked();
+
     void on_supprimer_clicked();
+
+
+    void on_afficher_personne_activated(const QModelIndex &index);
+
+    void on_modifier_clicked();
+
+    void on_afficher_personne_clicked(const QModelIndex &index);
 
 private:
     Ui::MainWindow *ui;
      Personned_aides P;
+     int id_personne=0;
 };
 
 #endif // MAINWINDOW_H

@@ -11,6 +11,7 @@ public:
      bool ajouter();
      QSqlQueryModel* afficher();
      bool supprimer(int);
+     bool modifier();
          int Getidentifiant() { return identifiant; }
             void Setidentifiant(int val) { this->identifiant = val; }
             QString Getnom() { return nom; }
