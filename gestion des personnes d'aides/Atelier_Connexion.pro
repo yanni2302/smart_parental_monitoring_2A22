@@ -29,12 +29,14 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
-    personned_aides.cpp
+    personned_aides.cpp \
+    reclamation.cpp
 
 HEADERS += \
         mainwindow.h \
     connection.h \
-    personned_aides.h
+    personned_aides.h \
+    reclamation.h
 
 FORMS += \
         mainwindow.ui

@@ -6,7 +6,7 @@
 class Personned_aides
 {
 public:
-    Personned_aides();
+     Personned_aides();
      Personned_aides(int,QString,QString,QString,QString,QString,int,int);
      bool ajouter();
      QSqlQueryModel* afficher();

@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "personned_aides.h"
+#include "reclamation.h"
 #include <QIntValidator>
 #include <QMessageBox>
 #include <QIntValidator>
@@ -12,6 +13,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     //ui->lineEdit_id_a->setValidator(new QIntValidator(0, 99999, this));
     ui->afficher_personne->setModel(P.afficher());
+    ui->afficher_rec->setModel(R.afficher_reclamtion());
+    update_personne_list();
 }
 
 MainWindow::~MainWindow()
@@ -40,14 +43,16 @@ ui->afficher_personne->setModel(P.afficher());
 else
     msgBox.setText("Echec d'ajout");
 msgBox.exec();
+
+update_personne_list();
 }
 
 
 
 void MainWindow::on_supprimer_clicked()
-{Personned_aides P1;
-    P1.Setidentifiant(ui->lineEdit_id_a_3->text().toInt());
-    bool test=P1.supprimer(P1.Getidentifiant());
+{
+
+    bool test=P.supprimer(id_personne);
     QMessageBox msgBox;
     if(test)
        { msgBox.setText("Suppresion avec succes.");
@@ -55,6 +60,7 @@ void MainWindow::on_supprimer_clicked()
     else
         msgBox.setText("Echec de suppresion");
     msgBox.exec();
+    update_personne_list();
 }
 
 
@@ -99,8 +105,8 @@ void MainWindow::on_modifier_clicked()
         if (test)
         {
            ui->afficher_personne->setModel(P.afficher());
-        QMessageBox::information(nullptr,QObject::tr("Modification Employé"),
-                                 QObject::tr("Employé modifié.\n"
+        QMessageBox::information(nullptr,QObject::tr("Modification Personnes"),
+                                 QObject::tr("personne modifié.\n"
                                              "Click Cancel to exit."), QMessageBox::Cancel);
         }
 }
@@ -108,4 +114,93 @@ void MainWindow::on_modifier_clicked()
 void MainWindow::on_afficher_personne_clicked(const QModelIndex &index)
 {
     id_personne=ui->afficher_personne->model()->data(index).toInt();
+}
+
+
+void MainWindow::on_envoyer_clicked()
+{
+    int identifiant=ui->lineedit_ref->text().toInt();
+    QString mail_destinataire=ui->lineedit_mail->text();
+    QString sujet=ui->lineedit_sujet->text();
+    QString message=ui->lineedit_msg->text();
+      int personne_aide =ui->lineedit_personne->text().toInt();
+reclamation R1(identifiant,mail_destinataire,sujet,message,personne_aide);
+bool test=R1.ajouter_reclamtion();
+QMessageBox msgBox;
+if(test)
+   { msgBox.setText("Ajout de la reclamation avec succes.");
+ui->afficher_rec->setModel(R.afficher_reclamtion());
+}
+else
+    msgBox.setText("Echec d'ajout");
+msgBox.exec();
+
+}
+
+void MainWindow::on_afficher_rec_activated(const QModelIndex &index)
+{
+    QString val=ui->afficher_rec->model()->data(index).toString();
+      QSqlQuery qry;
+      qry.prepare("select * from reclamation where"
+                  " identifiant='"+val+"' or mail_destinataire='"+val+"' or sujet='"+val+"' or message='"+val+"' or personne_aide ='"+val+"'");
+      if(qry.exec())
+        {while (qry.next())
+       { ui->lineedit_ref_2->setText(qry.value(0).toString());
+         ui->lineedit_mail_2->setText(qry.value(1).toString());
+         ui->lineedit_sujet_2->setText(qry.value(2).toString());
+         ui->lineedit_msg_2->setText(qry.value(3).toString());
+         ui->lineedit_personne_2->setText(qry.value(4).toString());
+
+          }
+    }
+}
+
+void MainWindow::on_afficher_rec_clicked(const QModelIndex &index)
+{
+    ref_reclamation=ui->afficher_rec->model()->data(index).toInt();
+
+}
+
+void MainWindow::on_modifier_rec_clicked()
+{
+    int id =ui->lineedit_ref_2->text().toInt();
+    QString mail=ui->lineedit_mail_2->text();
+    QString sujet=ui->lineedit_sujet_2->text();
+    QString msg=ui->lineedit_msg_2->text();
+    int personne=ui->comboBo_2->currentText().toInt();
+    reclamation R1(id,mail,sujet,msg,personne);
+    bool test=R1.modifier_reclamtion();
+    if (test)
+    {
+       ui->afficher_rec->setModel(R.afficher_reclamtion());
+    QMessageBox::information(nullptr,QObject::tr("Modification Reclamation "),
+                             QObject::tr("Reclamatin modifié.\n"
+                                         "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+}
+
+void MainWindow::on_supprimer_rec_clicked()
+{
+    bool test=R.supprimer_reclamtion(ref_reclamation);
+    QMessageBox msgBox;
+    if(test)
+       { msgBox.setText("Suppresion avec succes.");
+    ui->afficher_rec->setModel(R.afficher_reclamtion());}
+    else
+        msgBox.setText("Echec de suppresion");
+    msgBox.exec();
+}
+
+void MainWindow::update_personne_list(){
+    QSqlQueryModel *m=new QSqlQueryModel();
+    QSqlQuery *querry=new QSqlQuery();
+    querry->prepare("SELECT identifiant FROM personne");
+    querry->exec();
+    m->setQuery(*querry);
+
+
+    ui->comboBo_2->setModel(m);
+
+
+
 }

@@ -110,7 +110,7 @@ QTabBar::tab:selected {
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Employes_3">
      <attribute name="title">
@@ -537,10 +537,10 @@ selection-background-color: gray;</string>
        <widget class="QTableView" name="afficher_personne">
         <property name="geometry">
          <rect>
-          <x>60</x>
-          <y>60</y>
-          <width>431</width>
-          <height>261</height>
+          <x>30</x>
+          <y>30</y>
+          <width>461</width>
+          <height>311</height>
          </rect>
         </property>
         <property name="showDropIndicator" stdset="0">
@@ -550,67 +550,12 @@ selection-background-color: gray;</string>
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_id_a_3">
-        <property name="geometry">
-         <rect>
-          <x>280</x>
-          <y>330</y>
-          <width>191</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid black;
-border-radius: 10px;
-padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="identifiant_3">
-        <property name="geometry">
-         <rect>
-          <x>70</x>
-          <y>330</y>
-          <width>191</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Comic Sans MS</family>
-          <pointsize>8</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="toolTip">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid black;
-font: 75 8pt &quot;MS Shell Dlg 2&quot;;
-border-radius: 10px;
-padding: 0 8px;
-background: #AFEEEE;
-font: bold, &quot;Comic Sans MS&quot;;;
-text-align:center;
-</string>
-        </property>
-        <property name="text">
-         <string>   Identifiant à supprimer</string>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
        <widget class="QPushButton" name="supprimer">
         <property name="geometry">
          <rect>
-          <x>180</x>
-          <y>370</y>
-          <width>211</width>
+          <x>100</x>
+          <y>360</y>
+          <width>341</width>
           <height>23</height>
          </rect>
         </property>
@@ -630,7 +575,7 @@ font: bold, &quot;Comic Sans MS&quot;;
        <widget class="QPushButton" name="modifier">
         <property name="geometry">
          <rect>
-          <x>570</x>
+          <x>600</x>
           <y>360</y>
           <width>341</width>
           <height>23</height>
@@ -846,6 +791,9 @@ padding: 0 8px;
 background: white;
 selection-background-color: gray;</string>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
        </widget>
        <widget class="QLineEdit" name="prix_heure_2">
         <property name="geometry">
@@ -998,47 +946,6 @@ text-align:center;</string>
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_id_a_4">
-        <property name="geometry">
-         <rect>
-          <x>260</x>
-          <y>20</y>
-          <width>231</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid black;
-border-radius: 10px;
-padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
-        </property>
-       </widget>
-       <widget class="QComboBox" name="comboBox">
-        <property name="geometry">
-         <rect>
-          <x>60</x>
-          <y>20</y>
-          <width>181</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid black;
-font: 75 8pt &quot;MS Shell Dlg 2&quot;;
-border-radius: 10px;
-padding: 0 8px;
-background: #AFEEEE;
-font: bold, &quot;Comic Sans MS&quot;;;
-text-align:center;</string>
-        </property>
-        <item>
-         <property name="text">
-          <string>id à modifier</string>
-         </property>
-        </item>
-       </widget>
       </widget>
      </widget>
     </widget>
@@ -1090,7 +997,7 @@ QTabBar::tab:selected {
        <attribute name="title">
         <string>Envoyer</string>
        </attribute>
-       <widget class="QLineEdit" name="subject_5">
+       <widget class="QLineEdit" name="lineedit_sujet">
         <property name="geometry">
          <rect>
           <x>170</x>
@@ -1110,7 +1017,7 @@ selection-background-color: gray;</string>
          <string>le sujet</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="sendBtn_5">
+       <widget class="QPushButton" name="envoyer">
         <property name="geometry">
          <rect>
           <x>480</x>
@@ -1131,12 +1038,12 @@ font: bold, &quot;Comic Sans MS&quot;;</string>
          <string>Envoyer</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="rcpt_7">
+       <widget class="QLineEdit" name="lineedit_ref">
         <property name="geometry">
          <rect>
           <x>170</x>
           <y>20</y>
-          <width>371</width>
+          <width>351</width>
           <height>21</height>
          </rect>
         </property>
@@ -1148,15 +1055,15 @@ background: white;
 selection-background-color: gray;</string>
         </property>
         <property name="placeholderText">
-         <string>nom</string>
+         <string>refference</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_60">
         <property name="geometry">
          <rect>
-          <x>20</x>
+          <x>10</x>
           <y>20</y>
-          <width>113</width>
+          <width>151</width>
           <height>20</height>
          </rect>
         </property>
@@ -1176,47 +1083,7 @@ text-align:center;</string>
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QTextEdit" name="msg_5">
-        <property name="geometry">
-         <rect>
-          <x>170</x>
-          <y>120</y>
-          <width>741</width>
-          <height>241</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid black;
-border-radius: 10px;
-padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
-        </property>
-        <property name="placeholderText">
-         <string>tapez votre message ici ...</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="rcpt_8">
-        <property name="geometry">
-         <rect>
-          <x>560</x>
-          <y>20</y>
-          <width>341</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid black;
-border-radius: 10px;
-padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
-        </property>
-        <property name="placeholderText">
-         <string>prénom</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="subject_6">
+       <widget class="QLineEdit" name="lineedit_mail">
         <property name="geometry">
          <rect>
           <x>170</x>
@@ -1236,19 +1103,213 @@ selection-background-color: gray;</string>
          <string>mail destinataire</string>
         </property>
        </widget>
+       <widget class="QLineEdit" name="lineedit_personne">
+        <property name="geometry">
+         <rect>
+          <x>550</x>
+          <y>20</y>
+          <width>141</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;</string>
+        </property>
+        <property name="placeholderText">
+         <string>personne d'aide</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineedit_msg">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>130</y>
+          <width>731</width>
+          <height>231</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;</string>
+        </property>
+        <property name="placeholderText">
+         <string>message</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBo_2">
+        <property name="geometry">
+         <rect>
+          <x>740</x>
+          <y>20</y>
+          <width>161</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="Afficher_C_3">
        <attribute name="title">
         <string>Afficher</string>
        </attribute>
-       <widget class="QTableView" name="tableView">
+       <widget class="QTableView" name="afficher_rec">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>991</width>
-          <height>371</height>
+          <x>20</x>
+          <y>20</y>
+          <width>571</width>
+          <height>321</height>
          </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="modifier_rec">
+        <property name="geometry">
+         <rect>
+          <x>630</x>
+          <y>320</y>
+          <width>341</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+color: rgb(255, 255, 255);
+background:#085394	;
+font: bold, &quot;Comic Sans MS&quot;;
+</string>
+        </property>
+        <property name="text">
+         <string>Modifier</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="supprimer_rec">
+        <property name="geometry">
+         <rect>
+          <x>630</x>
+          <y>360</y>
+          <width>341</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+color: rgb(255, 255, 255);
+background:#085394	;
+font: bold, &quot;Comic Sans MS&quot;;
+</string>
+        </property>
+        <property name="text">
+         <string>Supprimer</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineedit_msg_2">
+        <property name="geometry">
+         <rect>
+          <x>630</x>
+          <y>130</y>
+          <width>341</width>
+          <height>171</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;</string>
+        </property>
+        <property name="placeholderText">
+         <string>message</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineedit_sujet_2">
+        <property name="geometry">
+         <rect>
+          <x>630</x>
+          <y>90</y>
+          <width>341</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;</string>
+        </property>
+        <property name="placeholderText">
+         <string>le sujet</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineedit_mail_2">
+        <property name="geometry">
+         <rect>
+          <x>630</x>
+          <y>60</y>
+          <width>341</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;</string>
+        </property>
+        <property name="placeholderText">
+         <string>mail destinataire</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineedit_ref_2">
+        <property name="geometry">
+         <rect>
+          <x>630</x>
+          <y>20</y>
+          <width>171</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;</string>
+        </property>
+        <property name="placeholderText">
+         <string>refference</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineedit_personne_2">
+        <property name="geometry">
+         <rect>
+          <x>810</x>
+          <y>20</y>
+          <width>161</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;</string>
+        </property>
+        <property name="placeholderText">
+         <string>personne d'aide</string>
         </property>
        </widget>
       </widget>
