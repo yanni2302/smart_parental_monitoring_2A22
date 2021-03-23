@@ -28,11 +28,13 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    connection.cpp
+    connection.cpp \
+    timeclass.cpp
 
 HEADERS += \
         mainwindow.h \
-    connection.h
+    connection.h \
+    timeclass.h
 
 FORMS += \
         mainwindow.ui
