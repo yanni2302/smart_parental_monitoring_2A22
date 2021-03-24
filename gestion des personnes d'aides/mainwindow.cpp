@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QIntValidator>
 #include <QSqlQuery>
+#include "smtp.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -15,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->afficher_personne->setModel(P.afficher());
     ui->afficher_rec->setModel(R.afficher_reclamtion());
     update_personne_list();
+
+    connect(ui->envoyer, SIGNAL(clicked()),this, SLOT(sendMail()));
 }
 
 MainWindow::~MainWindow()
@@ -123,7 +126,7 @@ void MainWindow::on_envoyer_clicked()
     QString mail_destinataire=ui->lineedit_mail->text();
     QString sujet=ui->lineedit_sujet->text();
     QString message=ui->lineedit_msg->text();
-      int personne_aide =ui->lineedit_personne->text().toInt();
+      int personne_aide =ui->comboBo_2->currentText().toInt();
 reclamation R1(identifiant,mail_destinataire,sujet,message,personne_aide);
 bool test=R1.ajouter_reclamtion();
 QMessageBox msgBox;
@@ -201,6 +204,23 @@ void MainWindow::update_personne_list(){
 
     ui->comboBo_2->setModel(m);
 
+}
+void   MainWindow::sendMail()
+{
+    Smtp* smtp = new Smtp("soumaya99.bensassi@gmail.com","Sb50607010", "smtp.gmail.com");
+    connect(smtp,SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
 
+
+      smtp->sendMail("soumaya99.bensassi@gmail.com", ui->lineedit_mail->text(),ui->lineedit_sujet->text(),ui->lineedit_msg->text());
+}
+
+void   MainWindow::mailSent(QString status)
+{
+
+    if(status == "Message sent")
+        QMessageBox::warning( nullptr, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
+    ui->lineedit_mail->clear();
+    ui->lineedit_sujet->clear();
+    ui->lineedit_msg->clear();
 
 }

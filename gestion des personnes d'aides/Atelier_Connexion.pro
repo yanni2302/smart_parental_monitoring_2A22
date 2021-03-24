@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
+QT       += core gui sql network
+
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -30,13 +31,15 @@ SOURCES += \
         mainwindow.cpp \
     connection.cpp \
     personned_aides.cpp \
-    reclamation.cpp
+    reclamation.cpp \
+    smtp.cpp
 
 HEADERS += \
         mainwindow.h \
     connection.h \
     personned_aides.h \
-    reclamation.h
+    reclamation.h \
+    smtp.h
 
 FORMS += \
         mainwindow.ui

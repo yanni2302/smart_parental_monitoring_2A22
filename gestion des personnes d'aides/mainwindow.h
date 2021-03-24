@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include"personned_aides.h"
 #include "reclamation.h"
+#include"smtp.h"
 namespace Ui {
 class MainWindow;
 }
@@ -17,10 +18,13 @@ public:
     ~MainWindow();
 
     void update_personne_list();
+
+
+
 private slots:
 
-
-
+void sendMail();
+ void mailSent(QString);
     void on_ajouter_clicked();
 
     void on_supprimer_clicked();
