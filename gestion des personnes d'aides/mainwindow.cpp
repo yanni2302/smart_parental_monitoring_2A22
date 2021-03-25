@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->afficher_personne->setModel(P.afficher());
     ui->afficher_rec->setModel(R.afficher_reclamtion());
     update_personne_list();
+    update_mail_list();
 
     connect(ui->envoyer, SIGNAL(clicked()),this, SLOT(sendMail()));
 }
@@ -48,6 +49,8 @@ else
 msgBox.exec();
 
 update_personne_list();
+update_mail_list();
+
 }
 
 
@@ -64,6 +67,8 @@ void MainWindow::on_supprimer_clicked()
         msgBox.setText("Echec de suppresion");
     msgBox.exec();
     update_personne_list();
+    update_mail_list();
+
 }
 
 
@@ -123,7 +128,7 @@ void MainWindow::on_afficher_personne_clicked(const QModelIndex &index)
 void MainWindow::on_envoyer_clicked()
 {
     int identifiant=ui->lineedit_ref->text().toInt();
-    QString mail_destinataire=ui->lineedit_mail->text();
+    QString mail_destinataire=ui->comboBo_3->currentText();
     QString sujet=ui->lineedit_sujet->text();
     QString message=ui->lineedit_msg->text();
       int personne_aide =ui->comboBo_2->currentText().toInt();
@@ -149,7 +154,7 @@ void MainWindow::on_afficher_rec_activated(const QModelIndex &index)
       if(qry.exec())
         {while (qry.next())
        { ui->lineedit_ref_2->setText(qry.value(0).toString());
-         ui->lineedit_mail_2->setText(qry.value(1).toString());
+         ui->comboBo_3->setCurrentText(qry.value(1).toString());
          ui->lineedit_sujet_2->setText(qry.value(2).toString());
          ui->lineedit_msg_2->setText(qry.value(3).toString());
          ui->lineedit_personne_2->setText(qry.value(4).toString());
@@ -167,7 +172,7 @@ void MainWindow::on_afficher_rec_clicked(const QModelIndex &index)
 void MainWindow::on_modifier_rec_clicked()
 {
     int id =ui->lineedit_ref_2->text().toInt();
-    QString mail=ui->lineedit_mail_2->text();
+    QString mail=ui->comboBo_3->currentText();
     QString sujet=ui->lineedit_sujet_2->text();
     QString msg=ui->lineedit_msg_2->text();
     int personne=ui->comboBo_2->currentText().toInt();
@@ -205,22 +210,44 @@ void MainWindow::update_personne_list(){
     ui->comboBo_2->setModel(m);
 
 }
+void MainWindow::update_mail_list(){
+    QSqlQueryModel *m=new QSqlQueryModel();
+    QSqlQuery *querry=new QSqlQuery();
+    querry->prepare("SELECT email FROM personne");
+    querry->exec();
+    m->setQuery(*querry);
+
+
+    ui->comboBo_3->setModel(m);
+
+}
+
 void   MainWindow::sendMail()
 {
     Smtp* smtp = new Smtp("soumaya99.bensassi@gmail.com","Sb50607010", "smtp.gmail.com");
     connect(smtp,SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
 
 
-      smtp->sendMail("soumaya99.bensassi@gmail.com", ui->lineedit_mail->text(),ui->lineedit_sujet->text(),ui->lineedit_msg->text());
+      smtp->sendMail("soumaya99.bensassi@gmail.com", ui->comboBo_3->currentText(),ui->lineedit_sujet->text(),ui->lineedit_msg->text());
 }
 
 void   MainWindow::mailSent(QString status)
 {
 
     if(status == "Message sent")
-        QMessageBox::warning( nullptr, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
-    ui->lineedit_mail->clear();
+        QMessageBox::warning( nullptr, tr( "Réclamation " ), tr( "Réclamation envoyée par mail!\n\n" ) );
+    ui->comboBo_3->clear();
     ui->lineedit_sujet->clear();
     ui->lineedit_msg->clear();
 
+}
+
+void MainWindow::on_tri_clicked()
+{
+    ui->afficher_personne->setModel(P.AfficherTrieNom());
+}
+
+void MainWindow::on_recherche_textChanged(const QString &arg1)
+{
+    ui->afficher_personne->setModel(P.rechercherNom(arg1));
 }

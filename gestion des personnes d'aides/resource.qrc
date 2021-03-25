@@ -4,5 +4,6 @@
         <file>img/profil.png</file>
         <file>img/recl.png</file>
         <file>img/rv.png</file>
+        <file>img/back.png</file>
     </qresource>
 </RCC>

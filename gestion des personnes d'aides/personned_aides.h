@@ -12,6 +12,8 @@ public:
      QSqlQueryModel* afficher();
      bool supprimer(int);
      bool modifier();
+     QSqlQueryModel * AfficherTrieNom();
+     QSqlQueryModel * rechercherNom(QString metier);
          int Getidentifiant() { return identifiant; }
             void Setidentifiant(int val) { this->identifiant = val; }
             QString Getnom() { return nom; }

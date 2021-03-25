@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Gestion des Clients</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/img/back.png);</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="Line" name="line">
     <property name="geometry">
@@ -25,26 +28,6 @@
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_11">
-    <property name="geometry">
-     <rect>
-      <x>340</x>
-      <y>30</y>
-      <width>901</width>
-      <height>151</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color:rgb(8, 83, 148);
-font: 75 28pt &quot;MS Sans Serif&quot;;
-style:solid;
-
-</string>
-    </property>
-    <property name="text">
-     <string>Les personnes d'aides</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -66,8 +49,8 @@ style:solid;
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>130</y>
+      <x>20</x>
+      <y>140</y>
       <width>1071</width>
       <height>481</height>
      </rect>
@@ -81,7 +64,7 @@ style:solid;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(:/pic/background.jpeg);
+     <string notr="true">
 QTabBar::tab {
     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
@@ -127,6 +110,7 @@ QTabBar::tab:selected {
       </property>
       <property name="styleSheet">
        <string notr="true">QTabBar::tab {
+
     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
                                 stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
@@ -152,7 +136,7 @@ QTabBar::tab:selected {
 </string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="Ajouter_E_3">
        <attribute name="title">
@@ -184,7 +168,7 @@ QTabBar::tab:selected {
 font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-background: #AFEEEE;
+background: #fade02;
 font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;
 </string>
@@ -210,7 +194,7 @@ text-align:center;
 font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-background: #AFEEEE;
+background: #fade02;
 font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;</string>
         </property>
@@ -235,7 +219,7 @@ text-align:center;</string>
 font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-background: #AFEEEE;
+background:#fade02;
 font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;</string>
         </property>
@@ -260,7 +244,7 @@ text-align:center;</string>
 font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-background: #AFEEEE;
+background: #fade02;
 font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;</string>
         </property>
@@ -285,7 +269,7 @@ text-align:center;</string>
 font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-background: #AFEEEE;
+background: #fade02;
 font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;</string>
         </property>
@@ -310,7 +294,7 @@ text-align:center;</string>
 font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-background: #AFEEEE;
+background: #fade02;
 font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;</string>
         </property>
@@ -442,7 +426,7 @@ selection-background-color: gray;</string>
 font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-background: #AFEEEE;
+background: #fade02;
 font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;</string>
         </property>
@@ -467,7 +451,7 @@ text-align:center;</string>
 font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-background: #AFEEEE;
+background: #fade02;
 font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;</string>
         </property>
@@ -538,7 +522,7 @@ selection-background-color: gray;</string>
         <property name="geometry">
          <rect>
           <x>30</x>
-          <y>30</y>
+          <y>60</y>
           <width>461</width>
           <height>311</height>
          </rect>
@@ -560,8 +544,8 @@ selection-background-color: gray;</string>
        <widget class="QPushButton" name="supprimer">
         <property name="geometry">
          <rect>
-          <x>100</x>
-          <y>360</y>
+          <x>600</x>
+          <y>380</y>
           <width>341</width>
           <height>23</height>
          </rect>
@@ -583,7 +567,7 @@ font: bold, &quot;Comic Sans MS&quot;;
         <property name="geometry">
          <rect>
           <x>600</x>
-          <y>360</y>
+          <y>350</y>
           <width>341</width>
           <height>23</height>
          </rect>
@@ -666,7 +650,7 @@ selection-background-color: gray;</string>
 font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-background: #AFEEEE;
+background: #fade02;
 font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;</string>
         </property>
@@ -708,7 +692,7 @@ selection-background-color: gray;</string>
 font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-background: #AFEEEE;
+background:#fade02;
 font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;</string>
         </property>
@@ -733,7 +717,7 @@ text-align:center;</string>
 font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-background: #AFEEEE;
+background: #fade02;
 font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;</string>
         </property>
@@ -770,7 +754,7 @@ text-align:center;</string>
 font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-background: #AFEEEE;
+background: #fade02;
 font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;
 </string>
@@ -816,7 +800,7 @@ selection-background-color: gray;</string>
 font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-background: #AFEEEE;
+background: #fade02;
 font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;</string>
         </property>
@@ -841,7 +825,7 @@ text-align:center;</string>
 font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-background: #AFEEEE;
+background: #fade02;
 font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;</string>
         </property>
@@ -883,7 +867,7 @@ selection-background-color: gray;</string>
 font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-background: #AFEEEE;
+background: #fade02;
 font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;</string>
         </property>
@@ -942,12 +926,92 @@ selection-background-color: gray;</string>
 font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-background: #AFEEEE;
+background: #fade02;
 font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;</string>
         </property>
         <property name="text">
          <string>     Prénom</string>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="tri">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>380</y>
+          <width>341</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+color: rgb(255, 255, 255);
+background:#085394	;
+font: bold, &quot;Comic Sans MS&quot;;
+</string>
+        </property>
+        <property name="text">
+         <string>Trier par nom</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="recherche">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>20</y>
+          <width>191</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;</string>
+        </property>
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="identifiant_3">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>20</y>
+          <width>181</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Comic Sans MS</family>
+          <pointsize>8</pointsize>
+          <weight>75</weight>
+          <italic>false</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: #fade02;
+font: bold, &quot;Comic Sans MS&quot;;;
+text-align:center;
+</string>
+        </property>
+        <property name="text">
+         <string>Rechercher</string>
         </property>
         <property name="readOnly">
          <bool>true</bool>
@@ -1050,7 +1114,7 @@ font: bold, &quot;Comic Sans MS&quot;;</string>
          <rect>
           <x>170</x>
           <y>20</y>
-          <width>351</width>
+          <width>331</width>
           <height>21</height>
          </rect>
         </property>
@@ -1079,7 +1143,7 @@ selection-background-color: gray;</string>
 font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-background: #AFEEEE;
+background: #fade02;
 font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;</string>
         </property>
@@ -1088,48 +1152,6 @@ text-align:center;</string>
         </property>
         <property name="readOnly">
          <bool>true</bool>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineedit_mail">
-        <property name="geometry">
-         <rect>
-          <x>170</x>
-          <y>60</y>
-          <width>731</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid black;
-border-radius: 10px;
-padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
-        </property>
-        <property name="placeholderText">
-         <string>mail destinataire</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineedit_personne">
-        <property name="geometry">
-         <rect>
-          <x>530</x>
-          <y>20</y>
-          <width>141</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid black;
-font: 75 8pt &quot;MS Shell Dlg 2&quot;;
-border-radius: 10px;
-padding: 0 8px;
-background: #AFEEEE;
-font: bold, &quot;Comic Sans MS&quot;;;
-text-align:center;</string>
-        </property>
-        <property name="placeholderText">
-         <string>personne d'aide</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineedit_msg">
@@ -1158,6 +1180,49 @@ selection-background-color: gray;</string>
           <x>680</x>
           <y>20</y>
           <width>221</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;
+</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_61">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>20</y>
+          <width>151</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: #fade02;
+font: bold, &quot;Comic Sans MS&quot;;;
+text-align:center;</string>
+        </property>
+        <property name="text">
+         <string>Personne d'aides</string>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBo_3">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>60</y>
+          <width>731</width>
           <height>22</height>
          </rect>
         </property>
@@ -1430,6 +1495,24 @@ selection-background-color: gray;</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>80</y>
+      <width>681</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:600; font-style:italic; color:#085394;&quot;&gt;Les Personnes D'aides&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>

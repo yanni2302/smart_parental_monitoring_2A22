@@ -19,7 +19,7 @@ public:
 
     void update_personne_list();
 
-
+    void update_mail_list();
 
 private slots:
 
@@ -46,6 +46,10 @@ void sendMail();
     void on_modifier_rec_clicked();
 
     void on_supprimer_rec_clicked();
+
+    void on_tri_clicked();
+
+    void on_recherche_textChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;

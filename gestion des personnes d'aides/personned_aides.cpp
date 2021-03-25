@@ -86,3 +86,28 @@ bool Personned_aides::modifier()
   query.bindValue(":prix_heure",prix_heure_string);
   return query.exec();
 }
+QSqlQueryModel * Personned_aides::AfficherTrieNom()
+{
+    QSqlQueryModel *model = new QSqlQueryModel;
+         model->setQuery("SELECT * FROM personne ORDER BY nom");
+         model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
+         model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+         model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
+         model->setHeaderData(3, Qt::Horizontal, QObject::tr("Adresse"));
+         model->setHeaderData(4, Qt::Horizontal, QObject::tr("Email"));
+         model->setHeaderData(5, Qt::Horizontal, QObject::tr("Métier"));
+         model->setHeaderData(6, Qt::Horizontal, QObject::tr("numéro"));
+         model->setHeaderData(7, Qt::Horizontal, QObject::tr("prix par heure"));
+    return  model;
+}
+QSqlQueryModel * Personned_aides::rechercherNom(QString metier)
+{
+    QSqlQueryModel *model= new QSqlQueryModel();
+    QSqlQuery q;
+    q.prepare("select * from personne where metier like ?");
+    q.addBindValue("%"+ metier +"%");
+    q.exec();
+    model->setQuery(q);
+    return (model);
+
+}
