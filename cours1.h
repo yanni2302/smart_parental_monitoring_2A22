@@ -1,6 +1,7 @@
 #ifndef COURS1_H
 #define COURS1_H
 #include <QString>
+#include <QSqlQueryModel>
 
 class Cours1
 {
@@ -22,6 +23,9 @@ public:
     QString get_heureD();
     QString get_heureF();
     bool ajouter();
+    QSqlQueryModel* afficher();
+    bool supprimer(QString);
 };
 
 #endif // COURS1_H
+

@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <cours1.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,7 +19,12 @@ public:
 private slots:
     void on_b_ajoutC_clicked();
 
+    void on_suppCours_3_clicked();
+
+
 private:
     Ui::MainWindow *ui;
+    Cours1 C;
+
 };
 #endif // MAINWINDOW_H

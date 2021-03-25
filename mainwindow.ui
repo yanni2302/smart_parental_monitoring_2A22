@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>90</y>
+      <y>110</y>
       <width>711</width>
       <height>381</height>
      </rect>
@@ -43,7 +43,7 @@
        <enum>Qt::ClickFocus</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
@@ -245,6 +245,57 @@
        <attribute name="title">
         <string>afficher</string>
        </attribute>
+       <widget class="QTableView" name="coursView">
+        <property name="geometry">
+         <rect>
+          <x>35</x>
+          <y>31</y>
+          <width>591</width>
+          <height>241</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_5">
+       <attribute name="title">
+        <string>supprimer</string>
+       </attribute>
+       <widget class="QPushButton" name="suppCours_3">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>170</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>supprimer</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="suppCours">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>130</y>
+          <width>113</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="suppCours_2">
+        <property name="geometry">
+         <rect>
+          <x>145</x>
+          <y>130</y>
+          <width>91</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Nom de Cours</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>

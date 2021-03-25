@@ -2,6 +2,7 @@
 #include<QtDebug>
 #include <QString>
 #include<QSqlQuery>
+#include <QObject>
 Cours1::~Cours1()
 {
     //vide
@@ -63,4 +64,24 @@ bool Cours1::ajouter()
           query.bindValue(":heureD",heureD);
           query.bindValue(":heureF",heureF);
          return query.exec();
+}
+QSqlQueryModel* Cours1::afficher()
+{
+    QSqlQueryModel* model =new QSqlQueryModel();
+
+   model->setQuery("SELECT* FROM COURS");
+   model->setHeaderData(0, Qt::Horizontal, QObject::tr("Nom de cours "));//ajouter un nouveau nom au  header de tableau
+   model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom de l'enseignant"));
+   model->setHeaderData(2, Qt::Horizontal, QObject::tr("Heure de debut"));
+   model->setHeaderData(3, Qt::Horizontal, QObject::tr("Heure de fin"));
+   return model;
+}
+bool Cours1::supprimer(QString NOMC)
+{
+    QSqlQuery query;
+    QString res = NOMC;
+    query.prepare("DELETE FROM COURS WHERE NOMC = :NOMC");
+    query.bindValue(":NOMC",res);
+    return query.exec();
+
 }
