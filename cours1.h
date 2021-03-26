@@ -10,9 +10,10 @@ class Cours1
     QString nomE;
     QString heureD;
     QString heureF;
+    int numero;
 public:
     Cours1();
-    Cours1(QString,QString,QString,QString);
+    Cours1(QString,QString,QString,QString,int);
     ~Cours1();
     void set_nomC(QString);
     void set_nomE(QString);
@@ -25,6 +26,7 @@ public:
     bool ajouter();
     QSqlQueryModel* afficher();
     bool supprimer(QString);
+    bool modifier(int);
 };
 
 #endif // COURS1_H

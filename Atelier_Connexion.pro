@@ -19,18 +19,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     connexion.cpp \
     cours1.cpp \
+    devoirs.cpp \
+    enfant.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     connexion.h \
     cours1.h \
+    devoirs.h \
+    enfant.h \
     mainwindow.h
 
 FORMS += \
+    enfant.ui \
     mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc

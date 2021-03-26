@@ -22,6 +22,8 @@ private slots:
     void on_suppCours_3_clicked();
 
 
+    void on_modif_button_clicked();
+
 private:
     Ui::MainWindow *ui;
     Cours1 C;

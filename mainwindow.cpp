@@ -3,6 +3,7 @@
 #include "cours1.h"
 #include<QMessageBox>
 #include<QIntValidator>
+#include <QPixmap>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -12,7 +13,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->heureD->setValidator(new QIntValidator(0, 99999999, this));
     ui->heureF->setValidator(new QIntValidator(0, 99999999, this));
     ui->coursView->setModel(C.afficher());
-
+    //ajouter de l'image cours_pic
+    QPixmap pix(":/img/dev.jpg");
+    int w = ui->dev_pic->width();
+    int h = ui->dev_pic->height();
+    ui->dev_pic->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
 }
 
 MainWindow::~MainWindow()
@@ -22,12 +27,12 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::on_b_ajoutC_clicked()
-{
+{      int numero=ui->numero->text().toInt();
        QString nomC=ui->nomC->text();
        QString nomE=ui->nomE->text();
        QString heureD=ui->heureD->text();
        QString heureF=ui->heureF->text();
-       Cours1 C(nomC,nomE,heureD,heureF);
+       Cours1 C(nomC,nomE,heureD,heureF,numero);
        bool test=C.ajouter();
        if(test)
        {
@@ -63,3 +68,27 @@ void MainWindow::on_suppCours_3_clicked()
     }
 }
 
+
+void MainWindow::on_modif_button_clicked()
+{
+    int NUMERO=ui->num_cours->text().toInt();
+    QString NOMC=ui->modif_nom_cours->text();
+    QString NOME=ui->modif_nom_enseignant->text();
+    QString HEURED=ui->modif_heure_debut->text();
+    QString HEUREF=ui->modif_heure_fin->text();
+    Cours1 C(NOMC,NOME,HEURED,HEUREF,NUMERO);
+    bool test=C.modifier(NUMERO);
+    if(test)
+    {
+        QMessageBox::information(nullptr,QObject::tr("ok"),
+                                 QObject::tr("Modification effectué\n"
+                                             "click Cancel to exit"),QMessageBox::Cancel);
+        ui->coursView->setModel(C.afficher());
+    }
+    else
+    {
+        QMessageBox::information(nullptr,QObject::tr("not ok"),
+                                 QObject::tr("Modification n'est pas effectué\n"
+                                             "click Cancel to exit"),QMessageBox::Cancel);
+    }
+}
