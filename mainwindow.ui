@@ -318,7 +318,7 @@
          <rect>
           <x>0</x>
           <y>80</y>
-          <width>701</width>
+          <width>541</width>
           <height>251</height>
          </rect>
         </property>
@@ -334,6 +334,19 @@
         </property>
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="trier_cours">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>110</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Trier</string>
         </property>
        </widget>
       </widget>
@@ -553,6 +566,57 @@
           <string>numero de cours</string>
          </property>
         </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_10">
+       <attribute name="title">
+        <string>chercher</string>
+       </attribute>
+       <widget class="Line" name="line_7">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>50</y>
+          <width>701</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QTextEdit" name="chercher_cours_2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>170</y>
+          <width>681</width>
+          <height>151</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="chercher">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>110</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>chercher</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_chercher">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>110</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
        </widget>
       </widget>
      </widget>

@@ -4,6 +4,10 @@
 #include<QMessageBox>
 #include<QIntValidator>
 #include <QPixmap>
+#include <QDebug>
+#include <QIntValidator>
+#include <QSqlQuery>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -92,3 +96,16 @@ void MainWindow::on_modif_button_clicked()
                                              "click Cancel to exit"),QMessageBox::Cancel);
     }
 }
+
+
+/*void MainWindow::on_chercher_clicked()
+{
+    QString NOMC = ui->lineEdit_chercher->text();
+    ui->chercher_cours_2->setModel(C.chercher(NOMC));
+}
+*/
+void MainWindow::on_trier_cours_clicked()
+{
+    ui->coursView->setModel(C.trier_id());
+}
+

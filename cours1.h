@@ -27,6 +27,8 @@ public:
     QSqlQueryModel* afficher();
     bool supprimer(QString);
     bool modifier(int);
+    QSqlQueryModel* chercher(QString);
+    QSqlQueryModel* trier_id();
 };
 
 #endif // COURS1_H

@@ -3,7 +3,7 @@
 #include <QApplication>
 #include<QMessageBox>
 #include<QDebug>
-
+#include <QMediaPlayer>
 
 int main(int argc, char *argv[])
 {
@@ -12,7 +12,6 @@ int main(int argc, char *argv[])
     bool test=C.CreateConnection();
     MainWindow w;
     w.show();
-
     if(test)
     {//qDebug() <<"connexion reussite";
     QMessageBox::information(nullptr,QObject::tr("database is open"),

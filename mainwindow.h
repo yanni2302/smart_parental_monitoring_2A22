@@ -21,12 +21,18 @@ private slots:
 
     void on_suppCours_3_clicked();
 
-
     void on_modif_button_clicked();
+
+    void on_chercher_cours_clicked();
+
+    void on_chercher_clicked();
+
+    void on_trier_cours_clicked();
 
 private:
     Ui::MainWindow *ui;
     Cours1 C;
+
 
 };
 #endif // MAINWINDOW_H
