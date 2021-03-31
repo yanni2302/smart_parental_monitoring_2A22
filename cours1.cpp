@@ -121,3 +121,14 @@ QSqlQueryModel * Cours1::trier_id()
         model->setHeaderData(4,Qt::Horizontal,"Heure Fin");
         return model ;
 }
+QSqlQueryModel * Cours1::trier_nom()
+{
+        QSqlQueryModel *model = new QSqlQueryModel();
+        model->setQuery("SELECT * from COURS ORDER BY NOMC");
+        model->setHeaderData(0,Qt::Horizontal,"Nom De Cours");
+        model->setHeaderData(1,Qt::Horizontal,"Numero De Cours");
+        model->setHeaderData(2,Qt::Horizontal,"Nom De L'enseignant");
+        model->setHeaderData(3,Qt::Horizontal,"Heure Debut");
+        model->setHeaderData(4,Qt::Horizontal,"Heure Fin");
+        return model ;
+}

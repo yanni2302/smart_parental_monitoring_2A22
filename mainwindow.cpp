@@ -105,7 +105,13 @@ void MainWindow::on_modif_button_clicked()
 }
 */
 void MainWindow::on_trier_cours_clicked()
-{
-    ui->coursView->setModel(C.trier_id());
+{   if(ui->checkBox_num->isChecked())
+   {
+        ui->coursView->setModel(C.trier_id());
+    }
+    else if(ui->checkBox_nom->isChecked())
+    {
+          ui->coursView->setModel(C.trier_nom());
+    }
 }
 

@@ -29,6 +29,7 @@ public:
     bool modifier(int);
     QSqlQueryModel* chercher(QString);
     QSqlQueryModel* trier_id();
+    QSqlQueryModel * trier_nom();
 };
 
 #endif // COURS1_H
