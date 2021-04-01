@@ -20,6 +20,13 @@ public:
     void update_personne_list();
 
     void update_mail_list();
+    bool controleNumTel(int test);
+
+    bool controleVide(QString test);
+
+    bool controleVideInt(int test);
+
+    bool controleEmail(QString test);
 
 private slots:
 

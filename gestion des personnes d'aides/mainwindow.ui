@@ -93,7 +93,7 @@ QTabBar::tab:selected {
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Employes_3">
      <attribute name="title">
@@ -318,8 +318,7 @@ text-align:center;</string>
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background:rgb(255, 255, 127)</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_nom_a">
@@ -335,8 +334,7 @@ selection-background-color: gray;</string>
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background:rgb(255, 255, 127)</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_pernom_a">
@@ -352,8 +350,7 @@ selection-background-color: gray;</string>
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background:rgb(255, 255, 127)</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_email_a">
@@ -369,8 +366,7 @@ selection-background-color: gray;</string>
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background:rgb(255, 255, 127)</string>
         </property>
        </widget>
        <widget class="QPushButton" name="ajouter">
@@ -408,8 +404,7 @@ font: bold, &quot;Comic Sans MS&quot;;
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background:rgb(255, 255, 127)</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="adresse">
@@ -475,8 +470,7 @@ text-align:center;</string>
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background:rgb(255, 255, 127)</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_prix_heure_a">
@@ -492,8 +486,7 @@ selection-background-color: gray;</string>
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background:rgb(255, 255, 127)</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_adresse_a">
@@ -509,8 +502,7 @@ selection-background-color: gray;</string>
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background:rgb(255, 255, 127)</string>
         </property>
        </widget>
       </widget>
@@ -596,10 +588,10 @@ font: bold, &quot;Comic Sans MS&quot;;
         </property>
         <property name="styleSheet">
          <string notr="true">border: 2px solid black;
+
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background: rgb(255, 255, 127);</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_num_tel_a_2">
@@ -613,10 +605,10 @@ selection-background-color: gray;</string>
         </property>
         <property name="styleSheet">
          <string notr="true">border: 2px solid black;
+
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background: rgb(255, 255, 127);</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_nom_a_2">
@@ -630,10 +622,10 @@ selection-background-color: gray;</string>
         </property>
         <property name="styleSheet">
          <string notr="true">border: 2px solid black;
+
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background: rgb(255, 255, 127);</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="mteier_2">
@@ -672,10 +664,10 @@ text-align:center;</string>
         </property>
         <property name="styleSheet">
          <string notr="true">border: 2px solid black;
+
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background: rgb(255, 255, 127);</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="nom_2">
@@ -777,10 +769,10 @@ text-align:center;
         </property>
         <property name="styleSheet">
          <string notr="true">border: 2px solid black;
+
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background: rgb(255, 255, 127);</string>
         </property>
         <property name="readOnly">
          <bool>true</bool>
@@ -847,10 +839,10 @@ text-align:center;</string>
         </property>
         <property name="styleSheet">
          <string notr="true">border: 2px solid black;
+
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background: rgb(255, 255, 127);</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="adresse_2">
@@ -889,10 +881,10 @@ text-align:center;</string>
         </property>
         <property name="styleSheet">
          <string notr="true">border: 2px solid black;
+
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background: rgb(255, 255, 127);</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_adresse_a_2">
@@ -906,10 +898,10 @@ selection-background-color: gray;</string>
         </property>
         <property name="styleSheet">
          <string notr="true">border: 2px solid black;
+
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background: rgb(255, 255, 127);</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="prenom_2">
@@ -962,18 +954,18 @@ font: bold, &quot;Comic Sans MS&quot;;
        <widget class="QLineEdit" name="recherche">
         <property name="geometry">
          <rect>
-          <x>290</x>
+          <x>250</x>
           <y>20</y>
-          <width>191</width>
+          <width>241</width>
           <height>21</height>
          </rect>
         </property>
         <property name="styleSheet">
          <string notr="true">border: 2px solid black;
+
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background: rgb(255, 255, 127);</string>
         </property>
         <property name="readOnly">
          <bool>false</bool>
@@ -1059,7 +1051,7 @@ QTabBar::tab:selected {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="tabBarAutoHide">
        <bool>false</bool>
@@ -1081,8 +1073,9 @@ QTabBar::tab:selected {
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background:  rgb(255, 255, 127);
+selection-background-color: gray;
+</string>
         </property>
         <property name="placeholderText">
          <string>le sujet</string>
@@ -1122,8 +1115,9 @@ font: bold, &quot;Comic Sans MS&quot;;</string>
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background:  rgb(255, 255, 127);
+selection-background-color: gray;
+</string>
         </property>
         <property name="placeholderText">
          <string>refference</string>
@@ -1167,8 +1161,9 @@ text-align:center;</string>
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: white;
-selection-background-color: gray;</string>
+background:  rgb(255, 255, 127);
+selection-background-color: gray;
+</string>
         </property>
         <property name="placeholderText">
          <string>message</string>
@@ -1187,7 +1182,7 @@ selection-background-color: gray;</string>
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: white;
+background:  rgb(255, 255, 127);
 selection-background-color: gray;
 </string>
         </property>
@@ -1230,7 +1225,7 @@ text-align:center;</string>
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: white;
+background:  rgb(255, 255, 127);
 selection-background-color: gray;
 </string>
         </property>
@@ -1314,7 +1309,7 @@ font: bold, &quot;Comic Sans MS&quot;;
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: white;
+background: rgb(255, 255, 127);
 selection-background-color: gray;</string>
         </property>
         <property name="placeholderText">
@@ -1334,7 +1329,7 @@ selection-background-color: gray;</string>
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: white;
+background: rgb(255, 255, 127);
 selection-background-color: gray;</string>
         </property>
         <property name="placeholderText">
@@ -1354,7 +1349,7 @@ selection-background-color: gray;</string>
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: white;
+background: rgb(255, 255, 127);
 selection-background-color: gray;</string>
         </property>
         <property name="readOnly">
@@ -1377,7 +1372,7 @@ selection-background-color: gray;</string>
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: white;
+background: rgb(255, 255, 127);
 selection-background-color: gray;</string>
         </property>
         <property name="readOnly">
@@ -1400,7 +1395,7 @@ selection-background-color: gray;</string>
          <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: white;
+background: rgb(255, 255, 127);
 selection-background-color: gray;</string>
         </property>
         <property name="readOnly">

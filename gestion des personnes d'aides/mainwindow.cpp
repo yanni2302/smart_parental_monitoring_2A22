@@ -25,6 +25,46 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+bool MainWindow::controleNumTel(int test)
+{
+    QString tel= QString::number(test);
+    for(int i=0;i<tel.length();i++)
+    {
+        if (tel.length()==8)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool MainWindow::controleVide(QString test)
+{
+    if(test!="")
+        return  true;
+    return false;
+
+}
+
+bool MainWindow::controleVideInt(int test)
+{
+    if(test!=0)
+        return  true;
+    return false;
+
+}
+
+bool MainWindow::controleEmail(QString test)
+{
+    for(int i=0;i<test.length();i++)
+    {
+        if (test.at(i)=='@')
+        {
+            return true;
+        }
+    }
+    return false;
+}
 
 void MainWindow::on_ajouter_clicked()
 {
@@ -36,23 +76,41 @@ void MainWindow::on_ajouter_clicked()
       QString metier=ui->lineEdit_metier_a->text();
       int prix_heure =ui->lineEdit_prix_heure_a->text().toInt();
       int num_tel =ui->lineEdit_num_tel_a->text().toInt();
+
+      bool test2;
+         test2=(controleEmail(email)&& controleNumTel(num_tel)&&controleVide(nom)&&controleVide(prenom)&&controleVide(email)&&controleVide(adresse)&&controleVideInt(num_tel)&&controleVideInt(prix_heure)&&controleVideInt(identifiant) );
+
 Personned_aides P1(identifiant,nom,prenom,adresse,email,metier,num_tel,prix_heure);
 bool test=P1.ajouter();
 QMessageBox msgBox;
+if(test2)
+ {
 
 if(test)
    { msgBox.setText("Ajout avec succes.");
 ui->afficher_personne->setModel(P.afficher());
-}
-else
-    msgBox.setText("Echec d'ajout");
-msgBox.exec();
-
 update_personne_list();
 update_mail_list();
+msgBox.exec();
+}
+else
+   { msgBox.setText("Echec d'ajout");
+msgBox.exec();}
+}
+else
+
+  {
+
+      QMessageBox::information(nullptr, QObject::tr("Ajouter un personnel "),
+                                 QObject::tr("personne d'aides non ajouté, vérifier les champs.\n""Click Cancel to exit."), QMessageBox::Cancel);
+
+
+  }
+
+
+
 
 }
-
 
 
 void MainWindow::on_supprimer_clicked()
