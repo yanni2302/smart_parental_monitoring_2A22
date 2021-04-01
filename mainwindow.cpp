@@ -1,6 +1,6 @@
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "timeclass.h"
+#include "motcle.h"
 #include <time.h>
 #include <QSqlQuery>
 #include <QTime>
@@ -14,7 +14,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->tableView->setModel(T.afficher());
+    ui->tableView_2->setModel(M.afficher());
 
+update();
 }
 
 MainWindow::~MainWindow()
@@ -29,11 +31,12 @@ void MainWindow::on_ajouter_clicked()
     int minutedeb=ui->timeEdit->time().minute();
     int hourfin=ui->timeEdit_2->time().hour();
     int minutefin=ui->timeEdit_2->time().minute();
-
-    timeclass T("toto",hourdeb,minutedeb,hourfin,minutefin);
+QString enfant=ui->comboBox->currentText();
+    timeclass T(enfant,hourdeb,minutedeb,hourfin,minutefin);
     bool test=T.ajouter();
     if (test)
     {
+
 ui->tableView->setModel(T.afficher());
 
         QMessageBox::information(nullptr,QObject::tr("OK"),QObject::tr("Ajout effectué \n" "Click cancel to exit."), QMessageBox::Cancel);
@@ -109,6 +112,7 @@ void MainWindow::on_tableView_activated(const QModelIndex &index)
                   //int hourdeb=ui->timeEdit->time().hour();
                  ui->timeEdit_4->setTime(QTime::fromString(heure_debut));
                  ui->timeEdit_3->setTime(QTime::fromString(heure_fin));
+                 ui->lineEdit->setText(qry.value(0).toString());
 
 
               }
@@ -126,7 +130,8 @@ void MainWindow::on_ajouter_2_clicked()
      int minutedeb=ui->timeEdit_4->time().minute();
      int hourfin=ui->timeEdit_3->time().hour();
      int minutefin=ui->timeEdit_3->time().minute();
-        timeclass T("toto",hourdeb,minutedeb,hourfin,minutefin);
+     QString enfant=ui->comboBox->currentText();
+         timeclass T(enfant,hourdeb,minutedeb,hourfin,minutefin);
         bool test=T.modifier();
         if (test)
         {
@@ -135,4 +140,111 @@ void MainWindow::on_ajouter_2_clicked()
                                  QObject::tr(" modifié.\n"
                                              "Click Cancel to exit."), QMessageBox::Cancel);
         }
+}
+void MainWindow::update()
+{
+    QSqlQueryModel *m=new QSqlQueryModel();
+        QSqlQuery *querry=new QSqlQuery();
+        querry->prepare("SELECT prenom FROM enfant");
+        querry->exec();
+        m->setQuery(*querry);
+
+
+        ui->comboBox->setModel(m);
+}
+
+void MainWindow::on_ajouter_3_clicked()
+{
+    int identifiant=ui->lineEdit_4->text().toInt();
+    QString site=ui->lineEdit_2->text();
+    int age=ui->lineEdit_3->text().toInt();
+
+    motcle M(identifiant,site,age);
+    bool test=M.ajouter();
+    if (test)
+    {
+
+ui->tableView_2->setModel(M.afficher());
+
+        QMessageBox::information(nullptr,QObject::tr("OK"),QObject::tr("Ajout effectué \n" "Click cancel to exit."), QMessageBox::Cancel);
+
+    }
+    else    { QMessageBox::critical(nullptr,QObject::tr("not OK"),QObject::tr("Ajout non effectué \n" "Click cancel to exit."), QMessageBox::Cancel);
+
+    }
+
+}
+
+
+
+void MainWindow::on_tableView_2_activated(const QModelIndex &index)
+{
+    QString val=ui->tableView_2->model()->data(index).toString();
+         QSqlQuery qry;
+         qry.prepare("select * from motcle where"
+                     " id='"+val+"' or site='"+val+"' or age='"+val+"' ");
+         if(qry.exec())
+           {while (qry.next())
+          {
+                  ui->lineEdit_7->setText(qry.value(0).toString());
+                 ui->lineEdit_6->setText(qry.value(1).toString());
+            ui->lineEdit_5->setText(qry.value(2).toString());
+
+
+             }
+       }
+}
+
+void MainWindow::on_tableView_2_clicked(const QModelIndex &index)
+{
+   id_site=ui->tableView_2->model()->data(index).toInt();
+
+}
+
+void MainWindow::on_pb_supp_2_clicked()
+{
+
+
+
+        bool test=M.supprimer(id_site);
+        QMessageBox msgBox;
+        if(test)
+           { msgBox.setText("Suppression avec succes.");
+        ui->tableView_2->setModel(M.afficher());}
+        else
+            msgBox.setText("Echec de suppresion");
+        msgBox.exec();
+
+
+
+}
+
+void MainWindow::on_ajouter_4_clicked()
+{
+    int id =ui->lineEdit_7->text().toInt();
+           QString site=ui->lineEdit_6->text();
+
+           int age=ui->lineEdit_5->text().toInt();
+          motcle M1(id,site,age);
+           bool test=M1.modifier();
+           if (test)
+           {
+              ui->tableView_2->setModel(M.afficher());
+           QMessageBox::information(nullptr,QObject::tr("Modification Personnes"),
+                                    QObject::tr("personne modifié.\n"
+                                                "Click Cancel to exit."), QMessageBox::Cancel);
+           }
+}
+
+void MainWindow::on_trie_clicked()
+{
+    ui->tableView_2->setModel(M.AfficherTrieAge());
+
+
+
+}
+
+void MainWindow::on_lineEdit_8_textChanged(const QString &arg1)
+{
+    ui->tableView_2->setModel(M.rechercherSite(arg1));
 }

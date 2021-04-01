@@ -29,11 +29,13 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
+    motcle.cpp \
     timeclass.cpp
 
 HEADERS += \
         mainwindow.h \
     connection.h \
+    motcle.h \
     timeclass.h
 
 FORMS += \
