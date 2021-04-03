@@ -27,22 +27,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    dialog1.cpp \
         main.cpp \
-        mainwindow.cpp \
     connection.cpp \
+    mainwindow1.cpp \
     personned_aides.cpp \
     reclamation.cpp \
     smtp.cpp
 
 HEADERS += \
-        mainwindow.h \
+    dialog1.h \
     connection.h \
+    mainwindow1.h \
     personned_aides.h \
     reclamation.h \
     smtp.h
 
 FORMS += \
-        mainwindow.ui
+        dialog1.ui \
+        mainwindow1.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

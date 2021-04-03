@@ -1,18 +1,11 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include "personned_aides.h"
-#include "reclamation.h"
-#include <QIntValidator>
-#include <QMessageBox>
-#include <QIntValidator>
+#include "mainwindow1.h"
+#include "ui_mainwindow1.h"
 #include <QSqlQuery>
-#include "smtp.h"
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+mainwindow1::mainwindow1(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::mainwindow1)
 {
     ui->setupUi(this);
-    //ui->lineEdit_id_a->setValidator(new QIntValidator(0, 99999, this));
     ui->afficher_personne->setModel(P.afficher());
     ui->afficher_rec->setModel(R.afficher_reclamtion());
     update_personne_list();
@@ -21,11 +14,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->envoyer, SIGNAL(clicked()),this, SLOT(sendMail()));
 }
 
-MainWindow::~MainWindow()
+mainwindow1::~mainwindow1()
 {
     delete ui;
 }
-bool MainWindow::controleNumTel(int test)
+bool mainwindow1::controleNumTel(int test)
 {
     QString tel= QString::number(test);
     for(int i=0;i<tel.length();i++)
@@ -38,7 +31,7 @@ bool MainWindow::controleNumTel(int test)
     return false;
 }
 
-bool MainWindow::controleVide(QString test)
+bool mainwindow1::controleVide(QString test)
 {
     if(test!="")
         return  true;
@@ -46,7 +39,7 @@ bool MainWindow::controleVide(QString test)
 
 }
 
-bool MainWindow::controleVideInt(int test)
+bool mainwindow1::controleVideInt(int test)
 {
     if(test!=0)
         return  true;
@@ -54,7 +47,7 @@ bool MainWindow::controleVideInt(int test)
 
 }
 
-bool MainWindow::controleEmail(QString test)
+bool mainwindow1::controleEmail(QString test)
 {
     for(int i=0;i<test.length();i++)
     {
@@ -66,8 +59,9 @@ bool MainWindow::controleEmail(QString test)
     return false;
 }
 
-void MainWindow::on_ajouter_clicked()
+void mainwindow1::on_ajouter_clicked()
 {
+
     int identifiant=ui->lineEdit_id_a->text().toInt();
     QString nom=ui->lineEdit_nom_a->text();
     QString prenom=ui->lineEdit_pernom_a->text();
@@ -113,7 +107,29 @@ else
 }
 
 
-void MainWindow::on_supprimer_clicked()
+
+void mainwindow1::on_modifier_clicked()
+{
+    int id =ui->lineEdit_id_a_2->text().toInt();
+    QString nom=ui->lineEdit_nom_a_2->text();
+    QString prenom=ui->lineEdit_pernom_a_2->text();
+    QString adresse=ui->lineEdit_adresse_a_2->text();
+    QString email=ui->lineEdit_email_a_2->text();
+    QString metier=ui->lineEdit_metier_a_2->text();
+    int num=ui->lineEdit_num_tel_a_2->text().toInt();
+    int prix=ui->lineEdit_prix_heure_a_2->text().toInt();
+    Personned_aides P1(id,nom,prenom,adresse,email,metier,num,prix);
+    bool test=P1.modifier();
+    if (test)
+    {
+       ui->afficher_personne->setModel(P.afficher());
+    QMessageBox::information(nullptr,QObject::tr("Modification Personnes"),
+                             QObject::tr("personne modifié.\n"
+                                         "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+}
+
+void mainwindow1::on_supprimer_clicked()
 {
 
     bool test=P.supprimer(id_personne);
@@ -126,17 +142,61 @@ void MainWindow::on_supprimer_clicked()
     msgBox.exec();
     update_personne_list();
     update_mail_list();
+}
+void mainwindow1::update_mail_list(){
+    QSqlQueryModel *m=new QSqlQueryModel();
+    QSqlQuery *querry=new QSqlQuery();
+    querry->prepare("SELECT email FROM personne");
+    querry->exec();
+    m->setQuery(*querry);
+
+
+    ui->comboBo_3->setModel(m);
+
+}
+void mainwindow1::update_personne_list(){
+    QSqlQueryModel *m=new QSqlQueryModel();
+    QSqlQuery *querry=new QSqlQuery();
+    querry->prepare("SELECT identifiant FROM personne");
+    querry->exec();
+    m->setQuery(*querry);
+
+
+    ui->comboBo_2->setModel(m);
+
+}
+void  mainwindow1::sendMail()
+{
+    Smtp* smtp = new Smtp("soumaya99.bensassi@gmail.com","Sb50607010", "smtp.gmail.com");
+    connect(smtp,SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+
+
+      smtp->sendMail("soumaya99.bensassi@gmail.com", ui->comboBo_3->currentText(),ui->lineedit_sujet->text(),ui->lineedit_msg->text());
+}
+
+void  mainwindow1::mailSent(QString status)
+{
+
+    if(status == "Message sent")
+        QMessageBox::warning( nullptr, tr( "Réclamation " ), tr( "Réclamation envoyée par mail!\n\n" ) );
+    ui->comboBo_3->clear();
+    ui->lineedit_sujet->clear();
+    ui->lineedit_msg->clear();
 
 }
 
+void mainwindow1::on_recherche_textChanged(const QString &arg1)
+{
+     ui->afficher_personne->setModel(P.rechercherNom(arg1));
+}
 
+void mainwindow1::on_tri_clicked()
+{
+    ui->afficher_personne->setModel(P.AfficherTrieNom());
 
+}
 
-
-
-
-
-void MainWindow::on_afficher_personne_activated(const QModelIndex &index)
+void mainwindow1::on_afficher_personne_activated(const QModelIndex &index)
 {
     QString val=ui->afficher_personne->model()->data(index).toString();
       QSqlQuery qry;
@@ -156,34 +216,12 @@ void MainWindow::on_afficher_personne_activated(const QModelIndex &index)
     }
 }
 
-void MainWindow::on_modifier_clicked()
-{
-        int id =ui->lineEdit_id_a_2->text().toInt();
-        QString nom=ui->lineEdit_nom_a_2->text();
-        QString prenom=ui->lineEdit_pernom_a_2->text();
-        QString adresse=ui->lineEdit_adresse_a_2->text();
-        QString email=ui->lineEdit_email_a_2->text();
-        QString metier=ui->lineEdit_metier_a_2->text();
-        int num=ui->lineEdit_num_tel_a_2->text().toInt();
-        int prix=ui->lineEdit_prix_heure_a_2->text().toInt();
-        Personned_aides P1(id,nom,prenom,adresse,email,metier,num,prix);
-        bool test=P1.modifier();
-        if (test)
-        {
-           ui->afficher_personne->setModel(P.afficher());
-        QMessageBox::information(nullptr,QObject::tr("Modification Personnes"),
-                                 QObject::tr("personne modifié.\n"
-                                             "Click Cancel to exit."), QMessageBox::Cancel);
-        }
-}
-
-void MainWindow::on_afficher_personne_clicked(const QModelIndex &index)
+void mainwindow1::on_afficher_personne_clicked(const QModelIndex &index)
 {
     id_personne=ui->afficher_personne->model()->data(index).toInt();
 }
 
-
-void MainWindow::on_envoyer_clicked()
+void mainwindow1::on_envoyer_clicked()
 {
     int identifiant=ui->lineedit_ref->text().toInt();
     QString mail_destinataire=ui->comboBo_3->currentText();
@@ -200,34 +238,9 @@ ui->afficher_rec->setModel(R.afficher_reclamtion());
 else
     msgBox.setText("Echec d'ajout");
 msgBox.exec();
-
 }
 
-void MainWindow::on_afficher_rec_activated(const QModelIndex &index)
-{
-    QString val=ui->afficher_rec->model()->data(index).toString();
-      QSqlQuery qry;
-      qry.prepare("select * from reclamation where"
-                  " identifiant='"+val+"' or mail_destinataire='"+val+"' or sujet='"+val+"' or message='"+val+"' or personne_aide ='"+val+"'");
-      if(qry.exec())
-        {while (qry.next())
-       { ui->lineedit_ref_2->setText(qry.value(0).toString());
-         ui->comboBo_3->setCurrentText(qry.value(1).toString());
-         ui->lineedit_sujet_2->setText(qry.value(2).toString());
-         ui->lineedit_msg_2->setText(qry.value(3).toString());
-         ui->lineedit_personne_2->setText(qry.value(4).toString());
-
-          }
-    }
-}
-
-void MainWindow::on_afficher_rec_clicked(const QModelIndex &index)
-{
-    ref_reclamation=ui->afficher_rec->model()->data(index).toInt();
-
-}
-
-void MainWindow::on_modifier_rec_clicked()
+void mainwindow1::on_modifier_rec_clicked()
 {
     int id =ui->lineedit_ref_2->text().toInt();
     QString mail=ui->comboBo_3->currentText();
@@ -245,7 +258,7 @@ void MainWindow::on_modifier_rec_clicked()
     }
 }
 
-void MainWindow::on_supprimer_rec_clicked()
+void mainwindow1::on_supprimer_rec_clicked()
 {
     bool test=R.supprimer_reclamtion(ref_reclamation);
     QMessageBox msgBox;
@@ -257,55 +270,25 @@ void MainWindow::on_supprimer_rec_clicked()
     msgBox.exec();
 }
 
-void MainWindow::update_personne_list(){
-    QSqlQueryModel *m=new QSqlQueryModel();
-    QSqlQuery *querry=new QSqlQuery();
-    querry->prepare("SELECT identifiant FROM personne");
-    querry->exec();
-    m->setQuery(*querry);
-
-
-    ui->comboBo_2->setModel(m);
-
-}
-void MainWindow::update_mail_list(){
-    QSqlQueryModel *m=new QSqlQueryModel();
-    QSqlQuery *querry=new QSqlQuery();
-    querry->prepare("SELECT email FROM personne");
-    querry->exec();
-    m->setQuery(*querry);
-
-
-    ui->comboBo_3->setModel(m);
-
-}
-
-void   MainWindow::sendMail()
+void mainwindow1::on_afficher_rec_activated(const QModelIndex &index)
 {
-    Smtp* smtp = new Smtp("soumaya99.bensassi@gmail.com","Sb50607010", "smtp.gmail.com");
-    connect(smtp,SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+    QString val=ui->afficher_rec->model()->data(index).toString();
+      QSqlQuery qry;
+      qry.prepare("select * from reclamation where"
+                  " identifiant='"+val+"' or mail_destinataire='"+val+"' or sujet='"+val+"' or message='"+val+"' or personne_aide ='"+val+"'");
+      if(qry.exec())
+        {while (qry.next())
+       { ui->lineedit_ref_2->setText(qry.value(0).toString());
+         ui->comboBo_3->setCurrentText(qry.value(1).toString());
+         ui->lineedit_sujet_2->setText(qry.value(2).toString());
+         ui->lineedit_msg_2->setText(qry.value(3).toString());
+         ui->lineedit_personne_2->setText(qry.value(4).toString());
 
-
-      smtp->sendMail("soumaya99.bensassi@gmail.com", ui->comboBo_3->currentText(),ui->lineedit_sujet->text(),ui->lineedit_msg->text());
+          }
+    }
 }
 
-void   MainWindow::mailSent(QString status)
+void mainwindow1::on_afficher_rec_clicked(const QModelIndex &index)
 {
-
-    if(status == "Message sent")
-        QMessageBox::warning( nullptr, tr( "Réclamation " ), tr( "Réclamation envoyée par mail!\n\n" ) );
-    ui->comboBo_3->clear();
-    ui->lineedit_sujet->clear();
-    ui->lineedit_msg->clear();
-
-}
-
-void MainWindow::on_tri_clicked()
-{
-    ui->afficher_personne->setModel(P.AfficherTrieNom());
-}
-
-void MainWindow::on_recherche_textChanged(const QString &arg1)
-{
-    ui->afficher_personne->setModel(P.rechercherNom(arg1));
+    ref_reclamation=ui->afficher_rec->model()->data(index).toInt();
 }
