@@ -1,0 +1,3 @@
+# smart_parental_monitoring_2A22
+Gerer les cours est un  module qui traite la gestion des cours et des devoirs par les parents .Aussi les enfants ont le droit de consulter cet espace de l'application mais sans droit de modification ...
+ ##jihed ben salah
