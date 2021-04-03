@@ -907,6 +907,9 @@ background:gray;
          <string notr="true"> border: 2px solid gray;
  border-radius: 10px;</string>
         </property>
+        <property name="text">
+         <string>fgr</string>
+        </property>
        </widget>
        <widget class="QTableView" name="chercher_cours_2">
         <property name="geometry">

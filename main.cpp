@@ -5,6 +5,7 @@
 #include<QDebug>
 #include <QMediaPlayer>
 #include <QThread>
+#include <login.h>
 
 int main(int argc, char *argv[])
 {
@@ -13,7 +14,9 @@ int main(int argc, char *argv[])
     Connexion C;
     bool test=C.CreateConnection();
     MainWindow w;
-    w.show();
+    //w.show();
+    login l;
+    l.show();
     if(test)
     {//qDebug() <<"connexion reussite";
         player->setMedia(QUrl::fromLocalFile("C:/cours/projet QT/Gestion des Cours/1.mp3"));

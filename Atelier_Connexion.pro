@@ -23,6 +23,7 @@ SOURCES += \
     cours1.cpp \
     devoirs.cpp \
     enfant.cpp \
+    login.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -31,10 +32,12 @@ HEADERS += \
     cours1.h \
     devoirs.h \
     enfant.h \
+    login.h \
     mainwindow.h
 
 FORMS += \
     enfant.ui \
+    login.ui \
     mainwindow.ui
 
 # Default rules for deployment.
