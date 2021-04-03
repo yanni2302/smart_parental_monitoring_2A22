@@ -3,6 +3,8 @@
 #include <QString>
 #include<QSqlQuery>
 #include <QObject>
+#include <QSqlTableModel>
+#include <QTranslator>
 Cours1::~Cours1()
 {
     //vide
@@ -103,11 +105,12 @@ bool Cours1::modifier(int NUMERO)
 QSqlQueryModel* Cours1::chercher(QString NOMC)
 {
    QSqlQueryModel* model =new QSqlQueryModel();
-   model->setQuery("SELECT * FROM COURS WHERE NOMC='"+NOMC+"'");
-   model->setHeaderData(0, Qt::Horizontal, QObject::tr("Nom de cours "));//ajouter un nouveau nom au  header de tableau
-   model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom de l'enseignant"));
-   model->setHeaderData(2, Qt::Horizontal, QObject::tr("Heure de debut"));
-   model->setHeaderData(3, Qt::Horizontal, QObject::tr("Heure de fin"));
+   model->setQuery("SELECT * FROM COURS WHERE NOMC='"+NOMC+"'"   );
+   model->setHeaderData(0, Qt::Horizontal,"Nom de cours ");//ajouter un nouveau nom au  header de tableau
+   model->setHeaderData(1, Qt::Horizontal,"Numero ");
+   model->setHeaderData(2, Qt::Horizontal,"Nom de l'enseignant");
+   model->setHeaderData(3, Qt::Horizontal,"Heure de debut");
+   model->setHeaderData(4, Qt::Horizontal,"Heure de fin");
    return model;
 }
 QSqlQueryModel * Cours1::trier_id()

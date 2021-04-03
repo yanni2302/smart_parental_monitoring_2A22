@@ -4,16 +4,22 @@
 #include<QMessageBox>
 #include<QDebug>
 #include <QMediaPlayer>
+#include <QThread>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);//The QApplication class manages the GUI application's control flow and main settings.
+    QMediaPlayer * player = new QMediaPlayer;
     Connexion C;
     bool test=C.CreateConnection();
     MainWindow w;
     w.show();
     if(test)
     {//qDebug() <<"connexion reussite";
+        player->setMedia(QUrl::fromLocalFile("C:/cours/projet QT/Gestion des Cours/1.mp3"));
+         player->play();
+         qDebug()<<player->errorString();
+         QThread::sleep(1);
     QMessageBox::information(nullptr,QObject::tr("database is open"),
     QObject::tr("connected \n"
                 "click ok to exit"),QMessageBox::Ok);}

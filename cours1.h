@@ -2,6 +2,7 @@
 #define COURS1_H
 #include <QString>
 #include <QSqlQueryModel>
+#include <QTranslator>
 
 class Cours1
 {
@@ -30,6 +31,7 @@ public:
     QSqlQueryModel* chercher(QString);
     QSqlQueryModel* trier_id();
     QSqlQueryModel * trier_nom();
+
 };
 
 #endif // COURS1_H
