@@ -10,8 +10,9 @@ mainwindow1::mainwindow1(QWidget *parent) :
     ui->afficher_rec->setModel(R.afficher_reclamtion());
     update_personne_list();
     update_mail_list();
+sound=new QSound("./music.wav");
+timer_replay =new QTimer();
 
-    connect(ui->envoyer, SIGNAL(clicked()),this, SLOT(sendMail()));
 }
 
 mainwindow1::~mainwindow1()
@@ -165,25 +166,8 @@ void mainwindow1::update_personne_list(){
     ui->comboBo_2->setModel(m);
 
 }
-void  mainwindow1::sendMail()
-{
-    Smtp* smtp = new Smtp("soumaya99.bensassi@gmail.com","Sb50607010", "smtp.gmail.com");
-    connect(smtp,SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
 
 
-      smtp->sendMail("soumaya99.bensassi@gmail.com", ui->comboBo_3->currentText(),ui->lineedit_sujet->text(),ui->lineedit_msg->text());
-}
-
-void  mainwindow1::mailSent(QString status)
-{
-
-    if(status == "Message sent")
-        QMessageBox::warning( nullptr, tr( "Réclamation " ), tr( "Réclamation envoyée par mail!\n\n" ) );
-    ui->comboBo_3->clear();
-    ui->lineedit_sujet->clear();
-    ui->lineedit_msg->clear();
-
-}
 
 void mainwindow1::on_recherche_textChanged(const QString &arg1)
 {
@@ -234,10 +218,15 @@ QMessageBox msgBox;
 if(test)
    { msgBox.setText("Ajout de la reclamation avec succes.");
 ui->afficher_rec->setModel(R.afficher_reclamtion());
+Smtp* smtp = new Smtp("soumaya99.bensassi@gmail.com","Sb50607010", "smtp.gmail.com");
+smtp->sendMail("soumaya99.bensassi@gmail.com",ui->comboBo_3->currentText(),ui->lineedit_sujet->text(),ui->lineedit_msg->text());
+  ui->comboBo_3->clear();
+  ui->lineedit_sujet->clear();
+  ui->lineedit_msg->clear();
 }
 else
     msgBox.setText("Echec d'ajout");
-msgBox.exec();
+    msgBox.exec();
 }
 
 void mainwindow1::on_modifier_rec_clicked()
@@ -279,7 +268,7 @@ void mainwindow1::on_afficher_rec_activated(const QModelIndex &index)
       if(qry.exec())
         {while (qry.next())
        { ui->lineedit_ref_2->setText(qry.value(0).toString());
-         ui->comboBo_3->setCurrentText(qry.value(1).toString());
+         ui->lineedit_mail_2->setText(qry.value(1).toString());
          ui->lineedit_sujet_2->setText(qry.value(2).toString());
          ui->lineedit_msg_2->setText(qry.value(3).toString());
          ui->lineedit_personne_2->setText(qry.value(4).toString());
@@ -292,3 +281,14 @@ void mainwindow1::on_afficher_rec_clicked(const QModelIndex &index)
 {
     ref_reclamation=ui->afficher_rec->model()->data(index).toInt();
 }
+
+void mainwindow1::on_stop_2_clicked()
+{
+   sound->play();
+}
+
+void mainwindow1::on_stop_clicked()
+{
+sound->stop();
+}
+

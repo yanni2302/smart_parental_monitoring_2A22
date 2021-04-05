@@ -26,15 +26,13 @@ void Dialog1::on_pushButton_clicked()
 
      QString login=ui->login->text();
      QString mdp=ui->mdp->text();
+     mainwindow1 w;
     test1=(controleVide(login)&&controleVide(mdp));
     if (test1==true)
     {
-    mainwindow1 w;
     w.setModal(true);
 
     w.exec();
-
-
     }
     else
          {msgBox.setText("mot de passe ou login incorrect ");

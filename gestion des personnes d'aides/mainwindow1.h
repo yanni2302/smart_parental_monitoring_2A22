@@ -5,6 +5,8 @@
 #include"personned_aides.h"
 #include "reclamation.h"
 #include"smtp.h"
+#include<QtMultimedia/QSound>
+#include<QTimer>
 namespace Ui {
 class mainwindow1;
 }
@@ -28,8 +30,8 @@ public:
     bool controleEmail(QString test);
 
 private slots:
-    void sendMail();
-     void mailSent(QString);
+
+
     void on_ajouter_clicked();
 
     void on_modifier_clicked();
@@ -54,6 +56,11 @@ private slots:
 
     void on_afficher_rec_clicked(const QModelIndex &index);
 
+    void on_stop_2_clicked();
+
+    void on_stop_clicked();
+
+
 private:
     Ui::mainwindow1 *ui;
     Personned_aides P;
@@ -61,6 +68,9 @@ private:
 
     int ref_reclamation=0;
     reclamation R;
+    QSound *sound;
+    QTimer *timer_replay;
+
 };
 
 #endif // MAINWINDOW1_H
