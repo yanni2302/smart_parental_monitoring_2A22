@@ -17,13 +17,13 @@ Cours1::Cours1()
     heureF="";
 
 }
-Cours1::Cours1(QString nomC,QString nomE,QString heureD,QString heureF,int numero)
+Cours1::Cours1(QString nomC,QString nomE,QString heureD,QString heureF,int NUMERO)
 {
  this->nomC = nomC;
  this->nomE = nomE;
  this->heureD = heureD;
  this->heureF = heureF;
-    this->numero = numero;
+ this->NUMERO = NUMERO;
 }
 void Cours1::set_nomC(QString nomC)
 {
@@ -62,7 +62,7 @@ bool Cours1::ajouter()
     QSqlQuery query;
           query.prepare("INSERT INTO COURS (nomC, nomE,heureD ,heureF,numero) "
                         "VALUES (:nomC, :nomE, :heureD,:heureF,:numero)");
-          query.bindValue(":numero",numero);
+          query.bindValue(":numero",NUMERO);
           query.bindValue(":nomC",nomC );
           query.bindValue(":nomE",nomE );
           query.bindValue(":heureD",heureD);
@@ -90,11 +90,11 @@ bool Cours1::supprimer(QString NOMC)
     return query.exec();
 
 }
-bool Cours1::modifier(int NUMERO)
+bool Cours1::modifier()
 {
     QSqlQuery query;
-    query.prepare("UPDATE COURS SET NOMC=:NOMC,NOME=:NOME,HEURED=:HEURED,HEUREF=:HEUREF WHERE NUMERO=:NUMERO");
-    int res=NUMERO;
+    QString res=QString::number(NUMERO);
+    query.prepare("UPDATE COURS SET NOMC=:NOMC,NOME=:NOME,HEURED=:HEURED,HEUREF=:HEUREF,NUMERO=:NUMERO WHERE NUMERO=:NUMERO");
     query.bindValue(":NUMERO",res);
     query.bindValue(":NOMC",nomC);
     query.bindValue(":NOME",nomE);

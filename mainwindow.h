@@ -41,11 +41,20 @@ private slots:
 
     void on_lineEdit_chercher_textChanged(const QString &arg1);
 
+    void on_coursView_clicked(const QModelIndex &index);
+
+    void on_coursView_activated(const QModelIndex &index);
+
+    void on_modif_button_3_clicked(bool checked);
+
+    void on_modif_button_3_clicked();
+
 private:
     Ui::MainWindow *ui;
     Cours1 C;
     Devoirs D;
     QMediaPlayer *player;
+    int id_eq=0;
 
 
 };

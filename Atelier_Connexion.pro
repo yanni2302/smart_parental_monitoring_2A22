@@ -1,4 +1,4 @@
-QT       += core gui sql gui multimedia multimediawidgets printsupport
+QT       += core gui sql gui multimedia multimediawidgets printsupport charts
 
 CONFIG += console
 

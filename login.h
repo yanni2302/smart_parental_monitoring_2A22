@@ -23,6 +23,7 @@ private slots:
 private:
     Ui::login *ui;
     MainWindow *m;
+
 };
 
 #endif // LOGIN_H

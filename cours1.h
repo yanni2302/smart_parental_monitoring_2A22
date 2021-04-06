@@ -11,7 +11,7 @@ class Cours1
     QString nomE;
     QString heureD;
     QString heureF;
-    int numero;
+    int NUMERO;
 public:
     Cours1();
     Cours1(QString,QString,QString,QString,int);
@@ -27,7 +27,7 @@ public:
     bool ajouter();
     QSqlQueryModel* afficher();
     bool supprimer(QString);
-    bool modifier(int);
+    bool modifier();
     QSqlQueryModel* chercher(QString);
     QSqlQueryModel* trier_id();
     QSqlQueryModel * trier_nom();

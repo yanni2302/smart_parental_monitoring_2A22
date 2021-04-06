@@ -9,6 +9,9 @@
 #include <QSqlQuery>
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
+#include <QPrinter>
+#include <QPrintDialog>
+#include <QtPrintSupport>
 
 
 
@@ -78,15 +81,14 @@ void MainWindow::on_suppCours_3_clicked()
 }
 
 
-void MainWindow::on_modif_button_clicked()
+void MainWindow::on_modif_button_3_clicked()
 {
-    int NUMERO=ui->num_cours->text().toInt();
-    QString NOMC=ui->modif_nom_cours->text();
-    QString NOME=ui->modif_nom_enseignant->text();
-    QString HEURED=ui->modif_heure_debut->text();
-    QString HEUREF=ui->modif_heure_fin->text();
-    Cours1 C(NOMC,NOME,HEURED,HEUREF,NUMERO);
-    bool test=C.modifier(NUMERO);
+    QString NOMC=ui->nomC_4->text();
+    QString NOME=ui->nomE_3->text();
+    QString HEURED=ui->heureD_3->text();
+    QString HEUREF=ui->heureF_3->text();
+    Cours1 C(NOMC,NOME,HEURED,HEUREF,id_eq);
+    bool test=C.modifier();
     if(test)
     {
         QMessageBox::information(nullptr,QObject::tr("ok"),
@@ -168,4 +170,32 @@ void MainWindow::on_lineEdit_chercher_textChanged(const QString &arg1)
 {
     ui->chercher_cours_2->setModel(C.chercher(arg1));
 
+}
+void MainWindow::on_coursView_activated(const QModelIndex &index)
+{
+    QString val=ui->coursView->model()->data(index).toString();
+              QSqlQuery qry;
+              qry.prepare("select * from COURS where"
+                          "  NUMERO ='"+val+"'  ");
+              if(qry.exec())
+                {while (qry.next())
+               { ui->nomC_4->setText(qry.value(0).toString());
+                 ui->numC->setText(qry.value(4).toString());
+                 ui->nomE_3->setText(qry.value(1).toString());
+                 ui->heureD_3->setText(qry.value(2).toString());
+                 ui->heureF_3->setText(qry.value(3).toString());
+               }
+            }
+}
+void MainWindow::on_coursView_clicked(const QModelIndex &index)
+{
+    id_eq=ui->coursView->model()->data(index).toInt();
+}
+void MainWindow::on_pushButton_clicked()
+{
+    QPrinter printer;
+    printer.setPrinterName("printer name");
+    QPrintDialog dialog(&printer,this);
+    if(dialog.exec()==QDialog::Rejected)return;
+    ui->coursView->render(&printer);
 }
