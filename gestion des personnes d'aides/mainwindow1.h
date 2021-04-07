@@ -69,7 +69,7 @@ private:
     int ref_reclamation=0;
     reclamation R;
     QSound *sound;
-    QTimer *timer_replay;
+    QSound *sound1;
 
 };
 

@@ -14,7 +14,7 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/img/back.png);</string>
+   <string notr="true"/>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -112,30 +112,6 @@
     <string/>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit">
-   <property name="geometry">
-    <rect>
-     <x>340</x>
-     <y>130</y>
-     <width>411</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="readOnly">
-    <bool>true</bool>
-   </property>
-   <property name="html">
-    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt; font-weight:600; font-style:italic; color:#085394;&quot;&gt;Les Personnes D'aides&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-   <property name="cursorWidth">
-    <number>1</number>
-   </property>
-  </widget>
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
@@ -184,7 +160,7 @@ QTabBar::tab:selected {
     <enum>QTabWidget::Triangular</enum>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="Employes_3">
     <attribute name="title">
@@ -409,7 +385,7 @@ text-align:center;</string>
         <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background:rgb(255, 255, 127)</string>
+background:white</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_nom_a">
@@ -425,7 +401,7 @@ background:rgb(255, 255, 127)</string>
         <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background:rgb(255, 255, 127)</string>
+background:white</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_pernom_a">
@@ -441,7 +417,7 @@ background:rgb(255, 255, 127)</string>
         <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background:rgb(255, 255, 127)</string>
+background:white</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_email_a">
@@ -457,7 +433,7 @@ background:rgb(255, 255, 127)</string>
         <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background:rgb(255, 255, 127)</string>
+background:white</string>
        </property>
       </widget>
       <widget class="QPushButton" name="ajouter">
@@ -495,7 +471,7 @@ font: bold, &quot;Comic Sans MS&quot;;
         <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background:rgb(255, 255, 127)</string>
+background:white</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="adresse">
@@ -561,7 +537,7 @@ text-align:center;</string>
         <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background:rgb(255, 255, 127)</string>
+background:white</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_prix_heure_a">
@@ -577,7 +553,7 @@ background:rgb(255, 255, 127)</string>
         <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background:rgb(255, 255, 127)</string>
+background:white</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_adresse_a">
@@ -593,7 +569,7 @@ background:rgb(255, 255, 127)</string>
         <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background:rgb(255, 255, 127)</string>
+background:white</string>
        </property>
       </widget>
      </widget>
@@ -682,7 +658,7 @@ font: bold, &quot;Comic Sans MS&quot;;
 
 border-radius: 10px;
 padding: 0 8px;
-background: rgb(255, 255, 127);</string>
+background: white;</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_num_tel_a_2">
@@ -699,7 +675,7 @@ background: rgb(255, 255, 127);</string>
 
 border-radius: 10px;
 padding: 0 8px;
-background: rgb(255, 255, 127);</string>
+background: white;</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_nom_a_2">
@@ -716,7 +692,7 @@ background: rgb(255, 255, 127);</string>
 
 border-radius: 10px;
 padding: 0 8px;
-background: rgb(255, 255, 127);</string>
+background: white;</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="mteier_2">
@@ -758,7 +734,7 @@ text-align:center;</string>
 
 border-radius: 10px;
 padding: 0 8px;
-background: rgb(255, 255, 127);</string>
+background: white;</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="nom_2">
@@ -863,7 +839,7 @@ text-align:center;
 
 border-radius: 10px;
 padding: 0 8px;
-background: rgb(255, 255, 127);</string>
+background: white;</string>
        </property>
        <property name="readOnly">
         <bool>true</bool>
@@ -933,7 +909,7 @@ text-align:center;</string>
 
 border-radius: 10px;
 padding: 0 8px;
-background: rgb(255, 255, 127);</string>
+background: white;</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="adresse_2">
@@ -975,7 +951,7 @@ text-align:center;</string>
 
 border-radius: 10px;
 padding: 0 8px;
-background: rgb(255, 255, 127);</string>
+background: white;</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_adresse_a_2">
@@ -992,7 +968,7 @@ background: rgb(255, 255, 127);</string>
 
 border-radius: 10px;
 padding: 0 8px;
-background: rgb(255, 255, 127);</string>
+background: white;</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="prenom_2">
@@ -1056,7 +1032,7 @@ font: bold, &quot;Comic Sans MS&quot;;
 
 border-radius: 10px;
 padding: 0 8px;
-background: rgb(255, 255, 127);</string>
+background: white;</string>
        </property>
        <property name="readOnly">
         <bool>false</bool>
@@ -1142,7 +1118,7 @@ QTabBar::tab:selected {
 }</string>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <property name="tabBarAutoHide">
       <bool>false</bool>
@@ -1164,7 +1140,7 @@ QTabBar::tab:selected {
         <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background:  rgb(255, 255, 127);
+background: white;
 selection-background-color: gray;
 </string>
        </property>
@@ -1206,7 +1182,7 @@ font: bold, &quot;Comic Sans MS&quot;;</string>
         <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background:  rgb(255, 255, 127);
+background: white;
 selection-background-color: gray;
 </string>
        </property>
@@ -1252,7 +1228,7 @@ text-align:center;</string>
         <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background:  rgb(255, 255, 127);
+background: white;
 selection-background-color: gray;
 </string>
        </property>
@@ -1273,7 +1249,7 @@ selection-background-color: gray;
         <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background:  rgb(255, 255, 127);
+background: white;
 selection-background-color: gray;
 </string>
        </property>
@@ -1316,7 +1292,7 @@ text-align:center;</string>
         <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background:  rgb(255, 255, 127);
+background: white;
 selection-background-color: gray;
 </string>
        </property>
@@ -1400,7 +1376,7 @@ font: bold, &quot;Comic Sans MS&quot;;
         <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: rgb(255, 255, 127);
+background: white;
 selection-background-color: gray;</string>
        </property>
        <property name="placeholderText">
@@ -1420,7 +1396,7 @@ selection-background-color: gray;</string>
         <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: rgb(255, 255, 127);
+background: white;
 selection-background-color: gray;</string>
        </property>
        <property name="placeholderText">
@@ -1440,7 +1416,7 @@ selection-background-color: gray;</string>
         <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: rgb(255, 255, 127);
+background: white;
 selection-background-color: gray;</string>
        </property>
        <property name="readOnly">
@@ -1463,7 +1439,7 @@ selection-background-color: gray;</string>
         <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: rgb(255, 255, 127);
+background: white;
 selection-background-color: gray;</string>
        </property>
        <property name="readOnly">
@@ -1486,7 +1462,7 @@ selection-background-color: gray;</string>
         <string notr="true">border: 2px solid black;
 border-radius: 10px;
 padding: 0 8px;
-background: rgb(255, 255, 127);
+background: white;
 selection-background-color: gray;</string>
        </property>
        <property name="readOnly">
@@ -1519,11 +1495,20 @@ selection-background-color: gray;</string>
   <widget class="QPushButton" name="stop">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>50</y>
-     <width>41</width>
+     <x>10</x>
+     <y>60</y>
+     <width>51</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+color: rgb(255, 255, 255);
+background:#085394	;
+font: bold, &quot;Comic Sans MS&quot;;
+</string>
    </property>
    <property name="text">
     <string>stop</string>
@@ -1532,14 +1517,41 @@ selection-background-color: gray;</string>
   <widget class="QPushButton" name="stop_2">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>50</y>
-     <width>41</width>
+     <x>70</x>
+     <y>60</y>
+     <width>51</width>
      <height>31</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+color: rgb(255, 255, 255);
+background:#085394	;
+font: bold, &quot;Comic Sans MS&quot;;
+</string>
+   </property>
    <property name="text">
     <string>play</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>60</y>
+     <width>431</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 28pt &quot;Nuchelle&quot;;
+color: #085394;</string>
+   </property>
+   <property name="text">
+    <string>
+Les Personnes D'aides</string>
    </property>
   </widget>
  </widget>

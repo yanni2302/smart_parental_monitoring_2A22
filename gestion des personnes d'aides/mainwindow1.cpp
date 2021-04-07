@@ -11,7 +11,7 @@ mainwindow1::mainwindow1(QWidget *parent) :
     update_personne_list();
     update_mail_list();
 sound=new QSound("./music.wav");
-timer_replay =new QTimer();
+sound1=new QSound("./M.wav");
 
 }
 
@@ -62,7 +62,7 @@ bool mainwindow1::controleEmail(QString test)
 
 void mainwindow1::on_ajouter_clicked()
 {
-
+sound1->play();
     int identifiant=ui->lineEdit_id_a->text().toInt();
     QString nom=ui->lineEdit_nom_a->text();
     QString prenom=ui->lineEdit_pernom_a->text();
@@ -110,7 +110,7 @@ else
 
 
 void mainwindow1::on_modifier_clicked()
-{
+{sound1->play();
     int id =ui->lineEdit_id_a_2->text().toInt();
     QString nom=ui->lineEdit_nom_a_2->text();
     QString prenom=ui->lineEdit_pernom_a_2->text();
@@ -131,7 +131,7 @@ void mainwindow1::on_modifier_clicked()
 }
 
 void mainwindow1::on_supprimer_clicked()
-{
+{sound1->play();
 
     bool test=P.supprimer(id_personne);
     QMessageBox msgBox;
@@ -175,7 +175,7 @@ void mainwindow1::on_recherche_textChanged(const QString &arg1)
 }
 
 void mainwindow1::on_tri_clicked()
-{
+{sound1->play();
     ui->afficher_personne->setModel(P.AfficherTrieNom());
 
 }
@@ -206,7 +206,7 @@ void mainwindow1::on_afficher_personne_clicked(const QModelIndex &index)
 }
 
 void mainwindow1::on_envoyer_clicked()
-{
+{sound1->play();
     int identifiant=ui->lineedit_ref->text().toInt();
     QString mail_destinataire=ui->comboBo_3->currentText();
     QString sujet=ui->lineedit_sujet->text();
@@ -215,6 +215,10 @@ void mainwindow1::on_envoyer_clicked()
 reclamation R1(identifiant,mail_destinataire,sujet,message,personne_aide);
 bool test=R1.ajouter_reclamtion();
 QMessageBox msgBox;
+bool test2;
+   test2=(controleVide(sujet)&&controleVide(message)&&controleVide(mail_destinataire)&controleVideInt(personne_aide)&&controleVideInt(identifiant) );
+if(test2)
+{
 if(test)
    { msgBox.setText("Ajout de la reclamation avec succes.");
 ui->afficher_rec->setModel(R.afficher_reclamtion());
@@ -223,14 +227,23 @@ smtp->sendMail("soumaya99.bensassi@gmail.com",ui->comboBo_3->currentText(),ui->l
   ui->comboBo_3->clear();
   ui->lineedit_sujet->clear();
   ui->lineedit_msg->clear();
+  msgBox.exec();
 }
 else
     msgBox.setText("Echec d'ajout");
     msgBox.exec();
 }
+else
+{
+
+
+    QMessageBox::information(nullptr, QObject::tr("Ajouter un personnel "),
+                               QObject::tr("Reclamation  non ajouté, vérifier les champs.\n""Click Cancel to exit."), QMessageBox::Cancel);
+}
+}
 
 void mainwindow1::on_modifier_rec_clicked()
-{
+{sound1->play();
     int id =ui->lineedit_ref_2->text().toInt();
     QString mail=ui->comboBo_3->currentText();
     QString sujet=ui->lineedit_sujet_2->text();
@@ -248,7 +261,7 @@ void mainwindow1::on_modifier_rec_clicked()
 }
 
 void mainwindow1::on_supprimer_rec_clicked()
-{
+{sound1->play();
     bool test=R.supprimer_reclamtion(ref_reclamation);
     QMessageBox msgBox;
     if(test)
