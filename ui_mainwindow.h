@@ -42,6 +42,8 @@ public:
     QLabel *label_9;
     QLineEdit *lineEdit_2;
     QLineEdit *lineEdit_4;
+    QPushButton *pushButton;
+    QPushButton *pushButton_2;
     QWidget *tab_6;
     QLineEdit *lineEdit_5;
     QTableView *tableView_2;
@@ -83,7 +85,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1239, 618);
+        MainWindow->resize(1028, 518);
         MainWindow->setStyleSheet(QString::fromUtf8(""));
         widget = new QWidget(MainWindow);
         widget->setObjectName(QString::fromUtf8("widget"));
@@ -102,7 +104,8 @@ public:
         tab->setObjectName(QString::fromUtf8("tab"));
         tabWidget_3 = new QTabWidget(tab);
         tabWidget_3->setObjectName(QString::fromUtf8("tabWidget_3"));
-        tabWidget_3->setGeometry(QRect(0, 0, 1001, 421));
+        tabWidget_3->setGeometry(QRect(0, 0, 1001, 431));
+        tabWidget_3->setStyleSheet(QString::fromUtf8("background-image: url(:/img/image.jpg);"));
         tab_5 = new QWidget();
         tab_5->setObjectName(QString::fromUtf8("tab_5"));
         label_4 = new QLabel(tab_5);
@@ -116,7 +119,7 @@ public:
 "/*background: #AFEEEE;*/\n"
 "font: bold, \"Comic Sans MS\"  ;\n"
 "text-align:center;\n"
-"color: black;"));
+"color: white;"));
         ajouter_3 = new QPushButton(tab_5);
         ajouter_3->setObjectName(QString::fromUtf8("ajouter_3"));
         ajouter_3->setGeometry(QRect(290, 270, 181, 25));
@@ -139,7 +142,7 @@ public:
 "/*background: #AFEEEE;*/\n"
 "font: bold, \"Comic Sans MS\"  ;\n"
 "text-align:center;\n"
-"color: black;"));
+"color: white;"));
         lineEdit_3 = new QLineEdit(tab_5);
         lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
         lineEdit_3->setGeometry(QRect(240, 120, 201, 24));
@@ -163,7 +166,7 @@ public:
 "/*background: #AFEEEE;*/\n"
 "font: bold, \"Comic Sans MS\"  ;\n"
 "text-align:center;\n"
-"color: black;"));
+"color: white;"));
         lineEdit_2 = new QLineEdit(tab_5);
         lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
         lineEdit_2->setGeometry(QRect(240, 70, 201, 24));
@@ -188,6 +191,28 @@ public:
 "color: black;\n"
 "text-align:center;"));
         lineEdit_4->setReadOnly(false);
+        pushButton = new QPushButton(tab_5);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(660, 40, 161, 51));
+        pushButton->setStyleSheet(QString::fromUtf8("border: 2px solid black;\n"
+"font: 75 8pt \"MS Shell Dlg 2\";\n"
+"border-radius: 10px;\n"
+"padding: 0 8px;\n"
+"background: #AFEEEE;\n"
+"font: bold, \"Comic Sans MS\";;\n"
+"color: black;\n"
+"text-align:center;"));
+        pushButton_2 = new QPushButton(tab_5);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(660, 120, 161, 51));
+        pushButton_2->setStyleSheet(QString::fromUtf8("border: 2px solid black;\n"
+"font: 75 8pt \"MS Shell Dlg 2\";\n"
+"border-radius: 10px;\n"
+"padding: 0 8px;\n"
+"background: #AFEEEE;\n"
+"font: bold, \"Comic Sans MS\";;\n"
+"color: black;\n"
+"text-align:center;"));
         tabWidget_3->addTab(tab_5, QString());
         tab_6 = new QWidget();
         tab_6->setObjectName(QString::fromUtf8("tab_6"));
@@ -236,7 +261,7 @@ public:
 "/*background: #AFEEEE;*/\n"
 "font: bold, \"Comic Sans MS\"  ;\n"
 "text-align:center;\n"
-"color: black;"));
+"color: white;"));
         ajouter_4 = new QPushButton(tab_6);
         ajouter_4->setObjectName(QString::fromUtf8("ajouter_4"));
         ajouter_4->setGeometry(QRect(650, 170, 221, 51));
@@ -259,7 +284,7 @@ public:
 "/*background: #AFEEEE;*/\n"
 "font: bold, \"Comic Sans MS\"  ;\n"
 "text-align:center;\n"
-"color: black;"));
+"color: white;"));
         lineEdit_6 = new QLineEdit(tab_6);
         lineEdit_6->setObjectName(QString::fromUtf8("lineEdit_6"));
         lineEdit_6->setGeometry(QRect(820, 60, 113, 24));
@@ -295,7 +320,7 @@ public:
 "/*background: #AFEEEE;*/\n"
 "font: bold, \"Comic Sans MS\"  ;\n"
 "text-align:center;\n"
-"color: black;"));
+"color: white;"));
         trie = new QPushButton(tab_6);
         trie->setObjectName(QString::fromUtf8("trie"));
         trie->setGeometry(QRect(90, 300, 221, 31));
@@ -330,15 +355,16 @@ public:
 "/*background: #AFEEEE;*/\n"
 "font: bold, \"Comic Sans MS\"  ;\n"
 "text-align:center;\n"
-"color: black;"));
+"color: white;"));
         tabWidget_3->addTab(tab_6, QString());
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
         tabWidget_2 = new QTabWidget(tab_2);
         tabWidget_2->setObjectName(QString::fromUtf8("tabWidget_2"));
-        tabWidget_2->setGeometry(QRect(-10, 0, 1031, 471));
+        tabWidget_2->setGeometry(QRect(-10, 0, 1051, 491));
         tabWidget_2->setStyleSheet(QString::fromUtf8("/*border: 2px solid ;*/\n"
+"background-image: url(:/img/image.jpg);\n"
 "/*font: 75 8pt \"MS Shell Dlg 2\" ;*/\n"
 "border-radius: 10px;\n"
 "padding: 0 8px;\n"
@@ -370,7 +396,7 @@ public:
 "/*background: #AFEEEE;*/\n"
 "font: bold, \"Comic Sans MS\"  ;\n"
 "text-align:center;\n"
-"color: black;"));
+"color: white;"));
         label_2 = new QLabel(tab_3);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(70, 160, 131, 31));
@@ -380,7 +406,7 @@ public:
 "padding: 0 8px;\n"
 "font: bold, \"Comic Sans MS\" ;\n"
 "text-align:center;\n"
-"color: black;"));
+"color: white;"));
         ajouter = new QPushButton(tab_3);
         ajouter->setObjectName(QString::fromUtf8("ajouter"));
         ajouter->setGeometry(QRect(340, 230, 181, 25));
@@ -414,7 +440,7 @@ public:
 "/*background: #AFEEEE;*/\n"
 "font: bold, \"Comic Sans MS\"  ;\n"
 "text-align:center;\n"
-"color: black;"));
+"color: white;"));
         timeEdit_2 = new QTimeEdit(tab_3);
         timeEdit_2->setObjectName(QString::fromUtf8("timeEdit_2"));
         timeEdit_2->setGeometry(QRect(50, 190, 171, 61));
@@ -462,7 +488,7 @@ public:
 "/*background: #AFEEEE;*/\n"
 "font: bold, \"Comic Sans MS\"  ;\n"
 "text-align:center;\n"
-"color: black;"));
+"color: white;"));
         timeEdit_4 = new QTimeEdit(tab_4);
         timeEdit_4->setObjectName(QString::fromUtf8("timeEdit_4"));
         timeEdit_4->setGeometry(QRect(610, 80, 171, 61));
@@ -485,7 +511,7 @@ public:
 "/*background: #AFEEEE;*/\n"
 "font: bold, \"Comic Sans MS\"  ;\n"
 "text-align:center;\n"
-"color: black;"));
+"color: white;"));
         label_7 = new QLabel(tab_4);
         label_7->setObjectName(QString::fromUtf8("label_7"));
         label_7->setGeometry(QRect(630, 150, 131, 31));
@@ -495,7 +521,7 @@ public:
 "padding: 0 8px;\n"
 "font: bold, \"Comic Sans MS\" ;\n"
 "text-align:center;\n"
-"color: black;"));
+"color: white;"));
         ajouter_2 = new QPushButton(tab_4);
         ajouter_2->setObjectName(QString::fromUtf8("ajouter_2"));
         ajouter_2->setGeometry(QRect(800, 220, 181, 25));
@@ -535,7 +561,7 @@ public:
         MainWindow->setCentralWidget(widget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1239, 25));
+        menuBar->setGeometry(QRect(0, 0, 1028, 25));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -546,7 +572,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
         tabWidget_3->setCurrentIndex(1);
         tabWidget_2->setCurrentIndex(1);
 
@@ -561,6 +587,8 @@ public:
         ajouter_3->setText(QApplication::translate("MainWindow", "Interdire le site", nullptr));
         label_8->setText(QApplication::translate("MainWindow", "\303\202ge limite pour acc\303\251der au site", nullptr));
         label_9->setText(QApplication::translate("MainWindow", "Identifiant", nullptr));
+        pushButton->setText(QApplication::translate("MainWindow", "Play", nullptr));
+        pushButton_2->setText(QApplication::translate("MainWindow", "Stop", nullptr));
         tabWidget_3->setTabText(tabWidget_3->indexOf(tab_5), QApplication::translate("MainWindow", "Ajouter", nullptr));
         pb_supp_2->setText(QApplication::translate("MainWindow", "Supprimer", nullptr));
         label_11->setText(QApplication::translate("MainWindow", "\303\202ge Limite", nullptr));

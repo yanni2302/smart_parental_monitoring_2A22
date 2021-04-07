@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1239</width>
-    <height>618</height>
+    <width>1028</width>
+    <height>518</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -37,7 +37,7 @@ text-align:center;
 color: black;</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -49,8 +49,11 @@ color: black;</string>
         <x>0</x>
         <y>0</y>
         <width>1001</width>
-        <height>421</height>
+        <height>431</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/img/image.jpg);</string>
       </property>
       <property name="currentIndex">
        <number>1</number>
@@ -79,7 +82,7 @@ padding: 0 8px;
 /*background: #AFEEEE;*/
 font: bold, &quot;Comic Sans MS&quot;  ;
 text-align:center;
-color: black;</string>
+color: white;</string>
         </property>
         <property name="text">
          <string>Nom du site à interdire</string>
@@ -128,7 +131,7 @@ padding: 0 8px;
 /*background: #AFEEEE;*/
 font: bold, &quot;Comic Sans MS&quot;  ;
 text-align:center;
-color: black;</string>
+color: white;</string>
         </property>
         <property name="text">
          <string>Âge limite pour accéder au site</string>
@@ -177,7 +180,7 @@ padding: 0 8px;
 /*background: #AFEEEE;*/
 font: bold, &quot;Comic Sans MS&quot;  ;
 text-align:center;
-color: black;</string>
+color: white;</string>
         </property>
         <property name="text">
          <string>Identifiant</string>
@@ -227,6 +230,52 @@ text-align:center;</string>
         </property>
         <property name="readOnly">
          <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton">
+        <property name="geometry">
+         <rect>
+          <x>660</x>
+          <y>40</y>
+          <width>161</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: #AFEEEE;
+font: bold, &quot;Comic Sans MS&quot;;;
+color: black;
+text-align:center;</string>
+        </property>
+        <property name="text">
+         <string>Play</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="geometry">
+         <rect>
+          <x>660</x>
+          <y>120</y>
+          <width>161</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: #AFEEEE;
+font: bold, &quot;Comic Sans MS&quot;;;
+color: black;
+text-align:center;</string>
+        </property>
+        <property name="text">
+         <string>Stop</string>
         </property>
        </widget>
       </widget>
@@ -320,7 +369,7 @@ padding: 0 8px;
 /*background: #AFEEEE;*/
 font: bold, &quot;Comic Sans MS&quot;  ;
 text-align:center;
-color: black;</string>
+color: white;</string>
         </property>
         <property name="text">
          <string>Âge Limite</string>
@@ -369,7 +418,7 @@ padding: 0 8px;
 /*background: #AFEEEE;*/
 font: bold, &quot;Comic Sans MS&quot;  ;
 text-align:center;
-color: black;</string>
+color: white;</string>
         </property>
         <property name="text">
          <string>Nom du site</string>
@@ -444,7 +493,7 @@ padding: 0 8px;
 /*background: #AFEEEE;*/
 font: bold, &quot;Comic Sans MS&quot;  ;
 text-align:center;
-color: black;</string>
+color: white;</string>
         </property>
         <property name="text">
          <string>Id du site</string>
@@ -516,7 +565,7 @@ padding: 0 8px;
 /*background: #AFEEEE;*/
 font: bold, &quot;Comic Sans MS&quot;  ;
 text-align:center;
-color: black;</string>
+color: white;</string>
         </property>
         <property name="text">
          <string>Rechercher un site</string>
@@ -534,12 +583,13 @@ color: black;</string>
        <rect>
         <x>-10</x>
         <y>0</y>
-        <width>1031</width>
-        <height>471</height>
+        <width>1051</width>
+        <height>491</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">/*border: 2px solid ;*/
+background-image: url(:/img/image.jpg);
 /*font: 75 8pt &quot;MS Shell Dlg 2&quot; ;*/
 border-radius: 10px;
 padding: 0 8px;
@@ -595,7 +645,7 @@ padding: 0 8px;
 /*background: #AFEEEE;*/
 font: bold, &quot;Comic Sans MS&quot;  ;
 text-align:center;
-color: black;</string>
+color: white;</string>
         </property>
         <property name="text">
          <string>Heure debut</string>
@@ -619,7 +669,7 @@ border-radius: 10px;
 padding: 0 8px;
 font: bold, &quot;Comic Sans MS&quot; ;
 text-align:center;
-color: black;</string>
+color: white;</string>
         </property>
         <property name="text">
          <string>Heure fin</string>
@@ -688,7 +738,7 @@ padding: 0 8px;
 /*background: #AFEEEE;*/
 font: bold, &quot;Comic Sans MS&quot;  ;
 text-align:center;
-color: black;</string>
+color: white;</string>
         </property>
         <property name="text">
          <string>Enfant</string>
@@ -779,7 +829,7 @@ padding: 0 8px;
 /*background: #AFEEEE;*/
 font: bold, &quot;Comic Sans MS&quot;  ;
 text-align:center;
-color: black;</string>
+color: white;</string>
         </property>
         <property name="text">
          <string>Enfant</string>
@@ -825,7 +875,7 @@ padding: 0 8px;
 /*background: #AFEEEE;*/
 font: bold, &quot;Comic Sans MS&quot;  ;
 text-align:center;
-color: black;</string>
+color: white;</string>
         </property>
         <property name="text">
          <string>Heure debut</string>
@@ -849,7 +899,7 @@ border-radius: 10px;
 padding: 0 8px;
 font: bold, &quot;Comic Sans MS&quot; ;
 text-align:center;
-color: black;</string>
+color: white;</string>
         </property>
         <property name="text">
          <string>Heure fin</string>
@@ -934,7 +984,7 @@ text-align:center;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1239</width>
+     <width>1028</width>
      <height>25</height>
     </rect>
    </property>

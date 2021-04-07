@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 #include "timeclass.h"
 #include "motcle.h"
-
+#include "QtMultimedia/QSound"
 #include <QMainWindow>
 namespace Ui {
 class MainWindow;
@@ -43,12 +43,18 @@ private slots:
 
     void on_lineEdit_8_textChanged(const QString &arg1);
 
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+bool controleVide(QString );
+bool controleVideInt(int );
 private:
     Ui::MainWindow *ui;
     timeclass T;
     QString id_enfant;
     motcle M;
     int id_site=0;
+    QSound *Sound;
 };
 
 #endif // MAINWINDOW_H

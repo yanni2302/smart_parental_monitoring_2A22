@@ -17,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableView_2->setModel(M.afficher());
 
 update();
+Sound = new QSound ("music.wav");
+setStyleSheet("background-image: image.jpg");
 }
 
 MainWindow::~MainWindow()
@@ -161,7 +163,10 @@ void MainWindow::on_ajouter_3_clicked()
 
     motcle M(identifiant,site,age);
     bool test=M.ajouter();
-    if (test)
+bool test2;
+test2=(controleVideInt(age) && controleVide(site) );
+    if (test2){
+        if (test  )
     {
 
 ui->tableView_2->setModel(M.afficher());
@@ -174,9 +179,9 @@ ui->tableView_2->setModel(M.afficher());
     }
 
 }
+else { QMessageBox::critical(nullptr,QObject::tr("not OK"),QObject::tr("Remplir les champs \n" "Click cancel to exit."), QMessageBox::Cancel);}
 
-
-
+}
 void MainWindow::on_tableView_2_activated(const QModelIndex &index)
 {
     QString val=ui->tableView_2->model()->data(index).toString();
@@ -243,8 +248,32 @@ void MainWindow::on_trie_clicked()
 
 
 }
+bool MainWindow::controleVide(QString test)
+{
+    if (test!="")
+        return  true;
+    return false;
 
+}
+
+bool MainWindow::controleVideInt(int test)
+{
+    if(test!=0)
+        return  true;
+    return false;
+
+}
 void MainWindow::on_lineEdit_8_textChanged(const QString &arg1)
 {
     ui->tableView_2->setModel(M.rechercherSite(arg1));
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    Sound->play();
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    Sound->stop();
 }
