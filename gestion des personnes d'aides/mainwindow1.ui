@@ -14,7 +14,7 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">background-image: url(:/img/back.png);</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -203,7 +203,7 @@ QTabBar::tab:selected {
 </string>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="Ajouter_E_3">
       <attribute name="title">
@@ -1539,10 +1539,10 @@ font: bold, &quot;Comic Sans MS&quot;;
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>60</y>
+     <x>360</x>
+     <y>120</y>
      <width>431</width>
-     <height>161</height>
+     <height>121</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -1550,8 +1550,7 @@ font: bold, &quot;Comic Sans MS&quot;;
 color: #085394;</string>
    </property>
    <property name="text">
-    <string>
-Les Personnes D'aides</string>
+    <string>Les Personnes D'aides</string>
    </property>
   </widget>
  </widget>
