@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>773</width>
-    <height>503</height>
+    <width>556</width>
+    <height>536</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,36 +31,72 @@
       <widget class="QLineEdit" name="lineEdit_username">
        <property name="geometry">
         <rect>
-         <x>262</x>
-         <y>230</y>
-         <width>161</width>
-         <height>22</height>
+         <x>180</x>
+         <y>200</y>
+         <width>221</width>
+         <height>41</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_password">
        <property name="geometry">
         <rect>
-         <x>260</x>
-         <y>281</y>
-         <width>161</width>
-         <height>21</height>
+         <x>180</x>
+         <y>250</y>
+         <width>221</width>
+         <height>41</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_connet">
        <property name="geometry">
         <rect>
-         <x>300</x>
-         <y>320</y>
-         <width>93</width>
-         <height>28</height>
+         <x>130</x>
+         <y>300</y>
+         <width>271</width>
+         <height>51</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: white;
+background:gray;
+ border: 2px solid gray;
+ border-radius: 10px;
+
+</string>
        </property>
        <property name="text">
         <string>connect</string>
        </property>
       </widget>
+      <widget class="QLabel" name="login_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>751</width>
+         <height>521</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <zorder>login_2</zorder>
+      <zorder>lineEdit_username</zorder>
+      <zorder>lineEdit_password</zorder>
+      <zorder>pushButton_connet</zorder>
      </widget>
     </item>
    </layout>

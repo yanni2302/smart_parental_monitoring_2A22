@@ -8,18 +8,18 @@ Devoirs::~Devoirs()
 }
 Devoirs::Devoirs()
 {
-    nomD="";
-    refDev="";
-    nomC="";
-    deadline="";
+    NOMD="";
+    REFDEV=0;
+    NOMC="";
+    DEADLINE="";
 
 }
-Devoirs::Devoirs(QString nomD,QString RefDev,QString nomC,QString deadline)
+Devoirs::Devoirs(QString nomD,int RefDev,QString nomC,QString deadline)
 {
- this->nomD = nomD;
- this->refDev = RefDev;
- this->nomC = nomC;
- this->deadline = deadline;
+ this->NOMD = nomD;
+ this->REFDEV = RefDev;
+ this->NOMC = nomC;
+ this->DEADLINE = deadline;
 }
 /*void Cours1::set_nomC(QString nomC)
 {
@@ -58,11 +58,11 @@ bool Devoirs::ajouter()
 {
     QSqlQuery query;
           query.prepare("INSERT INTO DEVOIRS (nomD, refDev,nomC ,deadline) "
-                        "VALUES (:nomD, :RefDev,:nomC,:deadline)");
-          query.bindValue(":nomD",nomD);
-          query.bindValue(":refDev",refDev);
-          query.bindValue(":nomC",nomC);
-          query.bindValue(":deadline",deadline);
+                        "VALUES (:NOMD, :REFDEV,:NOMC,:DEADLINE)");
+          query.bindValue(":NOMD",NOMD);
+          query.bindValue(":REFDEV",REFDEV);
+          query.bindValue(":NOMC",NOMC);
+          query.bindValue(":DEADLINE",DEADLINE);
          return query.exec();
 }
 QSqlQueryModel* Devoirs::afficher()
@@ -71,7 +71,7 @@ QSqlQueryModel* Devoirs::afficher()
 
    model->setQuery("SELECT* FROM DEVOIRS");
    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Nom de Devoirs"));//ajouter un nouveau nom au  header de tableau
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Reference "));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Numero"));
    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Nom de Cours"));
    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Deadline"));
    return model;
@@ -85,49 +85,45 @@ bool Devoirs::supprimer(QString NOMD)
     return query.exec();
 
 }
-/*bool Cours1::modifier(int NUMERO)
+QSqlQueryModel * Devoirs::trier_id()
+{
+        QSqlQueryModel *model = new QSqlQueryModel();
+        model->setQuery("SELECT * from DEVOIRS ORDER BY REFDEV");
+        model->setHeaderData(0,Qt::Horizontal,"Nom De devoir");
+        model->setHeaderData(1,Qt::Horizontal,"Numero ");
+        model->setHeaderData(2,Qt::Horizontal,"Nom De Cours");
+        model->setHeaderData(3,Qt::Horizontal,"deadline");
+        return model ;
+}
+QSqlQueryModel * Devoirs::trier_nom()
+{
+        QSqlQueryModel *model = new QSqlQueryModel();
+        model->setQuery("SELECT * from DEVOIRS ORDER BY NOMD");
+        model->setHeaderData(0,Qt::Horizontal,"Nom De devoir");
+        model->setHeaderData(1,Qt::Horizontal,"Numero ");
+        model->setHeaderData(2,Qt::Horizontal,"Nom De Cours");
+        model->setHeaderData(3,Qt::Horizontal,"deadline");
+        return model ;
+}
+bool Devoirs::modifier()
 {
     QSqlQuery query;
-    query.prepare("UPDATE COURS SET NOMC=:NOMC,NOME=:NOME,HEURED=:HEURED,HEUREF=:HEUREF WHERE NUMERO=:NUMERO");
-    int res=NUMERO;
-    query.bindValue(":NUMERO",res);
-    query.bindValue(":NOMC",nomC);
-    query.bindValue(":NOME",nomE);
-    query.bindValue(":HEURED",heureD);
-    query.bindValue(":HEUREF",heureF);
+    QString res=QString::number(REFDEV);
+    query.prepare("UPDATE DEVOIRS SET NOMD=:NOMD,REFDEV=:REFDEV,DEADLINE=:DEADLINE,NOMC=:NOMC");
+    query.bindValue(":REFDEV",res);
+    query.bindValue(":NOMD",NOMC);
+    query.bindValue(":REFDEV",REFDEV);
+    query.bindValue(":DEADLINE",DEADLINE);
+    query.bindValue(":NOMC",NOMC);
     return query.exec();
 }
-QSqlQueryModel* Cours1::chercher(QString NOMC)
+QSqlQueryModel* Devoirs::chercher(QString NOMD)
 {
    QSqlQueryModel* model =new QSqlQueryModel();
-   model->setQuery("SELECT * FROM COURS WHERE NOMC='"+NOMC+"'");
-   model->setHeaderData(0, Qt::Horizontal,"Nom de cours ");//ajouter un nouveau nom au  header de tableau
-   model->setHeaderData(1, Qt::Horizontal,"Numero ");
-   model->setHeaderData(2, Qt::Horizontal,"Nom de l'enseignant");
-   model->setHeaderData(3, Qt::Horizontal,"Heure de debut");
-   model->setHeaderData(4, Qt::Horizontal,"Heure de fin");
+   model->setQuery("SELECT * FROM DEVOIRS WHERE NOMD='"+NOMD+"'"   );
+   model->setHeaderData(0, Qt::Horizontal,"Nom de devoirs ");//ajouter un nouveau nom au  header de tableau
+   model->setHeaderData(1, Qt::Horizontal,"Numero");
+   model->setHeaderData(2, Qt::Horizontal,"Deadline");
+   model->setHeaderData(3, Qt::Horizontal,"Nom de cours");
    return model;
 }
-QSqlQueryModel * Cours1::trier_id()
-{
-        QSqlQueryModel *model = new QSqlQueryModel();
-        model->setQuery("SELECT * from COURS ORDER BY NUMERO");
-        model->setHeaderData(0,Qt::Horizontal,"Nom De Cours");
-        model->setHeaderData(1,Qt::Horizontal,"Numero De Cours");
-        model->setHeaderData(2,Qt::Horizontal,"Nom De L'enseignant");
-        model->setHeaderData(3,Qt::Horizontal,"Heure Debut");
-        model->setHeaderData(4,Qt::Horizontal,"Heure Fin");
-        return model ;
-}
-QSqlQueryModel * Cours1::trier_nom()
-{
-        QSqlQueryModel *model = new QSqlQueryModel();
-        model->setQuery("SELECT * from COURS ORDER BY NOMC");
-        model->setHeaderData(0,Qt::Horizontal,"Nom De Cours");
-        model->setHeaderData(1,Qt::Horizontal,"Numero De Cours");
-        model->setHeaderData(2,Qt::Horizontal,"Nom De L'enseignant");
-        model->setHeaderData(3,Qt::Horizontal,"Heure Debut");
-        model->setHeaderData(4,Qt::Horizontal,"Heure Fin");
-        return model ;
-}
-*/

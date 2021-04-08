@@ -5,13 +5,13 @@
 
 class Devoirs
 {
-    QString nomD;
-    QString refDev;
-    QString nomC;
-    QString deadline;
+    QString NOMD;
+    int REFDEV;
+    QString NOMC;
+    QString DEADLINE;
 public:
     Devoirs();
-    Devoirs(QString,QString,QString,QString);
+    Devoirs(QString,int,QString,QString);
     ~Devoirs();
     /*void set_nomC(QString);
     void set_nomE(QString);
@@ -25,13 +25,14 @@ public:
     QSqlQueryModel* afficher();
     bool supprimer(QString);
     bool modifier(int);
+    */
     QSqlQueryModel* chercher(QString);
     QSqlQueryModel* trier_id();
     QSqlQueryModel * trier_nom();
-    */
     bool ajouter();
     QSqlQueryModel* afficher();
     bool supprimer(QString);
+    bool modifier();
 };
 
 #endif // DEVOIRS_H

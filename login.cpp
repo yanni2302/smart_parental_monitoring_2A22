@@ -4,11 +4,17 @@
 #include <QThread>
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
+#include <QPixmap>
 login::login(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::login)
 {
     ui->setupUi(this);
+    //login background
+    QPixmap pix3(":/img/login.jpg");
+    int w2 = ui->login_2->width();
+    int h2 = ui->login_2->height();
+    ui->login_2->setPixmap(pix3.scaled(w2,h2,Qt::KeepAspectRatio));
 }
 
 login::~login()

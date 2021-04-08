@@ -23,13 +23,15 @@ int main(int argc, char *argv[])
          player->play();
          qDebug()<<player->errorString();
          QThread::sleep(1);
-    QMessageBox::information(nullptr,QObject::tr("database is open"),
+    /*QMessageBox::information(nullptr,QObject::tr("database is open"),
     QObject::tr("connected \n"
                 "click ok to exit"),QMessageBox::Ok);}
     else
     {//qDebug() <<"erreur de connexion";
         QMessageBox::information(nullptr,QObject::tr("database is open"),
         QObject::tr("connection failed \n"
-                    "click cancel to exit"),QMessageBox::Cancel);}
+                    "click cancel to exit"),QMessageBox::Cancel);
+                    */
+         }
     return a.exec();
 }
