@@ -54,6 +54,7 @@ bool Personned_aides::supprimer(int identifiant)
 
     return  query.exec();
 }
+
 QSqlQueryModel* Personned_aides::afficher()
 {
 
@@ -111,3 +112,4 @@ QSqlQueryModel * Personned_aides::rechercherNom(QString metier)
     return (model);
 
 }
+

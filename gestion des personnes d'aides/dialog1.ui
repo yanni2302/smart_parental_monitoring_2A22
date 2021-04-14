@@ -157,8 +157,8 @@ color: #fade02;</string>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>190</y>
+     <x>210</x>
+     <y>180</y>
      <width>171</width>
      <height>91</height>
     </rect>
@@ -175,17 +175,18 @@ font: 36pt &quot;Onyx&quot;;</string>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>250</y>
+     <x>140</x>
+     <y>270</y>
      <width>361</width>
      <height>121</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    <string notr="true">
+font: 13pt &quot;Nuchelle&quot;;</string>
    </property>
    <property name="text">
-    <string>E-Nanny est une application desktop</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;E-Nanny est une application&lt;/p&gt;&lt;p&gt;desktop de contrôle parental&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>

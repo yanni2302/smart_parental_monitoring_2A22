@@ -12,6 +12,7 @@ mainwindow1::mainwindow1(QWidget *parent) :
     update_mail_list();
 sound=new QSound("./music.wav");
 sound1=new QSound("./M.wav");
+ connect(ui->filebtn, SIGNAL(clicked()), this, SLOT(file()));
 
 }
 
@@ -223,10 +224,19 @@ if(test)
    { msgBox.setText("Ajout de la reclamation avec succes.");
 ui->afficher_rec->setModel(R.afficher_reclamtion());
 Smtp* smtp = new Smtp("soumaya99.bensassi@gmail.com","Sb50607010", "smtp.gmail.com");
-smtp->sendMail("soumaya99.bensassi@gmail.com",ui->comboBo_3->currentText(),ui->lineedit_sujet->text(),ui->lineedit_msg->text());
-  ui->comboBo_3->clear();
-  ui->lineedit_sujet->clear();
-  ui->lineedit_msg->clear();
+
+
+if( !files.isEmpty() )
+
+     smtp->sendMail("soumaya99.bensassi@gmail.com",ui->comboBo_3->currentText(),ui->lineedit_sujet->text(),ui->lineedit_msg->text(),files);
+  else
+     smtp->sendMail("soumaya99.bensassi@gmail.com",ui->comboBo_3->currentText(),ui->lineedit_sujet->text(),ui->lineedit_msg->text());
+
+
+ui->comboBo_3->clear();
+ ui->lineedit_sujet->clear();
+ ui->lineedit_msg->clear();
+ ui->file->clear();
   msgBox.exec();
 }
 else
@@ -304,4 +314,37 @@ void mainwindow1::on_stop_clicked()
 {
 sound->stop();
 }
+
+void mainwindow1::file()
+{
+    files.clear();
+
+    QFileDialog dialog(this);
+    dialog.setDirectory(QDir::homePath());
+    dialog.setFileMode(QFileDialog::ExistingFiles);
+
+    if (dialog.exec())
+        files = dialog.selectedFiles();
+
+    QString fileListString;
+    foreach(QString file, files)
+        fileListString.append( "\"" + QFileInfo(file).fileName() + "\" " );
+
+    ui->file->setText( fileListString );
+}
+
+void mainwindow1::on_tabWidget_2_tabBarClicked(int index)
+{
+
+    qDeleteAll(ui->tabWidget_2->widget(0)->children());
+    QWidget* barstats = new QWidget(this);
+    barstats = barchart();
+    QGridLayout* layout = new QGridLayout(this);
+    layout->addWidget(barstats, 0, 0); // Top-Left
+    layout->addWidget(NULL, 0, 1); // Top-Right
+    layout->addWidget(NULL, 1, 0); // Bottom-Left
+    layout->addWidget(NULL, 1, 1); // Bottom-Right
+    ui->tab_4->setLayout(layout);
+}
+
 

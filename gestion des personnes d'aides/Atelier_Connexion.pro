@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql network multimedia
+QT       += core gui sql network multimedia charts
 
 
 
@@ -27,6 +27,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    barchart.cpp \
     dialog1.cpp \
         main.cpp \
     connection.cpp \

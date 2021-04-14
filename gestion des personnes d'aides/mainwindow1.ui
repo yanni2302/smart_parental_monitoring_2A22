@@ -203,7 +203,7 @@ QTabBar::tab:selected {
 </string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="Ajouter_E_3">
       <attribute name="title">
@@ -1077,6 +1077,29 @@ text-align:center;
        </property>
       </widget>
      </widget>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>statistique</string>
+      </attribute>
+      <widget class="QTabWidget" name="tabWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>991</width>
+         <height>401</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="tab_4">
+        <attribute name="title">
+         <string>metier</string>
+        </attribute>
+       </widget>
+      </widget>
+     </widget>
     </widget>
    </widget>
    <widget class="QWidget" name="reclamation">
@@ -1219,9 +1242,9 @@ text-align:center;</string>
        <property name="geometry">
         <rect>
          <x>170</x>
-         <y>130</y>
+         <y>160</y>
          <width>731</width>
-         <height>231</height>
+         <height>201</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -1295,6 +1318,48 @@ padding: 0 8px;
 background: white;
 selection-background-color: gray;
 </string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="filebtn">
+       <property name="geometry">
+        <rect>
+         <x>910</x>
+         <y>120</y>
+         <width>101</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: #fade02;
+font: bold, &quot;Comic Sans MS&quot;;;
+text-align:center;</string>
+       </property>
+       <property name="text">
+        <string>Browse ...</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="file">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>120</y>
+         <width>721</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;</string>
+       </property>
+       <property name="placeholderText">
+        <string>attachement here</string>
        </property>
       </widget>
      </widget>

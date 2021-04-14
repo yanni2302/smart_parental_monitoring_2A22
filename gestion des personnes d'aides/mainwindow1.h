@@ -7,6 +7,9 @@
 #include"smtp.h"
 #include<QtMultimedia/QSound>
 #include<QTimer>
+#include <QDialog>
+#include <QFileDialog>
+#include <QtCharts>
 namespace Ui {
 class mainwindow1;
 }
@@ -28,7 +31,15 @@ public:
     bool controleVideInt(int test);
 
     bool controleEmail(QString test);
+    int R_BCS1();
+    int R_BCS2();
+    int R_BCS3();
+    int R_BCS4();
+    int R_BCS5();
+    int R_BCS6();
 
+
+    QChartView* barchart();
 private slots:
 
 
@@ -41,6 +52,7 @@ private slots:
     void on_recherche_textChanged(const QString &arg1);
 
     void on_tri_clicked();
+    void file();
 
     void on_afficher_personne_activated(const QModelIndex &index);
 
@@ -60,6 +72,9 @@ private slots:
 
     void on_stop_clicked();
 
+    void on_tabWidget_2_tabBarClicked(int index);
+
+    void on_medecins_3_tabBarClicked(int index);
 
 private:
     Ui::mainwindow1 *ui;
@@ -70,7 +85,7 @@ private:
     reclamation R;
     QSound *sound;
     QSound *sound1;
-
+ QStringList files;
 };
 
 #endif // MAINWINDOW1_H
