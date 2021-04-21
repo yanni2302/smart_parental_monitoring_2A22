@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include"mainwindow1.h"
+#include "arduino.h"
 namespace Ui {
 class Dialog1;
 }
@@ -18,9 +19,14 @@ public:
 
 private slots:
     void on_pushButton_clicked();
+    void update_login();
+    void on_QUIT_clicked();
 
 private:
     Ui::Dialog1 *ui;
+    QByteArray data; // variable contenant les données reçues
+
+    Arduino A; // objet temporaire
 };
 
 #endif // DIALOG1_H

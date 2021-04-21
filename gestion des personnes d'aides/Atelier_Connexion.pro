@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql network multimedia charts
+QT       += core gui sql network multimedia charts serialport
 
 
 
@@ -27,6 +27,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    arduino.cpp \
     barchart.cpp \
     dialog1.cpp \
         main.cpp \
@@ -37,6 +38,7 @@ SOURCES += \
     smtp.cpp
 
 HEADERS += \
+    arduino.h \
     dialog1.h \
     connection.h \
     mainwindow1.h \

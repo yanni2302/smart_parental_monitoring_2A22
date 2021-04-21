@@ -10,6 +10,7 @@
 #include <QDialog>
 #include <QFileDialog>
 #include <QtCharts>
+
 namespace Ui {
 class mainwindow1;
 }
@@ -74,7 +75,7 @@ private slots:
 
     void on_tabWidget_2_tabBarClicked(int index);
 
-    void on_medecins_3_tabBarClicked(int index);
+
 
 private:
     Ui::mainwindow1 *ui;
@@ -86,6 +87,7 @@ private:
     QSound *sound;
     QSound *sound1;
  QStringList files;
+
 };
 
 #endif // MAINWINDOW1_H

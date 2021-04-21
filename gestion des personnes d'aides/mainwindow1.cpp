@@ -12,7 +12,7 @@ mainwindow1::mainwindow1(QWidget *parent) :
     update_mail_list();
 sound=new QSound("./music.wav");
 sound1=new QSound("./M.wav");
- connect(ui->filebtn, SIGNAL(clicked()), this, SLOT(file()));
+ QObject::connect(ui->filebtn, SIGNAL(clicked()), this, SLOT(file()));
 
 }
 
@@ -20,6 +20,7 @@ mainwindow1::~mainwindow1()
 {
     delete ui;
 }
+
 bool mainwindow1::controleNumTel(int test)
 {
     QString tel= QString::number(test);
@@ -32,6 +33,7 @@ bool mainwindow1::controleNumTel(int test)
     }
     return false;
 }
+
 
 bool mainwindow1::controleVide(QString test)
 {
