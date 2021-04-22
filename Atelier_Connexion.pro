@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql multimedia
+QT       += core gui sql multimedia serialport
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -26,6 +26,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    arduino_bouton.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
@@ -33,6 +34,7 @@ SOURCES += \
     timeclass.cpp
 
 HEADERS += \
+    arduino_bouton.h \
         mainwindow.h \
     connection.h \
     motcle.h \

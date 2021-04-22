@@ -92,7 +92,9 @@ public:
         tabWidget = new QTabWidget(widget);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
         tabWidget->setGeometry(QRect(0, 0, 1011, 471));
+        tabWidget->setAutoFillBackground(false);
         tabWidget->setStyleSheet(QString::fromUtf8("/*border: 2px solid ;*/\n"
+"background-image: url(:/img/image.jpg);\n"
 "/*font: 75 8pt \"MS Shell Dlg 2\" ;*/\n"
 "border-radius: 10px;\n"
 "padding: 0 8px;\n"
@@ -105,6 +107,7 @@ public:
         tabWidget_3 = new QTabWidget(tab);
         tabWidget_3->setObjectName(QString::fromUtf8("tabWidget_3"));
         tabWidget_3->setGeometry(QRect(0, 0, 1001, 431));
+        tabWidget_3->setAutoFillBackground(true);
         tabWidget_3->setStyleSheet(QString::fromUtf8("background-image: url(:/img/image.jpg);"));
         tab_5 = new QWidget();
         tab_5->setObjectName(QString::fromUtf8("tab_5"));
@@ -572,9 +575,9 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
         tabWidget_3->setCurrentIndex(1);
-        tabWidget_2->setCurrentIndex(1);
+        tabWidget_2->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

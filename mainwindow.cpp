@@ -18,17 +18,42 @@ MainWindow::MainWindow(QWidget *parent) :
 
 update();
 Sound = new QSound ("music.wav");
+Soundclic = new QSound ("clic.wav");
 setStyleSheet("background-image: image.jpg");
+int ret=A.connect_arduino(); // lancer la connexion à arduino
+switch(ret){
+case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+    break;
+case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+   break;
+case(-1):qDebug() << "arduino is not available";
 }
+ QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+ //le slot update_label suite à la reception du signal readyRead (reception des données).
+}
+
+
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+void MainWindow::update_label()
+{
+    data=A.read_from_arduino();
 
+    if(data=="1")
+{
+
+
+}
+
+
+}
 
 void MainWindow::on_ajouter_clicked()
 {
+     Soundclic->play();
     int hourdeb=ui->timeEdit->time().hour();
     int minutedeb=ui->timeEdit->time().minute();
     int hourfin=ui->timeEdit_2->time().hour();
@@ -67,7 +92,7 @@ ui->tableView->setModel(T.afficher());
 
 void MainWindow::on_pb_supp_clicked()
 {
-
+ Soundclic->play();
     bool test=T.supprimer(id_enfant);
     if (test){
 
@@ -127,7 +152,7 @@ void MainWindow::on_tableView_clicked(const QModelIndex &index)
 }
 
 void MainWindow::on_ajouter_2_clicked()
-{
+{ Soundclic->play();
      int hourdeb=ui->timeEdit_4->time().hour();
      int minutedeb=ui->timeEdit_4->time().minute();
      int hourfin=ui->timeEdit_3->time().hour();
@@ -156,7 +181,7 @@ void MainWindow::update()
 }
 
 void MainWindow::on_ajouter_3_clicked()
-{
+{ Soundclic->play();
     int identifiant=ui->lineEdit_4->text().toInt();
     QString site=ui->lineEdit_2->text();
     int age=ui->lineEdit_3->text().toInt();
@@ -209,7 +234,7 @@ void MainWindow::on_tableView_2_clicked(const QModelIndex &index)
 void MainWindow::on_pb_supp_2_clicked()
 {
 
-
+ Soundclic->play();
 
         bool test=M.supprimer(id_site);
         QMessageBox msgBox;
@@ -225,7 +250,7 @@ void MainWindow::on_pb_supp_2_clicked()
 }
 
 void MainWindow::on_ajouter_4_clicked()
-{
+{ Soundclic->play();
     int id =ui->lineEdit_7->text().toInt();
            QString site=ui->lineEdit_6->text();
 
@@ -242,7 +267,7 @@ void MainWindow::on_ajouter_4_clicked()
 }
 
 void MainWindow::on_trie_clicked()
-{
+{ Soundclic->play();
     ui->tableView_2->setModel(M.AfficherTrieAge());
 
 

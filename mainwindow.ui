@@ -26,8 +26,12 @@
       <height>471</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="styleSheet">
      <string notr="true">/*border: 2px solid ;*/
+background-image: url(:/img/image.jpg);
 /*font: 75 8pt &quot;MS Shell Dlg 2&quot; ;*/
 border-radius: 10px;
 padding: 0 8px;
@@ -37,7 +41,7 @@ text-align:center;
 color: black;</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -52,11 +56,14 @@ color: black;</string>
         <height>431</height>
        </rect>
       </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
       <property name="styleSheet">
        <string notr="true">background-image: url(:/img/image.jpg);</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_5">
        <attribute name="title">

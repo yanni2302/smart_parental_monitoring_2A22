@@ -3,6 +3,7 @@
 #include "timeclass.h"
 #include "motcle.h"
 #include "QtMultimedia/QSound"
+#include "arduino_bouton.h"
 #include <QMainWindow>
 namespace Ui {
 class MainWindow;
@@ -19,6 +20,7 @@ public:
 
 private slots:
 
+     void update_label();
     void on_ajouter_clicked();
 
     void on_pb_supp_clicked();
@@ -55,6 +57,11 @@ private:
     motcle M;
     int id_site=0;
     QSound *Sound;
+QSound *Soundclic;
+
+QByteArray data; // variable contenant les données reçues
+
+Arduino_bouton A; // objet temporaire
 };
 
 #endif // MAINWINDOW_H
