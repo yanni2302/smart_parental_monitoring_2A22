@@ -17,7 +17,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+     void update();
 private slots:
     void on_b_ajoutC_clicked();
 
@@ -28,6 +28,7 @@ private slots:
    void on_chercher_cours_clicked();
 
     void on_chercher_clicked();
+
 
     void on_trier_cours_clicked();
 
@@ -71,6 +72,8 @@ private slots:
     bool controleVide(QString test);
     bool controleVideInt(int test);
 
+    void on_envoyer_clicked();
+
 private:
     Ui::MainWindow *ui;
     Cours1 C;
@@ -78,7 +81,7 @@ private:
     QMediaPlayer *player;
     int id_eq=0;
     int id_Dev=0;
-
+    QStringList files;
 
 };
 #endif // MAINWINDOW_H

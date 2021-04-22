@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "cours1.h"
+#include "smtp.h"
 #include<QMessageBox>
 #include<QIntValidator>
 #include <QPixmap>
@@ -27,14 +28,16 @@ MainWindow::MainWindow(QWidget *parent)
     ui->heureF->setValidator(new QIntValidator(0, 99999999, this));
     ui->coursView->setModel(C.afficher());
     ui->coursView_2->setModel(D.afficher());
+    update();
     //combobox
-    ui->comboBox->addItem("Anglais");
+   /* ui->comboBox->addItem("Anglais");
      ui->comboBox->addItem("Français");
       ui->comboBox->addItem("Maths");
        ui->comboBox->addItem("Programmation");
         ui->comboBox->addItem("Physiques");
          ui->comboBox->addItem("Music");
           ui->comboBox->addItem("");
+          */
           //background
           QPixmap pix5(":/img/background3.jpg");
           int w4 = ui->background->width();
@@ -44,6 +47,8 @@ MainWindow::MainWindow(QWidget *parent)
            ui->background_3->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
             ui->background_4->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
              ui->background_5->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
+              ui->background_6->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
+              ui->background_7->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
     //ajouter de l'image cours_pic
     QPixmap pix(":/img/dev.jpg");
     int w = ui->dev_pic->width();
@@ -94,7 +99,7 @@ void MainWindow::on_b_ajoutC_clicked()
                                     QObject::tr("Ajout effectué\n"
                                                 "click Cancel to exit"),QMessageBox::Cancel);
            ui->coursView->setModel(C.afficher());
-
+         update();
 }
           else
           {msgBox.setText("Echec");
@@ -108,6 +113,15 @@ void MainWindow::on_b_ajoutC_clicked()
                                                 "click Cancel to exit"),QMessageBox::Cancel);
        }
 }
+  void MainWindow::update()
+  {
+          QSqlQueryModel *m=new QSqlQueryModel();
+          QSqlQuery *querry=new QSqlQuery();
+          querry->prepare("SELECT NOMC FROM COURS");
+          querry->exec();
+          m->setQuery(*querry);
+          ui->comboBox->setModel(m);
+  }
 void MainWindow::on_suppCours_3_clicked()
 {
     QString NomC=ui->suppCours->text();
@@ -118,6 +132,7 @@ void MainWindow::on_suppCours_3_clicked()
                                  QObject::tr("suppression effectué\n"
                                              "click Cancel to exit"),QMessageBox::Cancel);
         ui->coursView->setModel(C.afficher());
+        update();
     }
     else
     {
@@ -142,6 +157,7 @@ void MainWindow::on_modif_button_3_clicked()
                                  QObject::tr("Modification effectué\n"
                                              "click Cancel to exit"),QMessageBox::Cancel);
         ui->coursView->setModel(C.afficher());
+        update();
     }
     else
     {
@@ -353,3 +369,17 @@ bool MainWindow::controleVideInt(int test)
     return false;
 
 }
+void MainWindow::on_envoyer_clicked()
+{
+    QString mail_destinataire=ui->Destinataire->text();
+    QString objet=ui->objet->text();
+    QString message=ui->Message->text();
+Smtp* smtp = new Smtp("jihedca111@gmail.com","Jiji@jiji123", "smtp.gmail.com");
+smtp->sendMail("jihedca111@gmail.com",ui->Destinataire->text(),ui->objet->text(),ui->Message->text());
+
+
+ ui->Destinataire->clear();
+ ui->objet->clear();
+ ui->Message->clear();
+}
+

@@ -1,8 +1,8 @@
-QT       += core gui sql gui multimedia multimediawidgets printsupport charts
+QT       += core gui sql gui multimedia multimediawidgets printsupport charts network
 
 CONFIG += console
 
-greaterThan(QT_MAJOR_VERSION, 4): QT +=widgets multimedia core printsupport
+greaterThan(QT_MAJOR_VERSION, 4): QT +=widgets multimedia core printsupport network
 
 
 CONFIG += c++11
@@ -25,7 +25,8 @@ SOURCES += \
     enfant.cpp \
     login.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    smtp.cpp \
 
 HEADERS += \
     connexion.h \
@@ -33,7 +34,8 @@ HEADERS += \
     devoirs.h \
     enfant.h \
     login.h \
-    mainwindow.h
+    mainwindow.h \
+    smtp.h
 
 FORMS += \
     enfant.ui \

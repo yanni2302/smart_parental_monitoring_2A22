@@ -109,7 +109,7 @@ bool Devoirs::modifier()
 {
     QSqlQuery query;
     QString res=QString::number(REFDEV);
-    query.prepare("UPDATE DEVOIRS SET NOMD=:NOMD,REFDEV=:REFDEV,DEADLINE=:DEADLINE,NOMC=:NOMC");
+    query.prepare("UPDATE DEVOIRS SET NOMD=:NOMD,REFDEV=:REFDEV,DEADLINE=:DEADLINE,NOMC=:NOMC WHERE REFDEV=:REFDEV");
     query.bindValue(":REFDEV",res);
     query.bindValue(":NOMD",NOMC);
     query.bindValue(":REFDEV",REFDEV);

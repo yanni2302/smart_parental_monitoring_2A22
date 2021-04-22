@@ -118,10 +118,10 @@ QSqlQueryModel * Cours1::trier_id()
         QSqlQueryModel *model = new QSqlQueryModel();
         model->setQuery("SELECT * from COURS ORDER BY NUMERO");
         model->setHeaderData(0,Qt::Horizontal,"Nom De Cours");
-        model->setHeaderData(1,Qt::Horizontal,"Nom De L'enseignant");
+        model->setHeaderData(4,Qt::Horizontal,"Nom De L'enseignant");
         model->setHeaderData(2,Qt::Horizontal,"Heure Debut");
         model->setHeaderData(3,Qt::Horizontal,"Heure fin");
-        model->setHeaderData(4,Qt::Horizontal,"Numero De Cours");
+        model->setHeaderData(1,Qt::Horizontal,"Numero");
         return model ;
 }
 QSqlQueryModel * Cours1::trier_nom()
@@ -132,6 +132,6 @@ QSqlQueryModel * Cours1::trier_nom()
         model->setHeaderData(1,Qt::Horizontal,"Nom De L'enseignant");
         model->setHeaderData(2,Qt::Horizontal,"Heure Debut");
         model->setHeaderData(3,Qt::Horizontal,"Heure fin");
-        model->setHeaderData(4,Qt::Horizontal,"Numero De Cours");
+        model->setHeaderData(4,Qt::Horizontal,"Numero");
         return model ;
 }

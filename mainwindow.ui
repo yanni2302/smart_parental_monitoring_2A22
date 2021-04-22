@@ -33,7 +33,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -64,7 +64,7 @@
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideMiddle</enum>
@@ -89,8 +89,8 @@
        <widget class="QLabel" name="dev_pic">
         <property name="geometry">
          <rect>
-          <x>420</x>
-          <y>161</y>
+          <x>510</x>
+          <y>100</y>
           <width>651</width>
           <height>351</height>
          </rect>
@@ -1116,6 +1116,20 @@ font-family: Arial Black;</string>
          <string/>
         </property>
        </widget>
+       <widget class="QLabel" name="background_7">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>1601</width>
+          <height>781</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <zorder>background_7</zorder>
        <zorder>background_5</zorder>
        <zorder>line_7</zorder>
        <zorder>chercher</zorder>
@@ -1165,7 +1179,7 @@ font-family: Arial Black;</string>
        <string notr="true">color:black;</string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="tab_6">
        <attribute name="title">
@@ -2113,6 +2127,9 @@ font-family: Arial Black;</string>
           <string notr="true"> border: 2px solid gray;
  border-radius: 10px;</string>
          </property>
+         <property name="text">
+          <string/>
+         </property>
         </widget>
        </widget>
        <widget class="QTableView" name="chercher_cours_3">
@@ -2168,8 +2185,8 @@ background:gray;
        <widget class="QLabel" name="background_6">
         <property name="geometry">
          <rect>
-          <x>120</x>
-          <y>30</y>
+          <x>0</x>
+          <y>0</y>
           <width>1601</width>
           <height>781</height>
          </rect>
@@ -2178,6 +2195,12 @@ background:gray;
          <string/>
         </property>
        </widget>
+       <zorder>background_6</zorder>
+       <zorder>line_3</zorder>
+       <zorder>groupBox</zorder>
+       <zorder>chercher_cours_3</zorder>
+       <zorder>lineEdit_chercher_2</zorder>
+       <zorder>chercher_2</zorder>
       </widget>
       <widget class="QWidget" name="tab_11">
        <attribute name="title">
@@ -2199,6 +2222,93 @@ background:gray;
          </layout>
         </item>
        </layout>
+      </widget>
+      <widget class="QWidget" name="tab_12">
+       <attribute name="title">
+        <string>contact</string>
+       </attribute>
+       <widget class="QPushButton" name="envoyer">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>450</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>envoyer</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>90</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Destinataire</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>160</y>
+          <width>56</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Objet</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_7">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>240</y>
+          <width>56</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Message</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="Destinataire">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>80</y>
+          <width>351</width>
+          <height>41</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="objet">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>160</y>
+          <width>351</width>
+          <height>41</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="Message">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>240</y>
+          <width>351</width>
+          <height>191</height>
+         </rect>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>
