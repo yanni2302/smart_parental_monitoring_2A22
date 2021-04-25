@@ -203,7 +203,7 @@ QTabBar::tab:selected {
 </string>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="Ajouter_E_3">
       <attribute name="title">
@@ -524,22 +524,6 @@ text-align:center;</string>
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_metier_a">
-       <property name="geometry">
-        <rect>
-         <x>300</x>
-         <y>310</y>
-         <width>191</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border: 2px solid black;
-border-radius: 10px;
-padding: 0 8px;
-background:white</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="lineEdit_prix_heure_a">
        <property name="geometry">
         <rect>
@@ -570,6 +554,24 @@ background:white</string>
 border-radius: 10px;
 padding: 0 8px;
 background:white</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBo_4">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>310</y>
+         <width>191</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;
+</string>
        </property>
       </widget>
      </widget>

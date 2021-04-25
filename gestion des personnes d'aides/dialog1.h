@@ -20,8 +20,8 @@ public:
 private slots:
     void on_pushButton_clicked();
     void update_login();
-    void on_QUIT_clicked();
 
+void on_QUIT_clicked();
 private:
     Ui::Dialog1 *ui;
     QByteArray data; // variable contenant les données reçues

@@ -13,7 +13,12 @@ mainwindow1::mainwindow1(QWidget *parent) :
 sound=new QSound("./music.wav");
 sound1=new QSound("./M.wav");
  QObject::connect(ui->filebtn, SIGNAL(clicked()), this, SLOT(file()));
-
+ui->comboBo_4->addItem("medecin");
+ui->comboBo_4->addItem("babysitters");
+ui->comboBo_4->addItem("infirmiere");
+ui->comboBo_4->addItem("prof dessin");
+ui->comboBo_4->addItem("prof sport");
+ui->comboBo_4->addItem("prof musique");
 }
 
 mainwindow1::~mainwindow1()
@@ -71,7 +76,7 @@ sound1->play();
     QString prenom=ui->lineEdit_pernom_a->text();
     QString adresse=ui->lineEdit_adresse_a->text();
      QString email=ui->lineEdit_email_a->text();
-      QString metier=ui->lineEdit_metier_a->text();
+      QString metier=ui->comboBo_4->currentText();
       int prix_heure =ui->lineEdit_prix_heure_a->text().toInt();
       int num_tel =ui->lineEdit_num_tel_a->text().toInt();
 
