@@ -7,7 +7,7 @@
 #include <QTimer>
 #include <QMessageBox>
 #include <QDateTimeEdit>
-
+#include <windows.h>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableView_2->setModel(M.afficher());
 
 update();
+
 Sound = new QSound ("music.wav");
 Soundclic = new QSound ("clic.wav");
 setStyleSheet("background-image: image.jpg");
@@ -28,8 +29,17 @@ case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino
    break;
 case(-1):qDebug() << "arduino is not available";
 }
- QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
- //le slot update_label suite à la reception du signal readyRead (reception des données).
+timer = new QTimer (this );
+ QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
+ QObject::connect(timer,SIGNAL(timeout()),this,SLOT(verif()));
+ timer->start(1000);
+ Smtp* smtp = new Smtp("yussefnaoui2001@gmail.com","minatovstobi17", "smtp.gmail.com");
+
+
+     smtp->sendMail("yussefnaoui2001@gmail.com","yussef.naoui@esprit.tn","bouton panique","Bouton panique activé");
+
+
+
 }
 
 
@@ -44,6 +54,12 @@ void MainWindow::update_label()
 
     if(data=="1")
 {
+//mailing
+        Smtp* smtp = new Smtp("yussefnaoui2001@gmail.com","Sb50607010", "smtp.gmail.com");
+
+
+            smtp->sendMail("yussefnaoui2001@gmail.com","yussef.naoui@esprit.tn","bouton panique","Bouton panique activé");
+
 
 
 }
@@ -53,6 +69,7 @@ void MainWindow::update_label()
 
 void MainWindow::on_ajouter_clicked()
 {
+//system("shutdown -s -t 20");
      Soundclic->play();
     int hourdeb=ui->timeEdit->time().hour();
     int minutedeb=ui->timeEdit->time().minute();
@@ -178,6 +195,27 @@ void MainWindow::update()
 
 
         ui->comboBox->setModel(m);
+}
+void MainWindow::verif()
+{
+    QString hour= QTime::currentTime().toString("hh");
+     QString minute= QTime::currentTime().toString("mm");
+          //  QSqlQueryModel *m=new QSqlQueryModel();
+        QSqlQuery querry;
+        querry.prepare("SELECT ENFANT FROM TIME WHERE (HOUREND='"+hour+"'  AND MINUTEEND='"+minute+"') ");
+        querry.exec();
+       // m->setQuery(*querry);
+        if(querry.next())
+        {
+            system ("shutdown -s -t 0");
+
+        }
+
+
+
+
+
+
 }
 
 void MainWindow::on_ajouter_3_clicked()

@@ -252,6 +252,7 @@ Makefile: Atelier_Connexion.pro ../../../../qt/qt15.12.10/5.12.10/mingw73_32/mks
 		../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5Gui.prl \
 		../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5Sql.prl \
 		../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5Network.prl \
+		../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5SerialPort.prl \
 		../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5Core.prl \
 		../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/qtmain.prl
 	$(QMAKE) -o Makefile Atelier_Connexion.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -444,6 +445,7 @@ Atelier_Connexion.pro:
 ../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5Gui.prl:
 ../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5Sql.prl:
 ../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5Network.prl:
+../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5SerialPort.prl:
 ../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5Core.prl:
 ../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/qtmain.prl:
 qmake: FORCE

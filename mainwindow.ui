@@ -41,7 +41,7 @@ text-align:center;
 color: black;</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -63,7 +63,7 @@ color: black;</string>
        <string notr="true">background-image: url(:/img/image.jpg);</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_5">
        <attribute name="title">

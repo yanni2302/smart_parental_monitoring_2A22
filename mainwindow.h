@@ -5,6 +5,7 @@
 #include "QtMultimedia/QSound"
 #include "arduino_bouton.h"
 #include <QMainWindow>
+#include "smtp.h"
 namespace Ui {
 class MainWindow;
 }
@@ -50,6 +51,9 @@ private slots:
     void on_pushButton_2_clicked();
 bool controleVide(QString );
 bool controleVideInt(int );
+
+void verif();
+
 private:
     Ui::MainWindow *ui;
     timeclass T;
@@ -58,6 +62,7 @@ private:
     int id_site=0;
     QSound *Sound;
 QSound *Soundclic;
+QTimer  *timer;
 
 QByteArray data; // variable contenant les données reçues
 

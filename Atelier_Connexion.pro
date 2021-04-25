@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql multimedia serialport
+QT       += core gui sql multimedia serialport network
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -31,6 +31,7 @@ SOURCES += \
         mainwindow.cpp \
     connection.cpp \
     motcle.cpp \
+    smtp.cpp \
     timeclass.cpp
 
 HEADERS += \
@@ -38,6 +39,7 @@ HEADERS += \
         mainwindow.h \
     connection.h \
     motcle.h \
+    smtp.h \
     timeclass.h
 
 FORMS += \
