@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "cours1.h"
+#include "arduino.h"
+#include "activite.h"
 #include "smtp.h"
 #include<QMessageBox>
 #include<QIntValidator>
@@ -15,6 +17,7 @@
 #include <QtPrintSupport>
 #include <QFileDialog>
 #include <QFile>
+#include "secdialog.h"
 
 
 
@@ -23,16 +26,18 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+   // MainWindow::makePlot();
     player = new QMediaPlayer(this);
     ui->heureD->setValidator(new QIntValidator(0, 99999999, this));
     ui->heureF->setValidator(new QIntValidator(0, 99999999, this));
     ui->coursView->setModel(C.afficher());
     ui->coursView_2->setModel(D.afficher());
+    ui->activiteView->setModel(AC.afficher());
     update();
     //combobox
-   /* ui->comboBox->addItem("Anglais");
-     ui->comboBox->addItem("Français");
-      ui->comboBox->addItem("Maths");
+    ui->etat->addItem("TO DO");
+     ui->etat->addItem("Done");
+    /*  ui->comboBox->addItem("Maths");
        ui->comboBox->addItem("Programmation");
         ui->comboBox->addItem("Physiques");
          ui->comboBox->addItem("Music");
@@ -49,6 +54,9 @@ MainWindow::MainWindow(QWidget *parent)
              ui->background_5->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
               ui->background_6->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
               ui->background_7->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
+               ui->background_8->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
+                ui->background_9->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
+                 ui->background_10->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
     //ajouter de l'image cours_pic
     QPixmap pix(":/img/dev.jpg");
     int w = ui->dev_pic->width();
@@ -72,6 +80,17 @@ MainWindow::MainWindow(QWidget *parent)
     int h3 = ui->home->height();
     ui->home->setPixmap(pix3.scaled(w3,h3,Qt::KeepAspectRatio));
     ui->profile->setPixmap(pix4.scaled(w3,h3,Qt::KeepAspectRatio));
+  //Arduino
+      int ret=A.connect_arduino(); // lancer la connexion à arduino
+      switch(ret){
+      case(0):qDebug()<< "arduino est disponible and connected to : "<< A.getarduino_port_name();
+          break;
+      case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+         break;
+      case(-1):qDebug() << "arduino is not available";
+      }
+       QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+       //le slot update_label suite à la reception du signal readyRead (reception des données).
 }
 
 MainWindow::~MainWindow()
@@ -113,6 +132,7 @@ void MainWindow::on_b_ajoutC_clicked()
                                                 "click Cancel to exit"),QMessageBox::Cancel);
        }
 }
+//*****************ComboBox******************
   void MainWindow::update()
   {
           QSqlQueryModel *m=new QSqlQueryModel();
@@ -121,7 +141,9 @@ void MainWindow::on_b_ajoutC_clicked()
           querry->exec();
           m->setQuery(*querry);
           ui->comboBox->setModel(m);
+          ui->cours->setModel(m);
   }
+//**********************************************
 void MainWindow::on_suppCours_3_clicked()
 {
     QString NomC=ui->suppCours->text();
@@ -146,10 +168,11 @@ void MainWindow::on_suppCours_3_clicked()
 void MainWindow::on_modif_button_3_clicked()
 {
     QString NOMC=ui->nomC_4->text();
-    QString NOME=ui->nomE_3->text();
-    QString HEURED=ui->heureD_3->text();
+    QString NOME=ui->nomE_2->text();
+    QString HEURED=ui->heureD_2->text();
     QString HEUREF=ui->heureF_3->text();
-    Cours1 C(NOMC,NOME,HEURED,HEUREF,id_eq);
+    int Numero=ui->numC->text().toInt();
+    Cours1 C(NOMC,NOME,HEURED,HEUREF,Numero);
     bool test=C.modifier();
     if(test)
     {
@@ -194,14 +217,14 @@ void MainWindow::on_coursView_activated(const QModelIndex &index)
     QString val=ui->coursView->model()->data(index).toString();
               QSqlQuery qry;
               qry.prepare("select * from COURS where"
-                          "NOMC='"+val+"' or NUMERO ='"+val+"' NOME='"+val+"' or HEURED='"+val+"' or HEUREF='"+val+"'");
+                          "NUMERO ='"+val+"'");
               if(qry.exec())
                 {while (qry.next())
                { ui->nomC_4->setText(qry.value(0).toString());
-                 ui->numC->setText(qry.value(4).toString());
-                 ui->nomE_3->setText(qry.value(1).toString());
-                 ui->heureD_3->setText(qry.value(2).toString());
-                 ui->heureF_3->setText(qry.value(3).toString());
+                 ui->numC->setText(qry.value(1).toString());
+                 ui->nomE_2->setText(qry.value(2).toString());
+                 ui->heureD_2->setText(qry.value(3).toString());
+                 ui->heureF_3->setText(qry.value(4).toString());
                }
             }
 }
@@ -382,4 +405,194 @@ smtp->sendMail("jihedca111@gmail.com",ui->Destinataire->text(),ui->objet->text()
  ui->objet->clear();
  ui->Message->clear();
 }
+//*********************Arduino*************************
+void MainWindow::update_label()
+{
+    data=A.read_from_arduino();
 
+    if(data=="1")
+
+        ui->label_11->setText("ON"); // si les données reçues de arduino via la liaison série sont égales à 1
+    // alors afficher ON
+
+    else if (data=="0")
+
+        ui->label_11->setText("OFF");   // si les données reçues de arduino via la liaison série sont égales à 0
+     //alors afficher ON
+      else if (data=="2")
+
+       ui->label_11->setText("+");
+    else if (data=="3")
+
+     ui->label_11->setText("-");
+}
+void MainWindow::on_on_clicked()
+{
+      A.write_to_arduino("1"); //envoyer 1 à arduino
+}
+
+void MainWindow::on_off_clicked()
+{
+     A.write_to_arduino("0");  //envoyer 0 à arduino
+}
+
+void MainWindow::on_plus_clicked()
+{
+     A.write_to_arduino("2");   //envoyer 2 à arduino
+}
+
+void MainWindow::on_moins_clicked()
+{
+     A.write_to_arduino("3");  //envoyer 3 à arduino
+}
+//**********************************Activite***********************************
+void MainWindow::on_activite_ajouter_clicked()
+{
+    int numero=ui->numero_2->text().toInt();
+    QString cours=ui->cours->currentText();
+     QString activite=ui->activite->text();
+      QString etat=ui->etat->currentText();
+      Activite A(numero,cours,activite,etat);
+      bool test;
+      test = A.ajouter();
+         QMessageBox msgBox;
+      if(test)
+      {
+          QMessageBox::information(nullptr,QObject::tr("ok"),
+                                   QObject::tr("Ajout effectué\n"
+                                               "click Cancel to exit"),QMessageBox::Cancel);
+          //ui->coursView->setModel(C.afficher());
+        update();
+}
+
+
+      else
+      {
+          QMessageBox::information(nullptr,QObject::tr("not ok"),
+                                   QObject::tr("Ajout n'est pas effectué\n"
+                                               "click Cancel to exit"),QMessageBox::Cancel);
+      }
+}
+/*void MainWindow::makePlot()
+{
+    // generate some data:
+    QVector<double> x(101), y(101); // initialize with entries 0..100
+    for (int i=0; i<101; ++i)
+    {
+      x[i] = i/50.0 - 1; // x goes from -1 to 1
+      y[i] = x[i]*x[i]; // let's plot a quadratic function
+    }
+    // create graph and assign data to it:
+    ui->customPlot->addGraph();
+      ui->customPlot->graph(0)->setData(x, y);
+    // give the axes some labels:
+      ui->customPlot->xAxis->setLabel("x");
+      ui->customPlot->yAxis->setLabel("y");
+    // set axes ranges, so we see all data:
+      ui->customPlot->xAxis->setRange(-1, 1);
+      ui->customPlot->yAxis->setRange(0, 1);
+      ui->customPlot->replot();
+}
+*/
+QVector<double> MainWindow::Statistique()
+{
+    QSqlQuery q;
+    QVector<double> stat(5);
+    stat[0]=0;
+    stat[1]=0;
+    q.prepare("SELECT ETAT FROM ACTIVITE WHERE ETAT = 'TO DO'");
+    q.exec();
+    while (q.next())
+    {
+        stat[0]++;
+    }
+    q.prepare("SELECT ETAT FROM ACTIVITE WHERE ETAT = 'Done'");
+    q.exec();
+    while (q.next())
+    {
+        stat[1]++;
+    }
+    return stat;
+}
+void MainWindow::makePlot()
+{
+    // prepare data:
+    QVector<double> x3(5), y3(20);
+    for (int i=0; i<x3.size(); ++i)
+    {
+        x3[i] = i+1;
+
+    }
+    for (int i=0; i<y3.size(); ++i)
+    {
+        y3[i] = i+1;
+
+    }
+
+    QCPBars *bars1 = new QCPBars(ui->customPlot->xAxis, ui->customPlot->yAxis);
+    bars1->setWidth(2/(double)x3.size());
+    bars1->setData(x3, MainWindow::Statistique());
+    bars1->setPen(Qt::NoPen);
+    bars1->setBrush(QColor(200, 40, 60, 170));
+    ui->customPlot->replot();
+
+
+    // move bars above graphs and grid below bars:
+    ui->customPlot->addLayer("abovemain", ui->customPlot->layer("main"), QCustomPlot::limAbove);
+    ui->customPlot->addLayer("belowmain", ui->customPlot->layer("main"), QCustomPlot::limBelow);
+    ui->customPlot->xAxis->grid()->setLayer("belowmain");
+    ui->customPlot->yAxis->grid()->setLayer("belowmain");
+
+    // set some pens, brushes and backgrounds:
+    QVector<double> Ticks;
+    Ticks<<1<<2<<3<<4<<5<<6;
+    QVector<QString> labels;
+    labels<<"To Do"<<"Done";//<<"15-25"<<"25-35"<<"35-50";
+    QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
+    textTicker->addTicks(Ticks,labels);
+    ui->customPlot->xAxis->setTicker(textTicker);
+    ui->customPlot->xAxis->setSubTicks(false);
+    ui->customPlot->xAxis->setTickLength(0,4);
+    ui->customPlot->xAxis->setBasePen(QPen(Qt::white, 1));
+    ui->customPlot->yAxis->setBasePen(QPen(Qt::white, 1));
+    ui->customPlot->xAxis->setTickPen(QPen(Qt::transparent, 1));
+    ui->customPlot->yAxis->setTickPen(QPen(Qt::white, 1));
+    ui->customPlot->xAxis->setSubTickPen(QPen(Qt::transparent, 1));
+    ui->customPlot->yAxis->setSubTickPen(QPen(Qt::transparent, 1));
+    ui->customPlot->xAxis->setTickLabelColor(Qt::white);
+    ui->customPlot->yAxis->setTickLabelColor(Qt::white);
+    ui->customPlot->xAxis->grid()->setPen(QPen(QColor(140, 140, 140), 1, Qt::DotLine));
+    ui->customPlot->yAxis->grid()->setPen(QPen(QColor(140, 140, 140), 1, Qt::DotLine));
+    ui->customPlot->xAxis->grid()->setSubGridPen(QPen(QColor(80, 80, 80), 1, Qt::DotLine));
+    ui->customPlot->yAxis->grid()->setSubGridPen(QPen(QColor(80, 80, 80), 1, Qt::DotLine));
+    ui->customPlot->xAxis->grid()->setSubGridVisible(true);
+    ui->customPlot->yAxis->grid()->setSubGridVisible(true);
+    ui->customPlot->xAxis->grid()->setZeroLinePen(Qt::NoPen);
+    ui->customPlot->yAxis->grid()->setZeroLinePen(Qt::NoPen);
+    ui->customPlot->xAxis->setUpperEnding(QCPLineEnding::esSpikeArrow);
+    ui->customPlot->yAxis->setUpperEnding(QCPLineEnding::esSpikeArrow);
+    QLinearGradient plotGradient;
+    plotGradient.setStart(0, 0);
+    plotGradient.setFinalStop(0, 350);
+    plotGradient.setColorAt(0, QColor(10, 50, 80));
+    plotGradient.setColorAt(1, QColor(10, 20, 50));
+    ui->customPlot->setBackground(plotGradient);
+    QLinearGradient axisRectGradient;
+    axisRectGradient.setStart(0, 0);
+    axisRectGradient.setFinalStop(0, 350);
+    axisRectGradient.setColorAt(0, QColor(10, 50, 80));
+    axisRectGradient.setColorAt(1, QColor(0, 0, 30));
+    ui->customPlot->axisRect()->setBackground(axisRectGradient);
+
+    ui->customPlot->rescaleAxes();
+    ui->customPlot->xAxis->setRange(0, 7);
+    ui->customPlot->yAxis->setRange(0, 10);
+
+}
+
+void MainWindow::on_stat_clicked()
+{
+
+   MainWindow::makePlot();
+
+}

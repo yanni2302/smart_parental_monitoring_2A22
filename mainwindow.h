@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include <cours1.h>
 #include <devoirs.h>
+#include<activite.h>
+
+#include "arduino.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -74,14 +77,29 @@ private slots:
 
     void on_envoyer_clicked();
 
+    void on_on_clicked();
+
+    void on_off_clicked();
+
+    void on_plus_clicked();
+
+    void on_moins_clicked();
+      void update_label();
+
+      void on_activite_ajouter_clicked();
+      QVector<double> Statistique();
+      void makePlot ();
 private:
     Ui::MainWindow *ui;
     Cours1 C;
     Devoirs D;
+    Activite AC;
     QMediaPlayer *player;
     int id_eq=0;
     int id_Dev=0;
     QStringList files;
+    QByteArray data; // variable contenant les données reçues
+    Arduino A; // objet temporaire
 
 };
 #endif // MAINWINDOW_H
