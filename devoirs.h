@@ -27,6 +27,7 @@ public:
     bool modifier(int);
     */
     QSqlQueryModel* chercher(QString);
+    QSqlQueryModel* afficher_contact();
     QSqlQueryModel* trier_id();
     QSqlQueryModel * trier_nom();
     bool ajouter();

@@ -33,7 +33,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -117,7 +117,7 @@
         <property name="geometry">
          <rect>
           <x>80</x>
-          <y>310</y>
+          <y>360</y>
           <width>71</width>
           <height>16</height>
          </rect>
@@ -135,7 +135,7 @@ font-family: Arial Black;</string>
         <property name="geometry">
          <rect>
           <x>210</x>
-          <y>230</y>
+          <y>240</y>
           <width>113</width>
           <height>22</height>
          </rect>
@@ -149,7 +149,7 @@ font-family: Arial Black;</string>
         <property name="geometry">
          <rect>
           <x>70</x>
-          <y>270</y>
+          <y>330</y>
           <width>91</width>
           <height>16</height>
          </rect>
@@ -335,25 +335,11 @@ font-family: Arial Black;</string>
          <string>nom de cours</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="heureF">
-        <property name="geometry">
-         <rect>
-          <x>210</x>
-          <y>310</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"> border: 2px solid gray;
- border-radius: 10px;</string>
-        </property>
-       </widget>
        <widget class="QPushButton" name="b_ajoutC">
         <property name="geometry">
          <rect>
           <x>130</x>
-          <y>360</y>
+          <y>400</y>
           <width>93</width>
           <height>28</height>
          </rect>
@@ -387,7 +373,7 @@ background:gray;
         <property name="geometry">
          <rect>
           <x>70</x>
-          <y>230</y>
+          <y>240</y>
           <width>101</width>
           <height>21</height>
          </rect>
@@ -399,20 +385,6 @@ font-family: Arial Black;</string>
         </property>
         <property name="text">
          <string>nom de prof</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="heureD">
-        <property name="geometry">
-         <rect>
-          <x>210</x>
-          <y>270</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"> border: 2px solid gray;
- border-radius: 10px;</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_14">
@@ -437,7 +409,7 @@ font-family: Arial Black;</string>
         <property name="geometry">
          <rect>
           <x>210</x>
-          <y>190</y>
+          <y>200</y>
           <width>113</width>
           <height>22</height>
          </rect>
@@ -473,6 +445,168 @@ font-family: Arial Black;</string>
          <string/>
         </property>
        </widget>
+       <widget class="QTimeEdit" name="heureD">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>320</y>
+          <width>118</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <widget class="QTimeEdit" name="heureF">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>360</y>
+          <width>118</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="nomE_3">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>520</y>
+          <width>113</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="nomE_4">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>520</y>
+          <width>113</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="nomE_5">
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>520</y>
+          <width>113</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="numero_3">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>520</y>
+          <width>113</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="numero_4">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>520</y>
+          <width>113</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="nomE_6">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>520</y>
+          <width>113</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="email">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>280</y>
+          <width>113</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_17">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>520</y>
+          <width>101</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">text-align: center;
+color:white;
+font-family: Arial Black;</string>
+        </property>
+        <property name="text">
+         <string>nom de prof</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_18">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>280</y>
+          <width>91</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">text-align: center;
+color:white;
+font-family: Arial Black;</string>
+        </property>
+        <property name="text">
+         <string>Email</string>
+        </property>
+       </widget>
        <zorder>background_3</zorder>
        <zorder>line_6</zorder>
        <zorder>dev_pic</zorder>
@@ -481,13 +615,22 @@ font-family: Arial Black;</string>
        <zorder>nomE</zorder>
        <zorder>label_3</zorder>
        <zorder>label</zorder>
-       <zorder>heureF</zorder>
        <zorder>b_ajoutC</zorder>
        <zorder>label_2</zorder>
-       <zorder>heureD</zorder>
        <zorder>label_14</zorder>
        <zorder>numero</zorder>
        <zorder>logo</zorder>
+       <zorder>heureD</zorder>
+       <zorder>heureF</zorder>
+       <zorder>nomE_3</zorder>
+       <zorder>nomE_4</zorder>
+       <zorder>nomE_5</zorder>
+       <zorder>numero_3</zorder>
+       <zorder>numero_4</zorder>
+       <zorder>nomE_6</zorder>
+       <zorder>email</zorder>
+       <zorder>label_17</zorder>
+       <zorder>label_18</zorder>
       </widget>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
@@ -544,20 +687,6 @@ font-family:Gras;</string>
         <property name="geometry">
          <rect>
           <x>850</x>
-          <y>110</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"> border: 2px solid gray;
- border-radius: 10px;</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="numC">
-        <property name="geometry">
-         <rect>
-          <x>850</x>
           <y>150</y>
           <width>113</width>
           <height>22</height>
@@ -582,39 +711,11 @@ font-family:Gras;</string>
  border-radius: 10px;</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="heureD_2">
-        <property name="geometry">
-         <rect>
-          <x>850</x>
-          <y>230</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"> border: 2px solid gray;
- border-radius: 10px;</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="heureF_3">
-        <property name="geometry">
-         <rect>
-          <x>850</x>
-          <y>270</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"> border: 2px solid gray;
- border-radius: 10px;</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_22">
         <property name="geometry">
          <rect>
           <x>710</x>
-          <y>110</y>
+          <y>150</y>
           <width>101</width>
           <height>20</height>
          </rect>
@@ -785,8 +886,8 @@ font-family: Arial Black;</string>
        <widget class="QLabel" name="label_23">
         <property name="geometry">
          <rect>
-          <x>700</x>
-          <y>150</y>
+          <x>710</x>
+          <y>110</y>
           <width>121</width>
           <height>20</height>
          </rect>
@@ -822,7 +923,7 @@ font-family: Arial Black;</string>
         <property name="geometry">
          <rect>
           <x>720</x>
-          <y>240</y>
+          <y>270</y>
           <width>91</width>
           <height>16</height>
          </rect>
@@ -840,7 +941,7 @@ font-family: Arial Black;</string>
         <property name="geometry">
          <rect>
           <x>730</x>
-          <y>280</y>
+          <y>310</y>
           <width>71</width>
           <height>16</height>
          </rect>
@@ -858,7 +959,7 @@ font-family: Arial Black;</string>
         <property name="geometry">
          <rect>
           <x>860</x>
-          <y>330</y>
+          <y>350</y>
           <width>93</width>
           <height>28</height>
          </rect>
@@ -946,15 +1047,86 @@ font-family: Arial Black;</string>
          <string/>
         </property>
        </widget>
+       <widget class="QTimeEdit" name="heureD_2">
+        <property name="geometry">
+         <rect>
+          <x>850</x>
+          <y>270</y>
+          <width>118</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <widget class="QTimeEdit" name="heureF_3">
+        <property name="geometry">
+         <rect>
+          <x>850</x>
+          <y>310</y>
+          <width>118</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="numC">
+        <property name="geometry">
+         <rect>
+          <x>850</x>
+          <y>110</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="email_2">
+        <property name="geometry">
+         <rect>
+          <x>850</x>
+          <y>230</y>
+          <width>113</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_27">
+        <property name="geometry">
+         <rect>
+          <x>720</x>
+          <y>230</y>
+          <width>101</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">text-align: center;
+color:white;
+font-family: Arial Black;</string>
+        </property>
+        <property name="text">
+         <string>Email</string>
+        </property>
+       </widget>
        <zorder>background_4</zorder>
        <zorder>coursView</zorder>
        <zorder>line_5</zorder>
        <zorder>trier_cours</zorder>
        <zorder>nomC_4</zorder>
-       <zorder>numC</zorder>
        <zorder>nomE_2</zorder>
-       <zorder>heureD_2</zorder>
-       <zorder>heureF_3</zorder>
        <zorder>label_22</zorder>
        <zorder>label_23</zorder>
        <zorder>label_24</zorder>
@@ -964,6 +1136,11 @@ font-family: Arial Black;</string>
        <zorder>pushButton</zorder>
        <zorder>radioButton_nom</zorder>
        <zorder>radioButton_numero</zorder>
+       <zorder>heureD_2</zorder>
+       <zorder>heureF_3</zorder>
+       <zorder>numC</zorder>
+       <zorder>email_2</zorder>
+       <zorder>label_27</zorder>
       </widget>
       <widget class="QWidget" name="tab_10">
        <attribute name="title">
@@ -1179,7 +1356,7 @@ font-family: Arial Black;</string>
        <string notr="true">color:black;</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="tab_6">
        <attribute name="title">
@@ -2236,6 +2413,14 @@ background:gray;
           <height>28</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: white;
+background:gray;
+ border: 2px solid gray;
+ border-radius: 10px;
+
+</string>
+        </property>
         <property name="text">
          <string>envoyer</string>
         </property>
@@ -2248,6 +2433,11 @@ background:gray;
           <width>71</width>
           <height>16</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">text-align: center;
+color:white;
+font-family: Arial Black;</string>
         </property>
         <property name="text">
          <string>Destinataire</string>
@@ -2262,6 +2452,11 @@ background:gray;
           <height>16</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">text-align: center;
+color:white;
+font-family: Arial Black;</string>
+        </property>
         <property name="text">
          <string>Objet</string>
         </property>
@@ -2275,18 +2470,13 @@ background:gray;
           <height>16</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">text-align: center;
+color:white;
+font-family: Arial Black;</string>
+        </property>
         <property name="text">
          <string>Message</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="Destinataire">
-        <property name="geometry">
-         <rect>
-          <x>130</x>
-          <y>80</y>
-          <width>351</width>
-          <height>41</height>
-         </rect>
         </property>
        </widget>
        <widget class="QLineEdit" name="objet">
@@ -2298,6 +2488,10 @@ background:gray;
           <height>41</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="Message">
         <property name="geometry">
@@ -2308,7 +2502,85 @@ background:gray;
           <height>191</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
        </widget>
+       <widget class="Line" name="line_11">
+        <property name="geometry">
+         <rect>
+          <x>-10</x>
+          <y>50</y>
+          <width>1051</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="background_11">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>1601</width>
+          <height>781</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QTableView" name="contactView">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>100</y>
+          <width>461</width>
+          <height>391</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_19">
+        <property name="geometry">
+         <rect>
+          <x>750</x>
+          <y>70</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Contact Liste</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="Destinataire">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>90</y>
+          <width>351</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <zorder>background_11</zorder>
+       <zorder>envoyer</zorder>
+       <zorder>label_5</zorder>
+       <zorder>label_6</zorder>
+       <zorder>label_7</zorder>
+       <zorder>objet</zorder>
+       <zorder>Message</zorder>
+       <zorder>line_11</zorder>
+       <zorder>contactView</zorder>
+       <zorder>label_19</zorder>
+       <zorder>Destinataire</zorder>
       </widget>
       <widget class="QWidget" name="tab_13">
        <attribute name="title">

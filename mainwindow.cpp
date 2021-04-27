@@ -18,6 +18,8 @@
 #include <QFileDialog>
 #include <QFile>
 #include "secdialog.h"
+#include<QTimeEdit>
+#include<QTime>
 
 
 
@@ -28,12 +30,15 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
    // MainWindow::makePlot();
     player = new QMediaPlayer(this);
-    ui->heureD->setValidator(new QIntValidator(0, 99999999, this));
-    ui->heureF->setValidator(new QIntValidator(0, 99999999, this));
+   // ui->heureD->setValidator(new QIntValidator(0, 99999999, this));
+  //  ui->heureF->setValidator(new QIntValidator(0, 99999999, this));
     ui->coursView->setModel(C.afficher());
     ui->coursView_2->setModel(D.afficher());
     ui->activiteView->setModel(AC.afficher());
+    ui->contactView->setModel(D.afficher_contact());
     update();
+    combo_num();
+    como_destinataire();
     //combobox
     ui->etat->addItem("TO DO");
      ui->etat->addItem("Done");
@@ -57,6 +62,7 @@ MainWindow::MainWindow(QWidget *parent)
                ui->background_8->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
                 ui->background_9->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
                  ui->background_10->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
+                 ui->background_11->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
     //ajouter de l'image cours_pic
     QPixmap pix(":/img/dev.jpg");
     int w = ui->dev_pic->width();
@@ -105,7 +111,8 @@ void MainWindow::on_b_ajoutC_clicked()
        QString nomE=ui->nomE->text();
        QString heureD=ui->heureD->text();
        QString heureF=ui->heureF->text();
-       Cours1 C(nomC,nomE,heureD,heureF,numero);
+       QString email=ui->email->text();
+       Cours1 C(nomC,nomE,heureD,heureF,email,numero);
           bool test1;
              test1 = (controleVide(nomC) && controleVide(nomE) && controleVide(heureD) && controleVide(heureF));
        bool test=C.ajouter();
@@ -142,6 +149,29 @@ void MainWindow::on_b_ajoutC_clicked()
           m->setQuery(*querry);
           ui->comboBox->setModel(m);
           ui->cours->setModel(m);
+
+  }
+  void MainWindow::combo_num()
+  {
+          QSqlQueryModel *m=new QSqlQueryModel();
+          QSqlQuery *querry=new QSqlQuery();
+          querry->prepare("SELECT NUMERO FROM COURS");
+          querry->exec();
+          m->setQuery(*querry);
+          ui->numC->setModel(m);
+
+
+  }
+  void MainWindow::como_destinataire()
+  {
+          QSqlQueryModel *m=new QSqlQueryModel();
+          QSqlQuery *querry=new QSqlQuery();
+          querry->prepare("SELECT EMAIL FROM COURS");
+          querry->exec();
+          m->setQuery(*querry);
+          ui->Destinataire->setModel(m);
+
+
   }
 //**********************************************
 void MainWindow::on_suppCours_3_clicked()
@@ -171,8 +201,9 @@ void MainWindow::on_modif_button_3_clicked()
     QString NOME=ui->nomE_2->text();
     QString HEURED=ui->heureD_2->text();
     QString HEUREF=ui->heureF_3->text();
-    int Numero=ui->numC->text().toInt();
-    Cours1 C(NOMC,NOME,HEURED,HEUREF,Numero);
+    QString email=ui->email->text();
+    int Numero=ui->numC->currentText().toInt();
+    Cours1 C(NOMC,NOME,HEURED,HEUREF,email,Numero);
     bool test=C.modifier();
     if(test)
     {
@@ -221,10 +252,10 @@ void MainWindow::on_coursView_activated(const QModelIndex &index)
               if(qry.exec())
                 {while (qry.next())
                { ui->nomC_4->setText(qry.value(0).toString());
-                 ui->numC->setText(qry.value(1).toString());
+                 //ui->numC->setText(qry.value(1).toString());
                  ui->nomE_2->setText(qry.value(2).toString());
-                 ui->heureD_2->setText(qry.value(3).toString());
-                 ui->heureF_3->setText(qry.value(4).toString());
+                 //ui->heureD_2->setDateTime(qry.value(3).toString());
+                 //ui->heureF_3->setTime(qry.value(4).toString());
                }
             }
 }
@@ -394,11 +425,11 @@ bool MainWindow::controleVideInt(int test)
 }
 void MainWindow::on_envoyer_clicked()
 {
-    QString mail_destinataire=ui->Destinataire->text();
+    QString mail_destinataire=ui->Destinataire->currentText();
     QString objet=ui->objet->text();
     QString message=ui->Message->text();
 Smtp* smtp = new Smtp("jihedca111@gmail.com","Jiji@jiji123", "smtp.gmail.com");
-smtp->sendMail("jihedca111@gmail.com",ui->Destinataire->text(),ui->objet->text(),ui->Message->text());
+smtp->sendMail("jihedca111@gmail.com",ui->Destinataire->currentText(),ui->objet->text(),ui->Message->text());
 
 
  ui->Destinataire->clear();

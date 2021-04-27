@@ -15,15 +15,17 @@ Cours1::Cours1()
     nomE="";
     heureD="";
     heureF="";
+    email="";
 
 }
-Cours1::Cours1(QString nomC,QString nomE,QString heureD,QString heureF,int NUMERO)
+Cours1::Cours1(QString nomC,QString nomE,QString heureD,QString heureF,QString email,int NUMERO)
 {
  this->nomC = nomC;
  this->nomE = nomE;
  this->heureD = heureD;
  this->heureF = heureF;
  this->NUMERO = NUMERO;
+ this->email = email;
 }
 void Cours1::set_nomC(QString nomC)
 {
@@ -60,13 +62,14 @@ QString Cours1::get_heureF()
 bool Cours1::ajouter()
 {
     QSqlQuery query;
-          query.prepare("INSERT INTO COURS (nomC, nomE,heureD ,heureF,numero) "
-                        "VALUES (:nomC, :nomE, :heureD,:heureF,:numero)");
+          query.prepare("INSERT INTO COURS (nomC, nomE,heureD ,heureF,email,numero) "
+                        "VALUES (:nomC, :nomE, :heureD,:heureF,:EMAIL,:numero)");
           query.bindValue(":numero",NUMERO);
           query.bindValue(":nomC",nomC );
           query.bindValue(":nomE",nomE );
           query.bindValue(":heureD",heureD);
           query.bindValue(":heureF",heureF);
+          query.bindValue(":EMAIL",email);
          return query.exec();
 }
 QSqlQueryModel* Cours1::afficher()
@@ -78,7 +81,8 @@ QSqlQueryModel* Cours1::afficher()
    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom de l'enseignant"));
    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Heure de debut"));
    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Heure de fin"));
-   model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero "));
+   model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero"));
+   model->setHeaderData(5, Qt::Horizontal, QObject::tr("Email"));
    return model;
 }
 bool Cours1::supprimer(QString NOMC)
@@ -94,12 +98,13 @@ bool Cours1::modifier()
 {
     QSqlQuery query;
     QString res=QString::number(NUMERO);
-    query.prepare("UPDATE COURS SET NOMC=:NOMC,NOME=:NOME,HEURED=:HEURED,HEUREF=:HEUREF WHERE NUMERO =:NUMERO");
+    query.prepare("UPDATE COURS SET NOMC=:NOMC,NOME=:NOME,HEURED=:HEURED,HEUREF=:HEUREF,EMAIL=:EMAIL WHERE NUMERO =:NUMERO");
     query.bindValue(":NOMC",nomC);
     query.bindValue(":NOME",nomE);
     query.bindValue(":HEURED",heureD);
     query.bindValue(":HEUREF",heureF);
     query.bindValue(":NUMERO",NUMERO);
+    query.bindValue(":EMAIL",email);
     return query.exec();
 }
 QSqlQueryModel* Cours1::chercher(QString NOMC)
@@ -111,6 +116,7 @@ QSqlQueryModel* Cours1::chercher(QString NOMC)
    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Heure de debut"));
    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Heure de fin"));
    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero "));
+   model->setHeaderData(5, Qt::Horizontal, QObject::tr("Email"));
    return model;
 }
 QSqlQueryModel * Cours1::trier_id()
@@ -122,6 +128,7 @@ QSqlQueryModel * Cours1::trier_id()
         model->setHeaderData(2, Qt::Horizontal, QObject::tr("Heure de debut"));
         model->setHeaderData(3, Qt::Horizontal, QObject::tr("Heure de fin"));
         model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero "));
+        model->setHeaderData(5, Qt::Horizontal, QObject::tr("Email"));
         return model ;
 }
 QSqlQueryModel * Cours1::trier_nom()
@@ -133,5 +140,6 @@ QSqlQueryModel * Cours1::trier_nom()
         model->setHeaderData(2, Qt::Horizontal, QObject::tr("Heure de debut"));
         model->setHeaderData(3, Qt::Horizontal, QObject::tr("Heure de fin"));
         model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero "));
+        model->setHeaderData(5, Qt::Horizontal, QObject::tr("Email"));
         return model ;
 }

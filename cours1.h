@@ -11,10 +11,11 @@ class Cours1
     QString nomE;
     QString heureD;
     QString heureF;
+    QString email;
     int NUMERO;
 public:
     Cours1();
-    Cours1(QString,QString,QString,QString,int);
+    Cours1(QString,QString,QString,QString,QString,int);
     ~Cours1();
     void set_nomC(QString);
     void set_nomE(QString);

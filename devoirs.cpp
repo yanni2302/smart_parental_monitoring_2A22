@@ -76,6 +76,16 @@ QSqlQueryModel* Devoirs::afficher()
    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Deadline"));
    return model;
 }
+QSqlQueryModel* Devoirs::afficher_contact()
+{
+    QSqlQueryModel* model =new QSqlQueryModel();
+
+   model->setQuery("SELECT NOMC,NOME,EMAIL FROM COURS");
+   model->setHeaderData(0, Qt::Horizontal, QObject::tr("Matiére"));//ajouter un nouveau nom au  header de tableau
+   model->setHeaderData(1, Qt::Horizontal, QObject::tr("Enseignant"));
+   model->setHeaderData(2, Qt::Horizontal, QObject::tr("EMAIL"));
+   return model;
+}
 bool Devoirs::supprimer(QString NOMD)
 {
     QSqlQuery query;

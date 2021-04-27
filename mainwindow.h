@@ -89,6 +89,8 @@ private slots:
       void on_activite_ajouter_clicked();
       QVector<double> Statistique();
       void makePlot ();
+      void combo_num();
+      void como_destinataire();
 private:
     Ui::MainWindow *ui;
     Cours1 C;
