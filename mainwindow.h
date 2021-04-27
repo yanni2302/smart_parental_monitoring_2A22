@@ -91,6 +91,8 @@ private slots:
       void makePlot ();
       void combo_num();
       void como_destinataire();
+      void on_trier_activite_clicked();
+
 private:
     Ui::MainWindow *ui;
     Cours1 C;

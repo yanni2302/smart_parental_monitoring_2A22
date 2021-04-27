@@ -11,6 +11,8 @@ class Activite
 public:
     Activite();
      Activite(int numero,QString cours,QString activite,QString etat);
+      QSqlQueryModel * trier_done();
+         QSqlQueryModel * trier_toDo();
     bool ajouter();
      ~Activite();
        QSqlQueryModel* afficher();

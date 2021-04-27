@@ -75,26 +75,24 @@ QSqlQueryModel* Cours1::chercher(QString NOMC)
    model->setHeaderData(4, Qt::Horizontal,"Numero ");
    return model;
 }
-QSqlQueryModel * Cours1::trier_id()
+*/QSqlQueryModel * Activite::trier_toDo()
 {
         QSqlQueryModel *model = new QSqlQueryModel();
-        model->setQuery("SELECT * from COURS ORDER BY NUMERO");
-        model->setHeaderData(0,Qt::Horizontal,"Nom De Cours");
-        model->setHeaderData(4,Qt::Horizontal,"Nom De L'enseignant");
-        model->setHeaderData(2,Qt::Horizontal,"Heure Debut");
-        model->setHeaderData(3,Qt::Horizontal,"Heure fin");
-        model->setHeaderData(1,Qt::Horizontal,"Numero");
+        model->setQuery("SELECT * from ACTIVITE WHERE ETAT = 'TO DO'");
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("Numero "));//ajouter un nouveau nom au  header de tableau
+        model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom de cours"));
+        model->setHeaderData(2, Qt::Horizontal, QObject::tr("Activite"));
+        model->setHeaderData(3, Qt::Horizontal, QObject::tr("Etat"));
         return model ;
 }
-QSqlQueryModel * Cours1::trier_nom()
+QSqlQueryModel * Activite::trier_done()
 {
         QSqlQueryModel *model = new QSqlQueryModel();
-        model->setQuery("SELECT * from COURS ORDER BY NOMC");
-        model->setHeaderData(0,Qt::Horizontal,"Nom De Cours");
-        model->setHeaderData(1,Qt::Horizontal,"Nom De L'enseignant");
-        model->setHeaderData(2,Qt::Horizontal,"Heure Debut");
-        model->setHeaderData(3,Qt::Horizontal,"Heure fin");
-        model->setHeaderData(4,Qt::Horizontal,"Numero");
+        model->setQuery("SELECT * from ACTIVITE WHERE ETAT = 'Done'");
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("Numero "));//ajouter un nouveau nom au  header de tableau
+        model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom de cours"));
+        model->setHeaderData(2, Qt::Horizontal, QObject::tr("Activite"));
+        model->setHeaderData(3, Qt::Horizontal, QObject::tr("Etat"));
         return model ;
 }
-*/
+

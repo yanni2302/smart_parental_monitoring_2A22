@@ -627,3 +627,19 @@ void MainWindow::on_stat_clicked()
    MainWindow::makePlot();
 
 }
+
+void MainWindow::on_trier_activite_clicked()
+{
+    if(ui->trie_done->isChecked())
+     {
+          ui->activiteView->setModel(AC.trier_done());
+      }
+      else if(ui->trie_toDo->isChecked())
+      {
+            ui->activiteView->setModel(AC.trier_toDo());
+      }
+    else if(ui->trie_all->isChecked())
+    {
+        ui->activiteView->setModel(AC.afficher());
+    }
+}

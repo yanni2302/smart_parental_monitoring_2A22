@@ -33,7 +33,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -64,7 +64,7 @@
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideMiddle</enum>
@@ -1356,7 +1356,7 @@ font-family: Arial Black;</string>
        <string notr="true">color:black;</string>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab_6">
        <attribute name="title">
@@ -2707,7 +2707,7 @@ font-family: Arial Black;</string>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_16">
        <attribute name="title">
@@ -3081,7 +3081,7 @@ font-family: Arial Black;</string>
          </rect>
         </property>
        </widget>
-       <widget class="QRadioButton" name="trie_numero_activite">
+       <widget class="QRadioButton" name="trie_toDo">
         <property name="geometry">
          <rect>
           <x>270</x>
@@ -3096,10 +3096,10 @@ color:white;
 font-family: Arial Black;</string>
         </property>
         <property name="text">
-         <string>Numero</string>
+         <string>TO DO</string>
         </property>
        </widget>
-       <widget class="QRadioButton" name="trie_nom_activite">
+       <widget class="QRadioButton" name="trie_done">
         <property name="geometry">
          <rect>
           <x>140</x>
@@ -3114,7 +3114,7 @@ color:white;
 font-family: Arial Black;</string>
         </property>
         <property name="text">
-         <string>Nom</string>
+         <string>Done</string>
         </property>
        </widget>
        <widget class="QPushButton" name="trier_activite">
@@ -3134,7 +3134,7 @@ border-radius: 10px;
 font-family:Gras;</string>
         </property>
         <property name="text">
-         <string>Trier</string>
+         <string>Select</string>
         </property>
        </widget>
        <widget class="QLabel" name="background_9">
@@ -3163,12 +3163,31 @@ font-family:Gras;</string>
          <enum>Qt::Horizontal</enum>
         </property>
        </widget>
+       <widget class="QRadioButton" name="trie_all">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>460</y>
+          <width>97</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">text-align: center;
+color:white;
+font-family: Arial Black;</string>
+        </property>
+        <property name="text">
+         <string>ALL</string>
+        </property>
+       </widget>
        <zorder>background_9</zorder>
        <zorder>activiteView</zorder>
-       <zorder>trie_numero_activite</zorder>
-       <zorder>trie_nom_activite</zorder>
+       <zorder>trie_toDo</zorder>
+       <zorder>trie_done</zorder>
        <zorder>trier_activite</zorder>
        <zorder>line_9</zorder>
+       <zorder>trie_all</zorder>
       </widget>
       <widget class="QWidget" name="tab_17">
        <attribute name="title">
@@ -3177,7 +3196,7 @@ font-family:Gras;</string>
        <widget class="QPushButton" name="stat">
         <property name="geometry">
          <rect>
-          <x>890</x>
+          <x>860</x>
           <y>250</y>
           <width>93</width>
           <height>28</height>
@@ -3197,8 +3216,8 @@ background:gray;
        <widget class="QCustomPlot" name="customPlot" native="true">
         <property name="geometry">
          <rect>
-          <x>110</x>
-          <y>80</y>
+          <x>80</x>
+          <y>90</y>
           <width>721</width>
           <height>391</height>
          </rect>
@@ -3221,7 +3240,7 @@ background:gray;
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>50</y>
+          <y>70</y>
           <width>1051</width>
           <height>16</height>
          </rect>
