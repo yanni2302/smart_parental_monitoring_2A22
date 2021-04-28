@@ -1,6 +1,7 @@
 #include "accueil.h"
 #include "ui_accueil.h"
 #include "mainwindow1.h"
+#include "secu.h"
 accueil::accueil(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::accueil)
@@ -24,4 +25,16 @@ void accueil::on_pushButton_8_clicked()
     mainwindow1 w;
         w.exec();
 
+}
+
+void accueil::on_pushButton_clicked()
+{secu s;
+    s.exec();
+
+}
+
+void accueil::on_securite_clicked()
+{
+    secu s;
+        s.exec();
 }

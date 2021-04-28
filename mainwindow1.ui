@@ -115,8 +115,8 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>220</y>
+     <x>20</x>
+     <y>160</y>
      <width>1071</width>
      <height>481</height>
     </rect>
@@ -1606,8 +1606,8 @@ font: bold, &quot;Comic Sans MS&quot;;
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>120</y>
+     <x>420</x>
+     <y>90</y>
      <width>431</width>
      <height>121</height>
     </rect>

@@ -34,9 +34,12 @@ SOURCES += \
         main.cpp \
     connection.cpp \
     mainwindow1.cpp \
+    motcle.cpp \
     personned_aides.cpp \
     reclamation.cpp \
-    smtp.cpp
+    secu.cpp \
+    smtp.cpp \
+    timeclass.cpp
 
 HEADERS += \
     accueil.h \
@@ -44,14 +47,18 @@ HEADERS += \
     dialog1.h \
     connection.h \
     mainwindow1.h \
+    motcle.h \
     personned_aides.h \
     reclamation.h \
-    smtp.h
+    secu.h \
+    smtp.h \
+    timeclass.h
 
 FORMS += \
         accueil.ui \
         dialog1.ui \
-        mainwindow1.ui
+        mainwindow1.ui \
+        secu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

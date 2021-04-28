@@ -372,7 +372,7 @@ padding: 0 8px;
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(8, 83, 148);
-font: 63 15pt &quot;Mudir MT&quot;;</string>
+font: 14pt &quot;Myriad Hebrew&quot;;</string>
    </property>
    <property name="text">
     <string>Notification</string>
