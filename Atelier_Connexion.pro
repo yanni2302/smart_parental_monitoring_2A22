@@ -27,6 +27,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    accueil.cpp \
     arduino.cpp \
     barchart.cpp \
     dialog1.cpp \
@@ -38,6 +39,7 @@ SOURCES += \
     smtp.cpp
 
 HEADERS += \
+    accueil.h \
     arduino.h \
     dialog1.h \
     connection.h \
@@ -47,6 +49,7 @@ HEADERS += \
     smtp.h
 
 FORMS += \
+        accueil.ui \
         dialog1.ui \
         mainwindow1.ui
 

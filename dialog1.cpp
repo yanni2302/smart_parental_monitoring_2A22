@@ -37,13 +37,13 @@ void Dialog1::on_pushButton_clicked()
 
      QString login=ui->login->text();
      QString mdp=ui->mdp->text();
-     mainwindow1 w;
+     accueil a;
     test1=(controleVide(login)&&controleVide(mdp));
     if (test1==true)
     {
-    w.setModal(true);
+    a.setModal(true);
 
-    w.exec();
+    a.exec();
 
     }
     else

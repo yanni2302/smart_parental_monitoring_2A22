@@ -2,7 +2,7 @@
 #define DIALOG1_H
 
 #include <QDialog>
-#include"mainwindow1.h"
+#include"accueil.h"
 #include "arduino.h"
 namespace Ui {
 class Dialog1;
