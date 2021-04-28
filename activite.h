@@ -13,6 +13,9 @@ public:
      Activite(int numero,QString cours,QString activite,QString etat);
       QSqlQueryModel * trier_done();
          QSqlQueryModel * trier_toDo();
+          bool supprimer(int NUMERO);
+           QSqlQueryModel* chercher(QString NOMC);
+            bool modifier();
     bool ajouter();
      ~Activite();
        QSqlQueryModel* afficher();

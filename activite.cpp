@@ -43,39 +43,37 @@ QSqlQueryModel* Activite::afficher()
    //model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero "));
    return model;
 }
-/*bool Cours1::supprimer(QString NOMC)
+bool Activite::supprimer(int NUMERO)
 {
     QSqlQuery query;
-    QString res = NOMC;
-    query.prepare("DELETE FROM COURS WHERE NOMC = :NOMC");
-    query.bindValue(":NOMC",res);
+    int res = NUMERO;
+    query.prepare("DELETE FROM ACTIVITE WHERE NUMERO = :NUMERO");
+    query.bindValue(":NUMERO",res);
     return query.exec();
 
 }
-bool Cours1::modifier()
-{
-    QSqlQuery query;
-    QString res=QString::number(NUMERO);
-    query.prepare("UPDATE COURS SET NOMC=:NOMC,NOME=:NOME,HEURED=:HEURED,HEUREF=:HEUREF,NUMERO=:NUMERO WHERE NUMERO=:NUMERO");
-    query.bindValue(":NUMERO",res);
-    query.bindValue(":NOMC",nomC);
-    query.bindValue(":NOME",nomE);
-    query.bindValue(":HEURED",heureD);
-    query.bindValue(":HEUREF",heureF);
-    return query.exec();
-}
-QSqlQueryModel* Cours1::chercher(QString NOMC)
+QSqlQueryModel* Activite::chercher(QString NOMC)
 {
    QSqlQueryModel* model =new QSqlQueryModel();
-   model->setQuery("SELECT * FROM COURS WHERE NOMC='"+NOMC+"'"   );
-   model->setHeaderData(0, Qt::Horizontal,"Nom de cours ");//ajouter un nouveau nom au  header de tableau
-   model->setHeaderData(1, Qt::Horizontal,"Nom de l'enseignant");
-   model->setHeaderData(2, Qt::Horizontal,"Heure de debut");
-   model->setHeaderData(3, Qt::Horizontal,"Heure de fin");
-   model->setHeaderData(4, Qt::Horizontal,"Numero ");
+   model->setQuery("SELECT * FROM ACTIVITE WHERE ACTIVITE='"+NOMC+"'"   );
+   model->setHeaderData(0, Qt::Horizontal, QObject::tr("Numero "));//ajouter un nouveau nom au  header de tableau
+   model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom de cours"));
+   model->setHeaderData(2, Qt::Horizontal, QObject::tr("Activite"));
+   model->setHeaderData(3, Qt::Horizontal, QObject::tr("Etat"));
    return model;
 }
-*/QSqlQueryModel * Activite::trier_toDo()
+bool Activite::modifier()
+{
+    QSqlQuery query;
+     QString res=QString::number(numero);
+    query.prepare("UPDATE ACTIVITE SET COURS=:COURS,ACTIVITE=:ACTIVITE,ETAT=:ETAT WHERE NUMERO =:NUMERO");
+    query.bindValue(":COURS",cours);
+    query.bindValue(":ACTIVITE",activite);
+    query.bindValue(":ETAT",etat);
+    query.bindValue(":NUMERO",numero);
+    return query.exec();
+}
+QSqlQueryModel * Activite::trier_toDo()
 {
         QSqlQueryModel *model = new QSqlQueryModel();
         model->setQuery("SELECT * from ACTIVITE WHERE ETAT = 'TO DO'");

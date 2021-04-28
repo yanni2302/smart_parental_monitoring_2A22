@@ -92,6 +92,14 @@ private slots:
       void combo_num();
       void como_destinataire();
       void on_trier_activite_clicked();
+      void combo_numero_activite();
+      bool supprimer(int NUMERO);
+
+      void on_supprimer_activite_clicked();
+
+      void on_nomrecherch_textChanged(const QString &arg1);
+
+      void on_activite_pushButton_modifier_clicked();
 
 private:
     Ui::MainWindow *ui;

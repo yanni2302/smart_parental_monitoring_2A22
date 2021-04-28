@@ -33,7 +33,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -64,7 +64,7 @@
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideMiddle</enum>
@@ -2430,7 +2430,7 @@ background:gray;
          <rect>
           <x>30</x>
           <y>90</y>
-          <width>71</width>
+          <width>91</width>
           <height>16</height>
          </rect>
         </property>
@@ -2542,15 +2542,24 @@ font-family: Arial Black;</string>
           <height>391</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
        </widget>
        <widget class="QLabel" name="label_19">
         <property name="geometry">
          <rect>
-          <x>750</x>
+          <x>740</x>
           <y>70</y>
-          <width>81</width>
+          <width>101</width>
           <height>16</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">text-align: center;
+color:white;
+font-family: Arial Black;</string>
         </property>
         <property name="text">
          <string>Contact Liste</string>
@@ -3075,9 +3084,9 @@ font-family: Arial Black;</string>
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>90</y>
+          <y>150</y>
           <width>641</width>
-          <height>351</height>
+          <height>291</height>
          </rect>
         </property>
        </widget>
@@ -3181,6 +3190,421 @@ font-family: Arial Black;</string>
          <string>ALL</string>
         </property>
        </widget>
+       <widget class="QPushButton" name="supprimer_activite">
+        <property name="geometry">
+         <rect>
+          <x>800</x>
+          <y>150</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: white;
+background:gray;
+ border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+        <property name="text">
+         <string>supprimer</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_20">
+        <property name="geometry">
+         <rect>
+          <x>710</x>
+          <y>110</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">text-align: center;
+color:white;
+font-family: Arial Black;</string>
+        </property>
+        <property name="text">
+         <string>NUMERO</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_supprimer_activiter">
+        <property name="geometry">
+         <rect>
+          <x>790</x>
+          <y>110</y>
+          <width>121</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_21">
+        <property name="geometry">
+         <rect>
+          <x>720</x>
+          <y>280</y>
+          <width>121</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">text-align: center;
+color:white;
+font-family: Arial Black;</string>
+        </property>
+        <property name="text">
+         <string>Cours</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_28">
+        <property name="geometry">
+         <rect>
+          <x>720</x>
+          <y>230</y>
+          <width>101</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="palette">
+         <palette>
+          <active>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>0</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="NoBrush">
+             <color alpha="128">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </active>
+          <inactive>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>0</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="NoBrush">
+             <color alpha="128">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </inactive>
+          <disabled>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>0</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="NoBrush">
+             <color alpha="128">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </disabled>
+         </palette>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::ClickFocus</enum>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::PreventContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">text-align: center;
+color:white;
+font-family: Arial Black;</string>
+        </property>
+        <property name="text">
+         <string>Numero</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="etat_modifier">
+        <property name="geometry">
+         <rect>
+          <x>830</x>
+          <y>360</y>
+          <width>111</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="activite_modifier">
+        <property name="geometry">
+         <rect>
+          <x>830</x>
+          <y>320</y>
+          <width>113</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cours_modifier">
+        <property name="geometry">
+         <rect>
+          <x>830</x>
+          <y>280</y>
+          <width>111</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_29">
+        <property name="geometry">
+         <rect>
+          <x>730</x>
+          <y>360</y>
+          <width>91</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">text-align: center;
+color:white;
+font-family: Arial Black;</string>
+        </property>
+        <property name="text">
+         <string>Etat</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_30">
+        <property name="geometry">
+         <rect>
+          <x>720</x>
+          <y>320</y>
+          <width>101</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">text-align: center;
+color:white;
+font-family: Arial Black;</string>
+        </property>
+        <property name="text">
+         <string>Activite</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="activite_pushButton_modifier">
+        <property name="geometry">
+         <rect>
+          <x>790</x>
+          <y>410</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <weight>75</weight>
+          <italic>false</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>WaitCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: white;
+background:gray;
+ border: 2px solid gray;
+ border-radius: 10px;
+
+
+
+</string>
+        </property>
+        <property name="text">
+         <string>modifier</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="nomrecherch">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>100</y>
+          <width>113</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="chercher_activite">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>100</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <weight>75</weight>
+          <italic>false</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>WaitCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: white;
+background:gray;
+ border: 2px solid gray;
+ border-radius: 10px;
+
+
+
+</string>
+        </property>
+        <property name="text">
+         <string>chercher</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="num_modifier">
+        <property name="geometry">
+         <rect>
+          <x>830</x>
+          <y>230</y>
+          <width>111</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> border: 2px solid gray;
+ border-radius: 10px;</string>
+        </property>
+       </widget>
        <zorder>background_9</zorder>
        <zorder>activiteView</zorder>
        <zorder>trie_toDo</zorder>
@@ -3188,6 +3612,20 @@ font-family: Arial Black;</string>
        <zorder>trier_activite</zorder>
        <zorder>line_9</zorder>
        <zorder>trie_all</zorder>
+       <zorder>supprimer_activite</zorder>
+       <zorder>label_20</zorder>
+       <zorder>comboBox_supprimer_activiter</zorder>
+       <zorder>label_21</zorder>
+       <zorder>label_28</zorder>
+       <zorder>etat_modifier</zorder>
+       <zorder>activite_modifier</zorder>
+       <zorder>cours_modifier</zorder>
+       <zorder>label_29</zorder>
+       <zorder>label_30</zorder>
+       <zorder>activite_pushButton_modifier</zorder>
+       <zorder>nomrecherch</zorder>
+       <zorder>chercher_activite</zorder>
+       <zorder>num_modifier</zorder>
       </widget>
       <widget class="QWidget" name="tab_17">
        <attribute name="title">

@@ -39,9 +39,12 @@ MainWindow::MainWindow(QWidget *parent)
     update();
     combo_num();
     como_destinataire();
+    combo_numero_activite();
     //combobox
     ui->etat->addItem("TO DO");
      ui->etat->addItem("Done");
+     ui->etat_modifier->addItem("TO DO");
+      ui->etat_modifier->addItem("Done");
     /*  ui->comboBox->addItem("Maths");
        ui->comboBox->addItem("Programmation");
         ui->comboBox->addItem("Physiques");
@@ -113,25 +116,21 @@ void MainWindow::on_b_ajoutC_clicked()
        QString heureF=ui->heureF->text();
        QString email=ui->email->text();
        Cours1 C(nomC,nomE,heureD,heureF,email,numero);
-          bool test1;
-             test1 = (controleVide(nomC) && controleVide(nomE) && controleVide(heureD) && controleVide(heureF));
-       bool test=C.ajouter();
+                bool test=C.ajouter();
           QMessageBox msgBox;
-          if(test1)
-          {
+
        if(test)
        {
            QMessageBox::information(nullptr,QObject::tr("ok"),
                                     QObject::tr("Ajout effectué\n"
                                                 "click Cancel to exit"),QMessageBox::Cancel);
            ui->coursView->setModel(C.afficher());
-         update();
+            ui->contactView->setModel(D.afficher_contact());
+           update();
+           combo_num();
+           como_destinataire();
 }
-          else
-          {msgBox.setText("Echec");
-              msgBox.exec();
-          }
-       }
+
        else
        {
            QMessageBox::information(nullptr,QObject::tr("not ok"),
@@ -149,6 +148,7 @@ void MainWindow::on_b_ajoutC_clicked()
           m->setQuery(*querry);
           ui->comboBox->setModel(m);
           ui->cours->setModel(m);
+          ui->cours_modifier->setModel(m);
 
   }
   void MainWindow::combo_num()
@@ -171,6 +171,17 @@ void MainWindow::on_b_ajoutC_clicked()
           m->setQuery(*querry);
           ui->Destinataire->setModel(m);
 
+
+  }
+  void MainWindow::combo_numero_activite()
+  {
+          QSqlQueryModel *m=new QSqlQueryModel();
+          QSqlQuery *querry=new QSqlQuery();
+          querry->prepare("SELECT NUMERO FROM ACTIVITE");
+          querry->exec();
+          m->setQuery(*querry);
+          ui->comboBox_supprimer_activiter->setModel(m);
+           ui->num_modifier->setModel(m);
 
   }
 //**********************************************
@@ -201,7 +212,7 @@ void MainWindow::on_modif_button_3_clicked()
     QString NOME=ui->nomE_2->text();
     QString HEURED=ui->heureD_2->text();
     QString HEUREF=ui->heureF_3->text();
-    QString email=ui->email->text();
+    QString email=ui->email_2->text();
     int Numero=ui->numC->currentText().toInt();
     Cours1 C(NOMC,NOME,HEURED,HEUREF,email,Numero);
     bool test=C.modifier();
@@ -492,7 +503,7 @@ void MainWindow::on_activite_ajouter_clicked()
           QMessageBox::information(nullptr,QObject::tr("ok"),
                                    QObject::tr("Ajout effectué\n"
                                                "click Cancel to exit"),QMessageBox::Cancel);
-          //ui->coursView->setModel(C.afficher());
+        ui->coursView->setModel(C.afficher());
         update();
 }
 
@@ -641,5 +652,56 @@ void MainWindow::on_trier_activite_clicked()
     else if(ui->trie_all->isChecked())
     {
         ui->activiteView->setModel(AC.afficher());
+    }
+}
+
+void MainWindow::on_supprimer_activite_clicked()
+{
+    int NUMERO=ui->comboBox_supprimer_activiter->currentText().toInt();
+    bool test=AC.supprimer(NUMERO);
+    if(test)
+    {
+        QMessageBox::information(nullptr,QObject::tr("ok"),
+                                 QObject::tr("suppression effectué\n"
+                                             "click Cancel to exit"),QMessageBox::Cancel);
+        ui->activiteView->setModel(AC.afficher());
+        combo_numero_activite();
+        update();
+    }
+    else
+    {
+        QMessageBox::information(nullptr,QObject::tr("Not Ok"),
+                                 QObject::tr("suppression n'est pas effectué\n"
+                                             "click Cancel to exit"),QMessageBox::Cancel);
+    }
+}
+
+void MainWindow::on_nomrecherch_textChanged(const QString &arg1)
+{
+     ui->activiteView->setModel(AC.chercher(arg1));
+}
+
+void MainWindow::on_activite_pushButton_modifier_clicked()
+{
+    QString COURS=ui->cours_modifier->currentText();
+    QString ACTIVITE=ui->activite_modifier->text();
+    QString ETAT=ui->etat_modifier->currentText();
+    int NUMERO=ui->num_modifier->currentText().toInt();
+    Activite AC(NUMERO,COURS,ACTIVITE,ETAT);
+    bool test=AC.modifier();
+    if(test)
+    {
+        QMessageBox::information(nullptr,QObject::tr("ok"),
+                                 QObject::tr("Modification effectué\n"
+                                             "click Cancel to exit"),QMessageBox::Cancel);
+
+        ui->activiteView->setModel(AC.afficher());
+        update();
+    }
+    else
+    {
+        QMessageBox::information(nullptr,QObject::tr("not ok"),
+                                 QObject::tr("Modification n'est pas effectué\n"
+                                             "click Cancel to exit"),QMessageBox::Cancel);
     }
 }
