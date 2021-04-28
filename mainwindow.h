@@ -6,6 +6,7 @@
 #include "arduino_bouton.h"
 #include <QMainWindow>
 #include "smtp.h"
+#include <QtCharts>
 namespace Ui {
 class MainWindow;
 }
@@ -18,6 +19,8 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     void update ();
     ~MainWindow();
+    int difference ();
+    QChartView * chart();
 
 private slots:
 
@@ -53,6 +56,8 @@ bool controleVide(QString );
 bool controleVideInt(int );
 
 void verif();
+
+void on_pushButton_3_clicked();
 
 private:
     Ui::MainWindow *ui;

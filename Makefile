@@ -248,6 +248,7 @@ Makefile: Atelier_Connexion.pro ../../../../qt/qt15.12.10/5.12.10/mingw73_32/mks
 		../../../../qt/qt15.12.10/5.12.10/mingw73_32/mkspecs/features/lex.prf \
 		Atelier_Connexion.pro \
 		../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5Multimedia.prl \
+		../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5Charts.prl \
 		../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5Widgets.prl \
 		../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5Gui.prl \
 		../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5Sql.prl \
@@ -441,6 +442,7 @@ Makefile: Atelier_Connexion.pro ../../../../qt/qt15.12.10/5.12.10/mingw73_32/mks
 ../../../../qt/qt15.12.10/5.12.10/mingw73_32/mkspecs/features/lex.prf:
 Atelier_Connexion.pro:
 ../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5Multimedia.prl:
+../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5Charts.prl:
 ../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5Widgets.prl:
 ../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5Gui.prl:
 ../../../../qt/qt15.12.10/5.12.10/mingw73_32/lib/Qt5Sql.prl:

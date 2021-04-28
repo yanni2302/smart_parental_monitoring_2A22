@@ -2,4 +2,7 @@
     <qresource prefix="/img">
         <file>image.jpg</file>
     </qresource>
+    <qresource prefix="/">
+        <file>numero.png</file>
+    </qresource>
 </RCC>

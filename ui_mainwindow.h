@@ -77,6 +77,9 @@ public:
     QPushButton *ajouter_2;
     QPushButton *pb_supp;
     QLineEdit *lineEdit;
+    QWidget *tab_7;
+    QPushButton *pushButton_3;
+    QLabel *label_10;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -561,6 +564,24 @@ public:
         lineEdit->setReadOnly(true);
         tabWidget_2->addTab(tab_4, QString());
         tabWidget->addTab(tab_2, QString());
+        tab_7 = new QWidget();
+        tab_7->setObjectName(QString::fromUtf8("tab_7"));
+        pushButton_3 = new QPushButton(tab_7);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_3->setGeometry(QRect(90, 60, 151, 51));
+        pushButton_3->setStyleSheet(QString::fromUtf8("border: 2px solid black;\n"
+"font: 75 8pt \"MS Shell Dlg 2\";\n"
+"border-radius: 10px;\n"
+"padding: 0 8px;\n"
+"background: #AFEEEE;\n"
+"font: bold, \"Comic Sans MS\";;\n"
+"color: black;\n"
+"text-align:center;"));
+        label_10 = new QLabel(tab_7);
+        label_10->setObjectName(QString::fromUtf8("label_10"));
+        label_10->setGeometry(QRect(300, 60, 331, 221));
+        label_10->setStyleSheet(QString::fromUtf8("background-image: url(:/numero.png);"));
+        tabWidget->addTab(tab_7, QString());
         MainWindow->setCentralWidget(widget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -575,7 +596,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(2);
         tabWidget_3->setCurrentIndex(1);
         tabWidget_2->setCurrentIndex(1);
 
@@ -615,6 +636,9 @@ public:
         pb_supp->setText(QApplication::translate("MainWindow", "Supprimer", nullptr));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_4), QApplication::translate("MainWindow", "Afficher", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Plage horaires", nullptr));
+        pushButton_3->setText(QApplication::translate("MainWindow", "Telephone", nullptr));
+        label_10->setText(QString());
+        tabWidget->setTabText(tabWidget->indexOf(tab_7), QApplication::translate("MainWindow", "Urgence", nullptr));
     } // retranslateUi
 
 };

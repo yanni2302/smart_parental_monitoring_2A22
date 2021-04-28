@@ -33,11 +33,6 @@ timer = new QTimer (this );
  QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
  QObject::connect(timer,SIGNAL(timeout()),this,SLOT(verif()));
  timer->start(1000);
- Smtp* smtp = new Smtp("yussefnaoui2001@gmail.com","minatovstobi17", "smtp.gmail.com");
-
-
-     smtp->sendMail("yussefnaoui2001@gmail.com","yussef.naoui@esprit.tn","bouton panique","Bouton panique activé");
-
 
 
 }
@@ -55,7 +50,7 @@ void MainWindow::update_label()
     if(data=="1")
 {
 //mailing
-        Smtp* smtp = new Smtp("yussefnaoui2001@gmail.com","Sb50607010", "smtp.gmail.com");
+        Smtp* smtp = new Smtp("yussefnaoui2001@gmail.com","minatovstobi17", "smtp.gmail.com");
 
 
             smtp->sendMail("yussefnaoui2001@gmail.com","yussef.naoui@esprit.tn","bouton panique","Bouton panique activé");
@@ -339,4 +334,9 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::on_pushButton_2_clicked()
 {
     Sound->stop();
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    system ("dialer");
 }
