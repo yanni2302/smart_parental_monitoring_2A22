@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>E-Nanny</string>
   </property>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
@@ -77,9 +77,9 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>90</y>
-     <width>1011</width>
+     <x>30</x>
+     <y>80</y>
+     <width>1031</width>
      <height>471</height>
     </rect>
    </property>
@@ -98,7 +98,7 @@ text-align:center;
 color: black;</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
@@ -508,7 +508,7 @@ text-align:center;</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>1001</width>
+       <width>1021</width>
        <height>431</height>
       </rect>
      </property>
@@ -693,52 +693,6 @@ text-align:center;</string>
        </property>
        <property name="readOnly">
         <bool>false</bool>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton">
-       <property name="geometry">
-        <rect>
-         <x>660</x>
-         <y>40</y>
-         <width>161</width>
-         <height>51</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border: 2px solid black;
-font: 75 8pt &quot;MS Shell Dlg 2&quot;;
-border-radius: 10px;
-padding: 0 8px;
-background: #085394;
-font: bold, &quot;Comic Sans MS&quot;;;
-color: black;
-text-align:center;</string>
-       </property>
-       <property name="text">
-        <string>Play</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_2">
-       <property name="geometry">
-        <rect>
-         <x>660</x>
-         <y>120</y>
-         <width>161</width>
-         <height>51</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border: 2px solid black;
-font: 75 8pt &quot;MS Shell Dlg 2&quot;;
-border-radius: 10px;
-padding: 0 8px;
-background: #085394;
-font: bold, &quot;Comic Sans MS&quot;;;
-color: black;
-text-align:center;</string>
-       </property>
-       <property name="text">
-        <string>Stop</string>
        </property>
       </widget>
      </widget>
@@ -1074,7 +1028,7 @@ text-align:center;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-image: url(:/numero.png);</string>
+      <string notr="true">background-image: url(:/img/numero.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -1109,6 +1063,52 @@ text-align:center;</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>20</y>
+     <width>51</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: #085394;
+font: bold, &quot;Comic Sans MS&quot;;;
+color: black;
+text-align:center;</string>
+   </property>
+   <property name="text">
+    <string>Play</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>20</y>
+     <width>51</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: #085394;
+font: bold, &quot;Comic Sans MS&quot;;;
+color: black;
+text-align:center;</string>
+   </property>
+   <property name="text">
+    <string>Stop</string>
    </property>
   </widget>
  </widget>

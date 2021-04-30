@@ -1,11 +1,12 @@
 #include "dialog1.h"
 #include "ui_dialog1.h"
-
+#include <QSystemTrayIcon>
 Dialog1::Dialog1(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dialog1)
 {
     ui->setupUi(this);
+
     int ret=A.connect_arduino(); // lancer la connexion à arduino
     switch(ret){
     case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
@@ -16,6 +17,11 @@ Dialog1::Dialog1(QWidget *parent) :
     }
     connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_login()));
     connect(ui->QUIT,SIGNAL(clicked()),this,SLOT(quit()));
+
+icon=new QSystemTrayIcon(this);
+icon->setIcon(QIcon(":/img/myappico.png"));
+icon->setVisible(true);
+
 }
 
 Dialog1::~Dialog1()
@@ -40,7 +46,7 @@ void Dialog1::on_pushButton_clicked()
      accueil a;
     test1=(controleVide(login)&&controleVide(mdp));
     if (test1==true)
-    {
+    {icon->showMessage(tr("notification"),tr("vous êtes toujours la bienvenue "));
     a.setModal(true);
 
     a.exec();

@@ -1,6 +1,7 @@
 #include "mainwindow1.h"
 #include "ui_mainwindow1.h"
 #include <QSqlQuery>
+
 mainwindow1::mainwindow1(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::mainwindow1)
@@ -19,6 +20,8 @@ ui->comboBo_4->addItem("infirmiere");
 ui->comboBo_4->addItem("prof dessin");
 ui->comboBo_4->addItem("prof sport");
 ui->comboBo_4->addItem("prof musique");
+
+
 }
 
 mainwindow1::~mainwindow1()

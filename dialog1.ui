@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>E_Nanny</string>
   </property>
   <widget class="QLabel" name="acces">
    <property name="geometry">
@@ -78,6 +78,9 @@ text-align:center;</string>
       <height>41</height>
      </rect>
     </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::ActionsContextMenu</enum>
+    </property>
     <property name="styleSheet">
      <string notr="true">border: 2px solid black;
 font: 75 8pt &quot;MS Shell Dlg 2&quot;;
@@ -86,8 +89,14 @@ padding: 0 8px;
 font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;</string>
     </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
     <property name="placeholderText">
      <string>mot de passe</string>
+    </property>
+    <property name="cursorMoveStyle">
+     <enum>Qt::LogicalMoveStyle</enum>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">

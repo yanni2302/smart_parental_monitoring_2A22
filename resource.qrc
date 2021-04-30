@@ -15,5 +15,8 @@
         <file>img/securite_web_logo.png</file>
         <file>img/image_article_controle_parental.png</file>
         <file>img/numero.png</file>
+        <file>img/myappico.png</file>
+        <file>myappico.ico</file>
+        <file>img/logo.ico</file>
     </qresource>
 </RCC>

@@ -64,6 +64,7 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-
+RC_ICONS = img/logo.ico
+QMAKE_CXXFLAGS += -std=gnu++14
 RESOURCES += \
     resource.qrc

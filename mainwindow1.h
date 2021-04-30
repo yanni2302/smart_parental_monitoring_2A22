@@ -88,6 +88,7 @@ private:
     QSound *sound1;
  QStringList files;
 
+
 };
 
 #endif // MAINWINDOW1_H

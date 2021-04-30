@@ -16,6 +16,7 @@ accueil::~accueil()
 
 void accueil::on_pushButton_7_clicked()
 {mainwindow1 w;
+
     w.exec();
 
 }

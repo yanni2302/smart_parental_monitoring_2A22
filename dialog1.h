@@ -7,7 +7,7 @@
 namespace Ui {
 class Dialog1;
 }
-
+class QSystemTrayIcon;
 class Dialog1 : public QDialog
 {
     Q_OBJECT
@@ -27,6 +27,7 @@ private:
     QByteArray data; // variable contenant les données reçues
 
     Arduino A; // objet temporaire
+    QSystemTrayIcon *icon;
 };
 
 #endif // DIALOG1_H
