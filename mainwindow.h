@@ -21,7 +21,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
      void update();
-private slots:
+    private slots:
     void on_b_ajoutC_clicked();
 
     void on_suppCours_3_clicked();
