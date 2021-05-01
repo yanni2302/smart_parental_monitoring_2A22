@@ -43,6 +43,7 @@ SOURCES += \
     mainwindow1.cpp \
     motcle.cpp \
     personned_aides.cpp \
+    piechart.cpp \
     produit.cpp \
     produitalimentaire.cpp \
     reclamation.cpp \

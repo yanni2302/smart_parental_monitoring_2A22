@@ -336,3 +336,17 @@ void secu::on_pushButton_3_clicked()
 {
     system ("dialer");
 }
+
+
+void secu::on_tabWidget_tabBarClicked(int index)
+{qDeleteAll(ui->tabWidget_4->widget(1)->children());
+    QWidget* piestats = new QWidget(this);
+    piestats = piechart();
+    QGridLayout* layout1 = new QGridLayout(this);
+    layout1->addWidget(piestats, 0, 0); // Top-Left
+    layout1->addWidget(NULL, 0, 1); // Top-Right
+    layout1->addWidget(NULL, 1, 0); // Bottom-Left
+
+    ui->tab_9->setLayout(layout1);
+
+}

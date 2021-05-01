@@ -1,7 +1,10 @@
 #include "mainwindow1.h"
 #include "ui_mainwindow1.h"
 #include <QSqlQuery>
-
+#include <qfiledialog.h>
+#include <QtPrintSupport/QPrinter>
+#include <QtPrintSupport/QPrintDialog>
+#include <QTextDocument>
 mainwindow1::mainwindow1(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::mainwindow1)
@@ -358,3 +361,56 @@ void mainwindow1::on_tabWidget_2_tabBarClicked(int index)
 }
 
 
+
+void mainwindow1::on_pdf_clicked()
+{
+    QString strStream;
+                    QTextStream out(&strStream);
+
+                    const int rowCount = ui->afficher_rec->model()->rowCount();
+                    const int columnCount = ui->afficher_rec->model()->columnCount();
+                    QString TT = QDate::currentDate().toString("yyyy/MM/dd");
+                    out <<"<html>\n"
+                          "<head>\n"
+                           "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                        << "<title>Activites LIST<title>\n "
+                        << "</head>\n"
+                        "<body bgcolor=#ffffff link=#5000A0>\n"
+                        "<h1 style=\"text-align: center;\"><strong> LISTE DES RECLAMATION  </strong></h1>"
+                            "<h2 style=\"text-align: center;\"><strong>  "+TT+"</strong></h2>"
+                        "<table style=\"text-align: center; font-size: 20px;\" border=1>\n "
+                          "</br> </br>";
+                    // headers
+                    out << "<thead><tr bgcolor=#d6e5ff>";
+                    for (int column = 0; column < columnCount; column++)
+                        if (!ui->afficher_rec->isColumnHidden(column))
+                            out << QString("<th>%1</th>").arg(ui->afficher_rec->model()->headerData(column, Qt::Horizontal).toString());
+                    out << "</tr></thead>\n";
+
+                    // data table
+                    for (int row = 0; row < rowCount; row++) {
+                        out << "<tr>";
+                        for (int column = 0; column < columnCount; column++) {
+                            if (!ui->afficher_rec->isColumnHidden(column)) {
+                                QString data =ui->afficher_rec->model()->data(ui->afficher_rec->model()->index(row, column)).toString().simplified();
+                                out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                            }
+                        }
+                        out << "</tr>\n";
+                    }
+                    out <<  "</table>\n"
+                        "</body>\n"
+                        "</html>\n";
+
+                    QTextDocument *document = new QTextDocument();
+                    document->setHtml(strStream);
+
+                    QPrinter printer;
+
+                    QPrintDialog *test = new QPrintDialog(&printer, NULL);
+                    if (test->exec() == QDialog::Accepted) {
+                        document->print(&printer);
+                    }
+
+                    delete document;
+}

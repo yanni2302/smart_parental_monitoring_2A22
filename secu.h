@@ -7,6 +7,7 @@
 #include "QtMultimedia/QSound"
 #include "smtp.h"
 #include "arduino.h"
+#include <QtCharts>
 namespace Ui {
 class secu;
 }
@@ -18,8 +19,18 @@ class secu : public QDialog
 public:
     explicit secu(QWidget *parent = nullptr);
     ~secu();
+
+    QChartView* piechart();
     void update ();
     int difference ();
+    int R_BCS1();
+    int R_BCS2();
+    int R_BCS3();
+    int R_BCS4();
+    int R_BCS5();
+    int R_BCS6();
+
+
 private slots:
 
      void update_label();
@@ -56,6 +67,10 @@ bool controleVideInt(int );
 void verif();
 
 void on_pushButton_3_clicked();
+void on_tabWidget_4_tabBarClicked(int index);
+
+void on_tabWidget_tabBarClicked(int index);
+
 private:
     Ui::secu *ui;
     timeclass T;

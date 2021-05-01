@@ -10,7 +10,13 @@
 #include <QDialog>
 #include <QFileDialog>
 #include <QtCharts>
-
+#include <QFile>
+#include <QTextStream>
+#include <QDateTime>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QPrinter>
+#include <QPrintDialog>
 namespace Ui {
 class mainwindow1;
 }
@@ -76,6 +82,8 @@ private slots:
     void on_tabWidget_2_tabBarClicked(int index);
 
 
+
+    void on_pdf_clicked();
 
 private:
     Ui::mainwindow1 *ui;

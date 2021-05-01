@@ -130,7 +130,7 @@ QString commande:: apercu_pdf(QString id)
     QPainter painter(&pdf);
     painter.setPen(Qt::blue);
     painter.drawText(10,400,"COMMANDE POUR LA FAMILLE BOUAYED");*/
-  QString text="" ;
+  QString text="     ***********COMMANDE POUR LA FAMILLE BOUAYED*******         \n\n" ;
      QSqlQuery query ;
      QString i,x,z,a,b;
 

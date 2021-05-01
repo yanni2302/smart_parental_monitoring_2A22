@@ -1,4 +1,5 @@
 #include "produit.h"
+#include "fournisseur.h"
 #include <QSqlQuery>
 #include<QtDebug>
 #include <QObject>
