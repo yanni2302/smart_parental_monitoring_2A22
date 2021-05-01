@@ -4,6 +4,7 @@
 #include "secu.h"
 #include "education.h"
 #include "gestionc.h"
+#include "produitalimentaire.h"
 accueil::accueil(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::accueil)
@@ -65,4 +66,16 @@ void accueil::on_comptes_clicked()
 {
     gestionc  G;
         G.exec();
+}
+
+void accueil::on_pushButton_9_clicked()
+{
+    produitalimentaire P;
+    P.exec();
+}
+
+void accueil::on_pushButton_12_clicked()
+{
+    produitalimentaire P;
+    P.exec();
 }

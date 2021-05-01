@@ -16,7 +16,7 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>660</x>
      <y>40</y>
      <width>51</width>
      <height>51</height>
@@ -32,7 +32,7 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>-10</x>
+     <x>10</x>
      <y>100</y>
      <width>1071</width>
      <height>481</height>
@@ -76,7 +76,7 @@ QTabBar::tab:selected {
     <enum>QTabWidget::Triangular</enum>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="Employes_3">
     <attribute name="title">
@@ -119,7 +119,7 @@ QTabBar::tab:selected {
 </string>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="Ajouter_E_3">
       <attribute name="title">
@@ -1499,11 +1499,12 @@ font: bold, &quot;Comic Sans MS&quot;;
        </property>
        <property name="styleSheet">
         <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-color: blue;
-background:yellow	;
-font: bold, &quot;Comic Sans MS&quot;;
+background: #fade02;
+font: bold, &quot;Comic Sans MS&quot;;;
+text-align:center;
 </string>
        </property>
        <property name="text">
@@ -1534,7 +1535,7 @@ selection-background-color: gray;</string>
   <widget class="Line" name="line_2">
    <property name="geometry">
     <rect>
-     <x>-20</x>
+     <x>0</x>
      <y>20</y>
      <width>1131</width>
      <height>16</height>
@@ -1547,7 +1548,7 @@ selection-background-color: gray;</string>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>720</x>
+     <x>740</x>
      <y>40</y>
      <width>51</width>
      <height>51</height>
@@ -1563,7 +1564,7 @@ selection-background-color: gray;</string>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>800</x>
+     <x>820</x>
      <y>40</y>
      <width>51</width>
      <height>51</height>
@@ -1579,7 +1580,7 @@ selection-background-color: gray;</string>
   <widget class="Line" name="line">
    <property name="geometry">
     <rect>
-     <x>-20</x>
+     <x>0</x>
      <y>90</y>
      <width>1131</width>
      <height>16</height>
@@ -1592,7 +1593,7 @@ selection-background-color: gray;</string>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>1030</x>
+     <x>1020</x>
      <y>40</y>
      <width>51</width>
      <height>51</height>

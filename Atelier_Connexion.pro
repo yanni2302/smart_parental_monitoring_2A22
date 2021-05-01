@@ -31,16 +31,20 @@ SOURCES += \
     accueil.cpp \
     arduino.cpp \
     barchart.cpp \
+    commande.cpp \
     compte.cpp \
     dialog1.cpp \
     education.cpp \
     enfant.cpp \
+    fournisseur.cpp \
     gestionc.cpp \
         main.cpp \
     connection.cpp \
     mainwindow1.cpp \
     motcle.cpp \
     personned_aides.cpp \
+    produit.cpp \
+    produitalimentaire.cpp \
     reclamation.cpp \
     secu.cpp \
     smtp.cpp \
@@ -53,15 +57,19 @@ SOURCES += \
 HEADERS += \
     accueil.h \
     arduino.h \
+    commande.h \
     compte.h \
     dialog1.h \
     connection.h \
     education.h \
     enfant.h \
+    fournisseur.h \
     gestionc.h \
     mainwindow1.h \
     motcle.h \
     personned_aides.h \
+    produit.h \
+    produitalimentaire.h \
     reclamation.h \
     secu.h \
     smtp.h \
@@ -77,6 +85,7 @@ FORMS += \
         education.ui \
         gestionc.ui \
         mainwindow1.ui \
+        produitalimentaire.ui \
         secu.ui
 
 # Default rules for deployment.

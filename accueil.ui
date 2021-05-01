@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1100</width>
-    <height>711</height>
+    <width>1099</width>
+    <height>723</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>E-Nanny</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/img/bg3.png);</string>
   </property>
   <widget class="Line" name="line_2">
    <property name="geometry">

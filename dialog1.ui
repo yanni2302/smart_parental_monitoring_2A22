@@ -6,30 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>609</width>
-    <height>591</height>
+    <width>603</width>
+    <height>609</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>E_Nanny</string>
   </property>
-  <widget class="QLabel" name="acces">
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>460</y>
-     <width>491</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(0, 52, 148);
-font: 21pt &quot;MS Serif&quot;;</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
@@ -159,6 +142,24 @@ text-align:center;</string>
     </property>
     <property name="text">
      <string>X</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="acces">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>450</y>
+      <width>261</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #085394;
+font: 13pt &quot;MS Serif&quot;;
+</string>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>
