@@ -35,6 +35,10 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_pushButton_5_clicked();
+
+    void on_comptes_clicked();
+
 private:
     Ui::accueil *ui;
 };

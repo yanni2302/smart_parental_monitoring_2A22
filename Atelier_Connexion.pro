@@ -9,7 +9,7 @@ QT       += core gui sql network multimedia charts serialport multimediawidgets 
 
 
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 TARGET = Atelier_Connexion
 TEMPLATE = app
@@ -31,8 +31,11 @@ SOURCES += \
     accueil.cpp \
     arduino.cpp \
     barchart.cpp \
+    compte.cpp \
     dialog1.cpp \
     education.cpp \
+    enfant.cpp \
+    gestionc.cpp \
         main.cpp \
     connection.cpp \
     mainwindow1.cpp \
@@ -50,9 +53,12 @@ SOURCES += \
 HEADERS += \
     accueil.h \
     arduino.h \
+    compte.h \
     dialog1.h \
     connection.h \
     education.h \
+    enfant.h \
+    gestionc.h \
     mainwindow1.h \
     motcle.h \
     personned_aides.h \
@@ -69,6 +75,7 @@ FORMS += \
         accueil.ui \
         dialog1.ui \
         education.ui \
+        gestionc.ui \
         mainwindow1.ui \
         secu.ui
 
