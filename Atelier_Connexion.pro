@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql network multimedia charts serialport
+QT       += core gui sql network multimedia charts serialport multimediawidgets printsupport  network
+
 
 
 
@@ -31,6 +32,7 @@ SOURCES += \
     arduino.cpp \
     barchart.cpp \
     dialog1.cpp \
+    education.cpp \
         main.cpp \
     connection.cpp \
     mainwindow1.cpp \
@@ -39,24 +41,34 @@ SOURCES += \
     reclamation.cpp \
     secu.cpp \
     smtp.cpp \
-    timeclass.cpp
+   activite.cpp\
+   cours1.cpp\
+  devoirs.cpp\
+  qcustomplot.cpp\
+ timeclass.cpp
 
 HEADERS += \
     accueil.h \
     arduino.h \
     dialog1.h \
     connection.h \
+    education.h \
     mainwindow1.h \
     motcle.h \
     personned_aides.h \
     reclamation.h \
     secu.h \
     smtp.h \
+   activite.h\
+   cours1.h\
+   devoirs.h\
+   qcustomplot.h\
     timeclass.h
 
 FORMS += \
         accueil.ui \
         dialog1.ui \
+        education.ui \
         mainwindow1.ui \
         secu.ui
 
