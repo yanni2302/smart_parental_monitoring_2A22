@@ -338,7 +338,7 @@ void secu::on_pushButton_3_clicked()
 }
 
 
-void secu::on_tabWidget_tabBarClicked(int index)
+/*void secu::on_tabWidget_tabBarClicked(int index)
 {qDeleteAll(ui->tabWidget_4->widget(1)->children());
     QWidget* piestats = new QWidget(this);
     piestats = piechart();
@@ -349,4 +349,4 @@ void secu::on_tabWidget_tabBarClicked(int index)
 
     ui->tab_9->setLayout(layout1);
 
-}
+}*/

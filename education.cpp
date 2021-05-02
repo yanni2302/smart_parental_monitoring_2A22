@@ -44,38 +44,15 @@ Education::Education(QWidget *parent) :
       ui->etat->addItem("Done");
       ui->etat_modifier->addItem("TO DO");
        ui->etat_modifier->addItem("Done");
-     /*  ui->comboBox->addItem("Maths");
-        ui->comboBox->addItem("Programmation");
-         ui->comboBox->addItem("Physiques");
-          ui->comboBox->addItem("Music");
-           ui->comboBox->addItem("");
-           */
-           //background
-           QPixmap pix5(":/img/background3.jpg");
-           int w4 = ui->background->width();
-           int h4 = ui->background->height();
-           ui->background->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
-           ui->background_2->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
-            ui->background_3->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
-             ui->background_4->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
-              ui->background_5->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
-               ui->background_6->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
-               ui->background_7->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
-                ui->background_8->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
-                 ui->background_9->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
-                  ui->background_10->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
-                  ui->background_11->setPixmap(pix5.scaled(w4,h4,Qt::KeepAspectRatio));
+
+
      //ajouter de l'image cours_pic
      QPixmap pix(":/img/dev.jpg");
      int w = ui->dev_pic->width();
      int h = ui->dev_pic->height();
      ui->dev_pic->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
-     //logo
-     QPixmap pix1(":/img/logo.jpg");
-     int w1 = ui->logo->width();
-     int h1 = ui->logo->height();
-     ui->logo->setPixmap(pix1.scaled(w1,h1,Qt::KeepAspectRatio));
-      ui->logo_2->setPixmap(pix1.scaled(w1,h1,Qt::KeepAspectRatio));
+
+
      //devoirs
      QPixmap pix2(":/img/devoir1.jpg");
      int w2 = ui->devoirs->width();
@@ -406,7 +383,7 @@ void Education::on_lineEdit_chercher_2_textChanged(const QString &arg1)
 }
 void Education::on_pushButton_2_clicked()
 {   QString filter = "All File (*.*)";
-    QString file_name=QFileDialog::getOpenFileName(this,"Open a file","C:/cours/projet QT/Gestion des Cours/Supports/",filter);
+    QString file_name=QFileDialog::getOpenFileName(this,"Open a file","C:/Users/souma/Desktop/projetcpp/Supports/",filter);
     QFile file(file_name);
     if(!file.open(QFile::ReadOnly | QFile::Text)){
          QMessageBox::warning(this,"title","file not open");
@@ -447,46 +424,7 @@ QMessageBox::information(nullptr,QObject::tr("ok"),
  ui->objet->clear();
  ui->Message->clear();
 }
-//*********************Arduino*************************
-void Education::update_label()
-{
-    data=A.read_from_arduino();
 
-    if(data=="1")
-
-        ui->label_11->setText("ON"); // si les données reçues de arduino via la liaison série sont égales à 1
-    // alors afficher ON
-
-    else if (data=="0")
-
-        ui->label_11->setText("OFF");   // si les données reçues de arduino via la liaison série sont égales à 0
-     //alors afficher ON
-      else if (data=="2")
-
-       ui->label_11->setText("+");
-    else if (data=="3")
-
-     ui->label_11->setText("-");
-}
-void Education::on_on_clicked()
-{
-      A.write_to_arduino("1"); //envoyer 1 à arduino
-}
-
-void Education::on_off_clicked()
-{
-     A.write_to_arduino("0");  //envoyer 0 à arduino
-}
-
-void Education::on_plus_clicked()
-{
-     A.write_to_arduino("2");   //envoyer 2 à arduino
-}
-
-void Education::on_moins_clicked()
-{
-     A.write_to_arduino("3");  //envoyer 3 à arduino
-}
 //**********************************Activite***********************************
 void Education::on_activite_ajouter_clicked()
 {

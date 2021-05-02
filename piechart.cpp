@@ -1,4 +1,4 @@
-#include "secu.h"
+/*#include "secu.h"
 #include "ui_secu.h"
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -69,4 +69,4 @@ int secu::R_BCS3()
     }
     return c19;
 }
-
+*/

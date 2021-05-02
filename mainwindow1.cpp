@@ -375,11 +375,10 @@ void mainwindow1::on_pdf_clicked()
                            "<meta Content=\"Text/html; charset=Windows-1251\">\n"
                         << "<title>LISTE DES RECLAMATION <title>\n "
                         << "</head>\n"
-                        "<body bgcolor=#ffffff link=#5000A0 >\n"
+                        "<body  bgcolor=#ffffff  link=#5000A0  >\n"
                            "<h3 style=\"text-align:left ;\"><strong> E-Nanny </strong></h3>"
                             "<h3 style=\"text-align:right ;\"><strong>  "+TT+"</strong></h3>"
-                        "<h1 style=\"text-align: center; color=#fade02;\"><strong> LISTE DES RECLAMATION  </strong></h1>"
-
+                            "<FONT color=#fade02 face=Times New Roman> <U  color=black><h1 style=\"text-align: center; \"><strong> LISTE DES RECLAMATION  </strong></h1> </U> </FONT>"
 
                         "<table style=\"text-align: center; font-size: 25px;\" border=1>\n "
                           "</br> </br>";

@@ -115,8 +115,8 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>160</y>
+     <x>0</x>
+     <y>140</y>
      <width>1071</width>
      <height>481</height>
     </rect>
@@ -130,15 +130,12 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-QTabBar::tab {
-	background-color: rgb(0, 255, 255);
-
+    <string notr="true">QTabBar::tab {
     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #fade02, stop: 0.4 #fade02,
-                                stop: 0.5 #fade02, stop: 1.0 #fade02);
-    border: 2px solid#085394;
-    border-bottom-color: #085394;/* same as the pane color */
+                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+    border: 2px solid#C4C4C3;
+    border-bottom-color: #C2C7CB; /* same as the pane color */
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     min-width:20ex;
@@ -153,10 +150,9 @@ QTabBar::tab:selected, QTabBar::tab:hover {
 }
 
 QTabBar::tab:selected {
-    border-color: #085394;
-    border-bottom-color: #085394;/* same as pane color */
-}
-</string>
+    border-color: #9B9B9B;
+    border-bottom-color: #C2C7CB; /* same as pane color */
+}</string>
    </property>
    <property name="tabShape">
     <enum>QTabWidget::Triangular</enum>
@@ -179,10 +175,9 @@ QTabBar::tab:selected {
      </property>
      <property name="styleSheet">
       <string notr="true">QTabBar::tab {
-
     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #085394, stop: 0.4 #085394,
-                                stop: 0.5 #085394, stop: 1.0 #085394);
+                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
     border: 2px solid#C4C4C3;
     border-bottom-color: #C2C7CB; /* same as the pane color */
     border-top-left-radius: 4px;
@@ -201,11 +196,10 @@ QTabBar::tab:selected, QTabBar::tab:hover {
 QTabBar::tab:selected {
     border-color: #9B9B9B;
     border-bottom-color: #C2C7CB; /* same as pane color */
-}
-</string>
+}</string>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="Ajouter_E_3">
       <attribute name="title">
@@ -1094,6 +1088,31 @@ text-align:center;
          <height>401</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QTabBar::tab {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+    border: 2px solid#C4C4C3;
+    border-bottom-color: #C2C7CB; /* same as the pane color */
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    min-width:20ex;
+    padding: 2px;
+     font: bold, &quot;Comic Sans MS&quot;;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #085394, stop: 0.4 #085394,
+                                stop: 0.5 #085394, stop: 1.0 #085394);
+}
+
+QTabBar::tab:selected {
+    border-color: #9B9B9B;
+    border-bottom-color: #C2C7CB; /* same as pane color */
+}</string>
+       </property>
        <property name="currentIndex">
         <number>0</number>
        </property>
@@ -1145,7 +1164,7 @@ QTabBar::tab:selected {
 }</string>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <property name="tabBarAutoHide">
       <bool>false</bool>
@@ -1630,7 +1649,7 @@ font: bold, &quot;Comic Sans MS&quot;;
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>390</x>
+     <x>490</x>
      <y>120</y>
      <width>431</width>
      <height>61</height>

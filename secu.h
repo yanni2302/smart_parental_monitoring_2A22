@@ -20,15 +20,15 @@ public:
     explicit secu(QWidget *parent = nullptr);
     ~secu();
 
-    QChartView* piechart();
+   // QChartView* piechart();
     void update ();
-    int difference ();
+    /*int difference ();
     int R_BCS1();
     int R_BCS2();
     int R_BCS3();
     int R_BCS4();
     int R_BCS5();
-    int R_BCS6();
+    int R_BCS6();*/
 
 
 private slots:
@@ -67,9 +67,9 @@ bool controleVideInt(int );
 void verif();
 
 void on_pushButton_3_clicked();
-void on_tabWidget_4_tabBarClicked(int index);
+//void on_tabWidget_4_tabBarClicked(int index);
 
-void on_tabWidget_tabBarClicked(int index);
+//void on_tabWidget_tabBarClicked(int index);
 
 private:
     Ui::secu *ui;
