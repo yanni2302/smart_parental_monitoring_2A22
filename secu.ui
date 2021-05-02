@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>E-Nanny</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/img/fadhel.png);</string>
+  </property>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
@@ -78,7 +81,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>80</y>
+     <y>110</y>
      <width>1031</width>
      <height>471</height>
     </rect>
@@ -88,7 +91,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">/*border: 2px solid ;*/
-background-image: url(:/img/image.jpg);
+background-image: url(:/img/fadhel.png);
 /*font: 75 8pt &quot;MS Shell Dlg 2&quot; ;*/
 border-radius: 10px;
 padding: 0 8px;
@@ -98,7 +101,7 @@ text-align:center;
 color: black;</string>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
@@ -115,7 +118,8 @@ color: black;</string>
      </property>
      <property name="styleSheet">
       <string notr="true">/*border: 2px solid ;*/
-background-image: url(:/img/image.jpg);
+background-image: url(:/img/fadhel.png);
+
 /*font: 75 8pt &quot;MS Shell Dlg 2&quot; ;*/
 border-radius: 10px;
 padding: 0 8px;
@@ -125,7 +129,7 @@ text-align:center;
 color: black;</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab_3">
       <attribute name="title">
@@ -516,10 +520,10 @@ text-align:center;</string>
       <bool>false</bool>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-image: url(:/img/image.jpg);</string>
+      <string notr="true">background-image: url(:/img/fadhel.png);</string>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_5">
       <attribute name="title">

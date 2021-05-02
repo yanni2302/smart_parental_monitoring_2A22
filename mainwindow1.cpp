@@ -373,15 +373,18 @@ void mainwindow1::on_pdf_clicked()
                     out <<"<html>\n"
                           "<head>\n"
                            "<meta Content=\"Text/html; charset=Windows-1251\">\n"
-                        << "<title>Activites LIST<title>\n "
+                        << "<title>LISTE DES RECLAMATION <title>\n "
                         << "</head>\n"
-                        "<body bgcolor=#ffffff link=#5000A0>\n"
-                        "<h1 style=\"text-align: center;\"><strong> LISTE DES RECLAMATION  </strong></h1>"
-                            "<h2 style=\"text-align: center;\"><strong>  "+TT+"</strong></h2>"
-                        "<table style=\"text-align: center; font-size: 20px;\" border=1>\n "
+                        "<body bgcolor=#ffffff link=#5000A0 >\n"
+                           "<h3 style=\"text-align:left ;\"><strong> E-Nanny </strong></h3>"
+                            "<h3 style=\"text-align:right ;\"><strong>  "+TT+"</strong></h3>"
+                        "<h1 style=\"text-align: center; color=#fade02;\"><strong> LISTE DES RECLAMATION  </strong></h1>"
+
+
+                        "<table style=\"text-align: center; font-size: 25px;\" border=1>\n "
                           "</br> </br>";
                     // headers
-                    out << "<thead><tr bgcolor=#d6e5ff>";
+                    out << "<thead><tr bgcolor=#085394>";
                     for (int column = 0; column < columnCount; column++)
                         if (!ui->afficher_rec->isColumnHidden(column))
                             out << QString("<th>%1</th>").arg(ui->afficher_rec->model()->headerData(column, Qt::Horizontal).toString());

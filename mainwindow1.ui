@@ -14,7 +14,7 @@
    <string>E-Nanny</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/img/back.png);</string>
+   <string notr="true">background-image: url(:/img/fadhel.png);</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -130,13 +130,15 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QTabBar::tab {
+    <string notr="true">
+QTabBar::tab {
+	background-color: rgb(0, 255, 255);
 
     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
-                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
-    border: 2px solid#C4C4C3;
-    border-bottom-color: #C2C7CB; /* same as the pane color */
+                                stop: 0 #fade02, stop: 0.4 #fade02,
+                                stop: 0.5 #fade02, stop: 1.0 #fade02);
+    border: 2px solid#085394;
+    border-bottom-color: #085394;/* same as the pane color */
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     min-width:20ex;
@@ -146,13 +148,13 @@
 
 QTabBar::tab:selected, QTabBar::tab:hover {
     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,
-                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
+                                stop: 0 #fade02, stop: 0.4 #fade02,
+                                stop: 0.5 #fade02, stop: 1.0 #fade02);
 }
 
 QTabBar::tab:selected {
-    border-color: #9B9B9B;
-    border-bottom-color: #C2C7CB; /* same as pane color */
+    border-color: #085394;
+    border-bottom-color: #085394;/* same as pane color */
 }
 </string>
    </property>
@@ -160,7 +162,7 @@ QTabBar::tab:selected {
     <enum>QTabWidget::Triangular</enum>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="Employes_3">
     <attribute name="title">
@@ -179,8 +181,8 @@ QTabBar::tab:selected {
       <string notr="true">QTabBar::tab {
 
     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
-                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+                                stop: 0 #085394, stop: 0.4 #085394,
+                                stop: 0.5 #085394, stop: 1.0 #085394);
     border: 2px solid#C4C4C3;
     border-bottom-color: #C2C7CB; /* same as the pane color */
     border-top-left-radius: 4px;
@@ -192,8 +194,8 @@ QTabBar::tab:selected {
 
 QTabBar::tab:selected, QTabBar::tab:hover {
     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,
-                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
+                                stop: 0 #085394, stop: 0.4 #085394,
+                                stop: 0.5 #085394, stop: 1.0 #085394);
 }
 
 QTabBar::tab:selected {
@@ -1133,8 +1135,8 @@ text-align:center;
 
 QTabBar::tab:selected, QTabBar::tab:hover {
     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,
-                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
+                                stop: 0 #085394, stop: 0.4 #085394,
+                                stop: 0.5 #085394, stop: 1.0 #085394);
 }
 
 QTabBar::tab:selected {
@@ -1628,10 +1630,10 @@ font: bold, &quot;Comic Sans MS&quot;;
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>90</y>
+     <x>390</x>
+     <y>120</y>
      <width>431</width>
-     <height>121</height>
+     <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">

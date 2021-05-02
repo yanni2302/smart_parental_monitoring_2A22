@@ -14,7 +14,7 @@
    <string>E-Nanny</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/img/bg3.png);</string>
+   <string notr="true">background-image: url(:/img/fadhel.png);</string>
   </property>
   <widget class="Line" name="line_2">
    <property name="geometry">
