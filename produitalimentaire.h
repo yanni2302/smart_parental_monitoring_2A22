@@ -51,14 +51,14 @@ private slots:
     void on_supp_commande_clicked();
     void on_afficher_commande_activated(const QModelIndex &index);
     void on_impdos_2_clicked();
-    int creerPDF();
+
 
 
 
     void on_afficher_commande_clicked(const QModelIndex &index);
     void on_excel_clicked();
 
-    void on_pdf_clicked();
+
 
 private:
     Ui::produitalimentaire *ui;

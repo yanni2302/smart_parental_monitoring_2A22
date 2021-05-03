@@ -23,9 +23,7 @@ private slots:
 
     void on_suppCours_3_clicked();
 
-    void on_modif_button_clicked();
 
-   void on_chercher_cours_clicked();
 
     void on_chercher_clicked();
 
@@ -48,7 +46,6 @@ private slots:
 
     void on_coursView_activated(const QModelIndex &index);
 
-    void on_modif_button_3_clicked(bool checked);
 
     void on_modif_button_3_clicked();
 
@@ -64,24 +61,16 @@ private slots:
 
     void on_chercher_2_clicked();
 
-    void on_pushButton_3_clicked();
+
 
     void on_pushButton_2_clicked();
 
-    void on_comboBox_activated(const QString &arg1);
     bool controleVide(QString test);
     bool controleVideInt(int test);
 
     void on_envoyer_clicked();
 
-    void on_on_clicked();
 
-    void on_off_clicked();
-
-    void on_plus_clicked();
-
-    void on_moins_clicked();
-      void update_label();
     void  update();
 
       void on_activite_ajouter_clicked();
@@ -91,7 +80,7 @@ private slots:
       void como_destinataire();
       void on_trier_activite_clicked();
       void combo_numero_activite();
-      bool supprimer(int NUMERO);
+
 
       void on_supprimer_activite_clicked();
 

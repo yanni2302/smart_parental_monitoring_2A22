@@ -63,7 +63,7 @@ private slots:
 
     void on_impdos_2_clicked();
 
-    void on_recherche_avance_textChanged(const QString &arg1);
+
 
 
 private:

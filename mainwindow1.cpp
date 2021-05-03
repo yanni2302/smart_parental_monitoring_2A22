@@ -87,14 +87,14 @@ sound1->play();
       int num_tel =ui->lineEdit_num_tel_a->text().toInt();
 
       bool test2;
-         test2=(controleEmail(email)&& controleNumTel(num_tel)&&controleVide(nom)&&controleVide(prenom)&&controleVide(email)&&controleVide(adresse)&&controleVideInt(num_tel)&&controleVideInt(prix_heure)&&controleVideInt(identifiant) );
+         test2=(controleEmail(email)&& controleNumTel(num_tel)&&controleVide(nom)&&controleVide(prenom)&&controleVide(adresse)&&controleVideInt(prix_heure)&&controleVideInt(identifiant) );
 
 Personned_aides P1(identifiant,nom,prenom,adresse,email,metier,num_tel,prix_heure);
-bool test=P1.ajouter();
+
 QMessageBox msgBox;
 if(test2)
  {
-
+bool test=P1.ajouter();
 if(test)
    { msgBox.setText("Ajout avec succes.");
 ui->afficher_personne->setModel(P.afficher());

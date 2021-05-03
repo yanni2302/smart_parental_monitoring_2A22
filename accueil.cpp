@@ -1,6 +1,7 @@
 #include "accueil.h"
 #include "ui_accueil.h"
 #include "mainwindow1.h"
+#include "activiteloisirs.h"
 #include "secu.h"
 #include "education.h"
 #include "gestionc.h"
@@ -78,4 +79,16 @@ void accueil::on_pushButton_12_clicked()
 {
     produitalimentaire P;
     P.exec();
+}
+
+void accueil::on_pushButton_11_clicked()
+{
+    activiteloisirs m;
+  m.exec();
+}
+
+void accueil::on_pushButton_10_clicked()
+{
+    activiteloisirs m;
+  m.exec();
 }

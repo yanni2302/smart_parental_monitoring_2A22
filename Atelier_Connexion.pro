@@ -29,6 +29,8 @@ CONFIG += c++11
 
 SOURCES += \
     accueil.cpp \
+    activiteloi.cpp \
+    activiteloisirs.cpp \
     arduino.cpp \
     barchart.cpp \
     commande.cpp \
@@ -47,6 +49,7 @@ SOURCES += \
     produit.cpp \
     produitalimentaire.cpp \
     reclamation.cpp \
+    rendezvous.cpp \
     secu.cpp \
     smtp.cpp \
    activite.cpp\
@@ -57,6 +60,8 @@ SOURCES += \
 
 HEADERS += \
     accueil.h \
+    activiteloi.h \
+    activiteloisirs.h \
     arduino.h \
     commande.h \
     compte.h \
@@ -72,6 +77,7 @@ HEADERS += \
     produit.h \
     produitalimentaire.h \
     reclamation.h \
+    rendezvous.h \
     secu.h \
     smtp.h \
    activite.h\
@@ -82,6 +88,7 @@ HEADERS += \
 
 FORMS += \
         accueil.ui \
+        activiteloisirs.ui \
         dialog1.ui \
         education.ui \
         gestionc.ui \
