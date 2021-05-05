@@ -115,7 +115,7 @@ QTabBar::tab:selected {
 }</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
@@ -1090,48 +1090,23 @@ text-align:center;</string>
    </widget>
    <widget class="QWidget" name="tab_8">
     <attribute name="title">
-     <string>statistique</string>
+     <string>Statistique</string>
     </attribute>
     <widget class="QTabWidget" name="tabWidget_4">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>0</y>
-       <width>991</width>
-       <height>401</height>
+       <x>50</x>
+       <y>30</y>
+       <width>851</width>
+       <height>361</height>
       </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QTabBar::tab {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
-                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
-    border: 2px solid#C4C4C3;
-    border-bottom-color: #C2C7CB; /* same as the pane color */
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    min-width:20ex;
-    padding: 2px;
-     font: bold, &quot;Comic Sans MS&quot;;
-}
-
-QTabBar::tab:selected, QTabBar::tab:hover {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #085394, stop: 0.4 #085394,
-                                stop: 0.5 #085394, stop: 1.0 #085394);
-}
-
-QTabBar::tab:selected {
-    border-color: #9B9B9B;
-    border-bottom-color: #C2C7CB; /* same as pane color */
-}</string>
      </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
      <widget class="QWidget" name="tab_9">
       <attribute name="title">
-       <string>metier</string>
+       <string>Age</string>
       </attribute>
      </widget>
     </widget>

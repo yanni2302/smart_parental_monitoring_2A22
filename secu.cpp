@@ -33,6 +33,7 @@ timer = new QTimer(this);
  QObject::connect(timer,SIGNAL(timeout()),this,SLOT(verif()));
  timer->start(1000);
 
+
 }
 
 secu::~secu()
@@ -338,15 +339,16 @@ void secu::on_pushButton_3_clicked()
 }
 
 
-/*void secu::on_tabWidget_tabBarClicked(int index)
-{qDeleteAll(ui->tabWidget_4->widget(1)->children());
-    QWidget* piestats = new QWidget(this);
-    piestats = piechart();
-    QGridLayout* layout1 = new QGridLayout(this);
-    layout1->addWidget(piestats, 0, 0); // Top-Left
-    layout1->addWidget(NULL, 0, 1); // Top-Right
-    layout1->addWidget(NULL, 1, 0); // Bottom-Left
 
-    ui->tab_9->setLayout(layout1);
-
-}*/
+void secu::on_tabWidget_4_tabBarClicked(int index)
+{
+    qDeleteAll(ui->tabWidget_4->widget(0)->children());
+    QWidget* barstats = new QWidget(this);
+    barstats = barchart1();
+    QGridLayout* layout = new QGridLayout(this);
+    layout->addWidget(barstats, 0, 0); // Top-Left
+    layout->addWidget(NULL, 0, 1); // Top-Right
+    layout->addWidget(NULL, 1, 0); // Bottom-Left
+    layout->addWidget(NULL, 1, 1); // Bottom-Right
+    ui->tab_9->setLayout(layout);
+}
