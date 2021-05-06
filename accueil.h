@@ -10,6 +10,7 @@
 #include <QDialog>
 #include <QFileDialog>
 #include <QtCharts>
+#include "arduino.h"
 namespace Ui {
 class accueil;
 }
@@ -46,9 +47,17 @@ private slots:
     void on_pushButton_11_clicked();
 
     void on_pushButton_10_clicked();
+    void update_label();   // slot permettant la mise à jour du label état de la lampe 1,
+        // ce slot est lancé à chaque réception d'un message de Arduino
+
+
+     void on_desact_Alarme_clicked();
 
 private:
     Ui::accueil *ui;
+    QByteArray data; // variable contenant les données reçues
+
+        Arduino A; // objet temporaire
 };
 
 #endif // ACCUEIL_H

@@ -42,7 +42,7 @@ private slots:
 
     void on_lineEdit_chercher_2_textChanged(const QString &arg1);
 
-    void on_coursView_clicked(const QModelIndex &index);
+
 
     void on_coursView_activated(const QModelIndex &index);
 
@@ -51,9 +51,7 @@ private slots:
 
     void on_imprimer_devoirs_clicked();
 
-    void on_coursView_2_activated(const QModelIndex &index);
 
-    void on_coursView_2_clicked(const QModelIndex &index);
 
     void on_modifier_clicked();
 
@@ -65,8 +63,7 @@ private slots:
    bool verif_date();
     void on_pushButton_2_clicked();
     bool controleEmail(QString test);
-    bool controleVide(QString test);
-    bool controleVideInt(int test);
+
 
     void on_envoyer_clicked();
 

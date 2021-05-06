@@ -66,7 +66,7 @@ void Dialog1::update_login()
 {
       ui->acces->setText("");
     data=A.read_from_arduino();
-    qDebug()<< "data est  "<<data;
+
 
 
     if(data=="0")

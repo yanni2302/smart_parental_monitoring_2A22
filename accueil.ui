@@ -381,6 +381,29 @@ font: 14pt &quot;Myriad Hebrew&quot;;</string>
     <string>Notification</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="desact_Alarme">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>530</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+color: rgb(255, 255, 255);
+padding: 0 8px;
+background: #085394;
+font: bold, &quot;Comic Sans MS&quot;;;
+text-align:center;</string>
+   </property>
+   <property name="text">
+    <string>Désactiver alarme</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
