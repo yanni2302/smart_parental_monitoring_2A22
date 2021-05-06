@@ -19,6 +19,7 @@ gestionc::gestionc(QWidget *parent) :
     ui->afficher_enfant->setModel(tmpenfant.afficher());
   ui->afficher_compte->setModel(tmpcompte.afficher());
   update();
+  refrech();
 }
 
 gestionc::~gestionc()
@@ -316,4 +317,71 @@ void gestionc::on_impdos_2_clicked()
                   QPrintDialog dialog (&printer,this);
                   if(dialog.exec()==QDialog::Rejected) return ;
                   ui->imp->print(&printer);
+}
+
+void gestionc::refrech() {
+    ui->afficher_compte->setModel(tmpcompte.afficher());
+        QSqlQueryModel * model= new QSqlQueryModel();
+        model->setQuery("SELECT idc FROM compte");
+        ui->idsup->setModel(model);
+
+
+        QSqlQueryModel * model2= new QSqlQueryModel();
+        model2->setQuery("SELECT idc FROM ARCHIVE");
+        ui->idRestoration->setModel(model2);
+}
+
+
+
+
+
+void gestionc::on_sup_clicked()
+{
+        ui->idsup->currentText().toInt();
+        QString login=ui->lineedit_login_2->text();
+        QString mdp=ui->lineedit_mdp_2->text();
+        QString enfant=ui->lineedit_enfant_2->text();
+        bool test=tmpcompte.supprimerc(id_compte,login,mdp,enfant);
+        if(test){
+            ui->afficher_compte->setModel(tmpcompte.afficher());
+
+
+            QMessageBox::information(nullptr,"Archivage ","compte archiver avec succés");
+        refrech();
+
+        }
+        else
+                QMessageBox::warning(nullptr,"Error","compte non archiver");
+}
+void gestionc::on_Archive_clicked()
+{
+    ui->afficher_compte->setModel(tmpcompte.archive());
+
+}
+void gestionc::on_restoration_clicked()
+{QString login=ui->lineedit_login_2->text();
+    QString mdp=ui->lineedit_mdp_2->text();
+    QString enfant=ui->lineedit_enfant_2->text();
+    int id =ui->idRestoration->currentText().toInt();
+        bool test=tmpcompte.restoration(id,login,mdp,enfant);
+        if(test){
+            QSqlQueryModel *s=new QSqlQueryModel();
+                QSqlQuery *querry=new QSqlQuery();
+                querry->prepare("SELECT idc FROM archive");
+                querry->exec();
+                s->setQuery(*querry);
+
+
+                ui->idsup->setModel(s);
+            ui->afficher_compte->setModel(tmpcompte.afficher());
+            QMessageBox::information(nullptr,"restauration compte","compte restaurer avec succés");
+            refrech();
+        }
+        else
+                QMessageBox::warning(nullptr,"Error","compte non restaurer");
+
+
+
+
+
 }

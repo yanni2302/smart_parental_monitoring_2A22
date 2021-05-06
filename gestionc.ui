@@ -78,7 +78,7 @@ QTabBar::tab:selected {
     <enum>QTabWidget::Triangular</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="Employes_3">
     <attribute name="title">
@@ -1066,7 +1066,7 @@ QTabBar::tab:selected {
 }</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <property name="tabBarAutoHide">
       <bool>false</bool>
@@ -1340,9 +1340,9 @@ selection-background-color: gray;</string>
        <property name="geometry">
         <rect>
          <x>630</x>
-         <y>190</y>
-         <width>341</width>
-         <height>23</height>
+         <y>250</y>
+         <width>171</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -1361,10 +1361,10 @@ font: bold, &quot;Comic Sans MS&quot;;
       <widget class="QPushButton" name="supprimer_compte">
        <property name="geometry">
         <rect>
-         <x>630</x>
-         <y>230</y>
-         <width>341</width>
-         <height>23</height>
+         <x>820</x>
+         <y>250</y>
+         <width>161</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -1470,18 +1470,19 @@ selection-background-color: gray;</string>
        <property name="geometry">
         <rect>
          <x>630</x>
-         <y>280</y>
-         <width>351</width>
+         <y>290</y>
+         <width>171</width>
          <height>28</height>
         </rect>
        </property>
        <property name="styleSheet">
         <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 10px;
 padding: 0 8px;
-color: rgb(255, 255, 255);
-background:#085394	;
-font: bold, &quot;Comic Sans MS&quot;;
+background: #fade02;
+font: bold, &quot;Comic Sans MS&quot;;;
+text-align:center;
 </string>
        </property>
        <property name="text">
@@ -1491,9 +1492,9 @@ font: bold, &quot;Comic Sans MS&quot;;
       <widget class="QPushButton" name="impdos_2">
        <property name="geometry">
         <rect>
-         <x>630</x>
-         <y>340</y>
-         <width>351</width>
+         <x>820</x>
+         <y>290</y>
+         <width>161</width>
          <height>28</height>
         </rect>
        </property>
@@ -1526,6 +1527,109 @@ border-radius: 10px;
 padding: 0 8px;
 background: white;
 selection-background-color: gray;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="restoration">
+       <property name="geometry">
+        <rect>
+         <x>880</x>
+         <y>220</y>
+         <width>101</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: #fade02;
+font: bold, &quot;Comic Sans MS&quot;;;
+text-align:center;
+</string>
+       </property>
+       <property name="text">
+        <string>Restoration</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="sup">
+       <property name="geometry">
+        <rect>
+         <x>880</x>
+         <y>170</y>
+         <width>101</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: #fade02;
+font: bold, &quot;Comic Sans MS&quot;;;
+text-align:center;
+</string>
+       </property>
+       <property name="text">
+        <string>Archive</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="idsup">
+       <property name="geometry">
+        <rect>
+         <x>690</x>
+         <y>180</y>
+         <width>161</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="idRestoration">
+       <property name="geometry">
+        <rect>
+         <x>690</x>
+         <y>220</y>
+         <width>161</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="Archive">
+       <property name="geometry">
+        <rect>
+         <x>680</x>
+         <y>340</y>
+         <width>241</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: #fade02;
+font: bold, &quot;Comic Sans MS&quot;;;
+text-align:center;
+</string>
+       </property>
+       <property name="text">
+        <string>tableau Archive</string>
        </property>
       </widget>
      </widget>

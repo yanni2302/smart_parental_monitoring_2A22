@@ -29,7 +29,7 @@ public:
     bool supprimer (int);
     bool modifier();
     QSqlQueryModel * AfficherTrieAge();
-    QSqlQueryModel *rechercherNom(QString nom);
+    QSqlQueryModel *rechercherNom(QString search);
 private:
     int id;
     QString nom,prenom,adresse,maladie ;

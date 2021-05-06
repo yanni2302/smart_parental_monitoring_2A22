@@ -19,7 +19,9 @@ public:
     QSqlQueryModel * Find_compte();
     QString  apercu_pdf();
     QSqlQueryModel* recherche_avance(QString text,QString choix);
-
+      bool supprimerc(int idc,QString log,QString m,QString enf);
+      bool restoration(int idc,QString log,QString m,QString enf);
+      QSqlQueryModel * archive();
 private:
     int idc;
     QString login,mdp,enfant;

@@ -19,9 +19,9 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>0</x>
      <y>120</y>
-     <width>981</width>
+     <width>1021</width>
      <height>451</height>
     </rect>
    </property>
@@ -51,7 +51,7 @@ QTabBar::tab:selected {
 }</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -948,7 +948,7 @@ selection-background-color: gray;</string>
         <rect>
          <x>30</x>
          <y>170</y>
-         <width>601</width>
+         <width>551</width>
          <height>192</height>
         </rect>
        </property>
@@ -1186,7 +1186,7 @@ text-align:center;
       <widget class="QLineEdit" name="lineEdit_27">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>30</x>
          <y>140</y>
          <width>121</width>
          <height>22</height>
@@ -1208,7 +1208,7 @@ selection-background-color: gray;
       <widget class="QLineEdit" name="lineEdit_rechercherp">
        <property name="geometry">
         <rect>
-         <x>370</x>
+         <x>190</x>
          <y>140</y>
          <width>113</width>
          <height>22</height>
@@ -1281,6 +1281,29 @@ text-align:center;
         <string/>
        </property>
       </widget>
+      <widget class="QPushButton" name="im">
+       <property name="geometry">
+        <rect>
+         <x>600</x>
+         <y>180</y>
+         <width>81</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: #fade02;
+font: bold, &quot;Comic Sans MS&quot;;;
+text-align:center;
+</string>
+       </property>
+       <property name="text">
+        <string>Imprimer</string>
+       </property>
+      </widget>
      </widget>
     </widget>
    </widget>
@@ -1291,7 +1314,7 @@ text-align:center;
     <widget class="QTabWidget" name="tabWidget_4">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>10</x>
        <y>0</y>
        <width>981</width>
        <height>421</height>
@@ -1323,7 +1346,7 @@ QTabBar::tab:selected {
 }</string>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab_7">
       <attribute name="title">
@@ -1919,7 +1942,7 @@ text-align:center;
         <string>trier par adresse</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pdf">
+      <widget class="QPushButton" name="test">
        <property name="geometry">
         <rect>
          <x>760</x>
@@ -1939,7 +1962,7 @@ text-align:center;
 </string>
        </property>
        <property name="text">
-        <string>PDF</string>
+        <string>imprimer les commandes</string>
        </property>
       </widget>
      </widget>
@@ -1969,8 +1992,8 @@ selection-background-color: gray;</string>
       <widget class="QPushButton" name="impdos_2">
        <property name="geometry">
         <rect>
-         <x>810</x>
-         <y>340</y>
+         <x>670</x>
+         <y>330</y>
          <width>160</width>
          <height>28</height>
         </rect>
@@ -1992,8 +2015,8 @@ text-align:center;
       <widget class="QPushButton" name="excel">
        <property name="geometry">
         <rect>
-         <x>690</x>
-         <y>340</y>
+         <x>490</x>
+         <y>330</y>
          <width>160</width>
          <height>28</height>
         </rect>

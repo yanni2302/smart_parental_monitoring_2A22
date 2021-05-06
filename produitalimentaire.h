@@ -64,6 +64,8 @@ private slots:
 
 
 
+    void on_im_clicked();
+
 private:
     Ui::produitalimentaire *ui;
     fournisseur tmpfournisseur;

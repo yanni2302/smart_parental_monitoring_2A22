@@ -19,6 +19,7 @@ public:
     explicit gestionc(QWidget *parent = nullptr);
     ~gestionc();
     void update();
+    void refrech();
 private slots:
 
 
@@ -63,7 +64,11 @@ private slots:
 
     void on_impdos_2_clicked();
 
+void on_Archive_clicked();
+void on_sup_clicked();
 
+
+    void on_restoration_clicked();
 
 
 private:

@@ -112,14 +112,11 @@ QSqlQueryModel * Enfant ::AfficherTrieAge()
          model->setHeaderData(1, Qt::Horizontal, QObject::tr("maladie"));
    return model;
 }
-QSqlQueryModel * Enfant ::rechercherNom(QString nom)
-{
-    QSqlQueryModel *model= new QSqlQueryModel();
-    QSqlQuery q;
-    q.prepare("select * from enfant where nom like ?");
-    q.addBindValue("%"+ nom +"%");
-    q.exec();
-    model->setQuery(q);
-    return (model);
+QSqlQueryModel * Enfant ::rechercherNom(QString search)
+{QSqlQueryModel * model= new QSqlQueryModel();
+    QString qry="select * from enfant where id like '%"+search+"%' or nom like '%"+search+"%' or prenom like '%"+search+"%' or adresse like '%"+search+"%' or age like '%"+search+"%'or poids like '%"+search+"%'or taille like '%"+search+"%'or maladie like '%"+search+"%'";
+    qDebug()<<qry;
+    model->setQuery(qry);
+    return model;
 
 }

@@ -103,57 +103,68 @@ QString compte:: apercu_pdf()
      }
       return text;
 }
-QSqlQueryModel* compte::recherche_avance(QString text,QString choix)
+bool compte::supprimerc(int idc,QString log,QString m,QString enf)
 {
-    QSqlQueryModel* model = new QSqlQueryModel;
-    QSqlQuery* qry = new QSqlQuery;
+    QSqlQuery query;
+    query.prepare("select login,mdp,enfant from compte where idc = ? ");
+    query.addBindValue(QString::number(idc));
 
-    if ( text == "")
 
-    {
-        return model;
+   // query.bindValue(":idc",idc);
+    query.exec();
+login=query.value(1).toString();
+
+    while (query.next()) {
+
+        QSqlQuery query;
+        query.prepare("INSERT INTO archive (idc,login,mdp,enfant) VALUES (:idc,:login,:mdp,:enfant) ");
+        query.bindValue(":idc",idc);
+        query.bindValue(":login",log);
+        query.bindValue(":mdp",m);
+        query.bindValue(":enfant",enf);
+
+         query.exec();
+
+
     }
-    else
-    {
-        if ( choix == "idc")
-        {
-            qry->prepare("SELECT * FROM compte WHERE idc LIKE :idc");
-            qry->bindValue(":idc",("%" + text + "%")); //securité pour eviter la faille de sqlinjection
 
-            qry->exec();
-            model->setQuery(*qry);
-            return model;
+    query.prepare("delete from compte where idc = :idc") ;
 
-        }
-        if ( choix == "login")
-        {
-            qry->prepare("SELECT * FROM compte WHERE login LIKE :idc");
-            qry->bindValue(":idc",("%" + text + "%")); //securité pour eviter la faille de sqlinjection
+    query.bindValue(":idc",idc);
 
-            qry->exec();
-            model->setQuery(*qry);
-            return model;
-        }
-        if ( choix == "mdp")
-        {
-            qry->prepare("SELECT * FROM compte WHERE mdp LIKE :idc");
-            qry->bindValue(":idc",("%" + text + "%")); //securité pour eviter la faille de sqlinjection
+    return query.exec();
+}
 
-            qry->exec();
-            model->setQuery(*qry);
-            return model;
-        }
-        if ( choix == "enfant")
-        {
-            qry->prepare("SELECT * FROM compte WHERE enfant LIKE :idc");
-            qry->bindValue(":idc",("%" + text + "%")); //securité pour eviter la faille de sqlinjection
+bool compte::restoration(int idc,QString log,QString m,QString enf)
+{
+    QSqlQuery query;
+    query.prepare("select login,mdp,enfant from archive where idc = ? ");
+    query.addBindValue(QString::number(idc));
+    query.exec();
+    while (query.next()) {
+        QSqlQuery query;
+        query.prepare("INSERT INTO compte (idc,login,mdp,enfant) VALUES (:idc,:login,:mdp,:enfant)");
+        query.bindValue(":idc",idc);
 
-            qry->exec();
-            model->setQuery(*qry);
-            return model;
-        }
+        query.bindValue(":login",log);
+        query.bindValue(":mdp",m);
+        query.bindValue(":enfant",enf);
+
+
+        query.exec();
+
+
     }
+    query.prepare("delete from ARCHIVE where idc = :idc") ;
+
+    query.bindValue(":idc",idc);
+
+    return query.exec();
+}
+QSqlQueryModel * compte::archive()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("SELECT * FROM ARCHIVE ");
     return model;
 
 }
-
