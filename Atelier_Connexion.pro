@@ -4,8 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql network multimedia charts serialport multimediawidgets printsupport  network
-
+QT       += core gui sql network multimedia charts serialport multimediawidgets printsupport
 
 
 

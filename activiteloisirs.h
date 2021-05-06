@@ -132,6 +132,7 @@ void on_actionNew_triggered();
 
    void on_exit_clicked();
 
+
 private:
     Ui::activiteloisirs *ui;
     activiteloi tmpactivite;

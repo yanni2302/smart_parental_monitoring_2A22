@@ -61,10 +61,10 @@ private slots:
 
     void on_chercher_2_clicked();
 
-
-
+    bool mail_verif();
+   bool verif_date();
     void on_pushButton_2_clicked();
-
+    bool controleEmail(QString test);
     bool controleVide(QString test);
     bool controleVideInt(int test);
 
@@ -80,8 +80,8 @@ private slots:
       void como_destinataire();
       void on_trier_activite_clicked();
       void combo_numero_activite();
-
-
+     bool mail_verif_modif();
+      void combo_numero_devoirs();
       void on_supprimer_activite_clicked();
 
       void on_nomrecherch_textChanged(const QString &arg1);

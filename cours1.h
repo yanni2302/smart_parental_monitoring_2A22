@@ -15,7 +15,7 @@ class Cours1
     int NUMERO;
 public:
     Cours1();
-    Cours1(QString,QString,QString,QString,QString,int);
+    Cours1(QString,QString,QString,QString,int,QString);
     ~Cours1();
     void set_nomC(QString);
     void set_nomE(QString);

@@ -199,7 +199,7 @@ QTabBar::tab:selected {
 }</string>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="Ajouter_E_3">
       <attribute name="title">
@@ -997,9 +997,9 @@ text-align:center;</string>
       <widget class="QPushButton" name="tri">
        <property name="geometry">
         <rect>
-         <x>70</x>
+         <x>30</x>
          <y>380</y>
-         <width>341</width>
+         <width>211</width>
          <height>23</height>
         </rect>
        </property>
@@ -1072,6 +1072,28 @@ text-align:center;
        </property>
        <property name="readOnly">
         <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="Excel">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>380</y>
+         <width>211</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+color: rgb(255, 255, 255);
+background:#085394	;
+font: bold, &quot;Comic Sans MS&quot;;
+</string>
+       </property>
+       <property name="text">
+        <string>Excel</string>
        </property>
       </widget>
      </widget>

@@ -112,4 +112,15 @@ QSqlQueryModel * Personned_aides::rechercherNom(QString metier)
     return (model);
 
 }
+QSqlQueryModel * Personned_aides::Find_personne_d_aides()
+{
+    QSqlQueryModel * model = new QSqlQueryModel();
+    QSqlQuery query;
+    query.prepare("SELECT * FROM personne");
+
+    query.exec();
+    model->setQuery(query);
+    return model;
+}
+
 

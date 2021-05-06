@@ -20,6 +20,7 @@
 #include "secdialog.h"
 #include<QTimeEdit>
 #include<QTime>
+#include <QDateTime>
 
 
 Education::Education(QWidget *parent) :
@@ -39,6 +40,8 @@ Education::Education(QWidget *parent) :
      combo_num();
      como_destinataire();
      combo_numero_activite();
+      combo_numero_devoirs();
+      verif_date();
      //combobox
      ui->etat->addItem("TO DO");
       ui->etat->addItem("Done");
@@ -76,42 +79,12 @@ Education::Education(QWidget *parent) :
        }
         QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
         //le slot update_label suite à la reception du signal readyRead (reception des données).
+
 }
 
 Education::~Education()
 {
     delete ui;
-}
-// COURS
-void Education::on_b_ajoutC_clicked()
-{      int numero=ui->numero->text().toInt();
-       QString nomC=ui->nomC->text();
-       QString nomE=ui->nomE->text();
-       QString heureD=ui->heureD->text();
-       QString heureF=ui->heureF->text();
-       QString email=ui->email->text();
-       Cours1 C(nomC,nomE,heureD,heureF,email,numero);
-                bool test=C.ajouter();
-          QMessageBox msgBox;
-
-       if(test)
-       {
-           QMessageBox::information(nullptr,QObject::tr("ok"),
-                                    QObject::tr("Ajout effectué\n"
-                                                "click Cancel to exit"),QMessageBox::Cancel);
-           ui->coursView->setModel(C.afficher());
-            ui->contactView->setModel(D.afficher_contact());
-           update();
-           combo_num();
-           como_destinataire();
-}
-
-       else
-       {
-           QMessageBox::information(nullptr,QObject::tr("not ok"),
-                                    QObject::tr("Ajout n'est pas effectué\n"
-                                                "click Cancel to exit"),QMessageBox::Cancel);
-       }
 }
 //*****************ComboBox******************
   void Education::update()
@@ -124,6 +97,7 @@ void Education::on_b_ajoutC_clicked()
           ui->comboBox->setModel(m);
           ui->cours->setModel(m);
           ui->cours_modifier->setModel(m);
+          ui->nomC_modif->setModel(m);
 
   }
   void Education::combo_num()
@@ -159,17 +133,129 @@ void Education::on_b_ajoutC_clicked()
            ui->num_modifier->setModel(m);
 
   }
+  void Education::combo_numero_devoirs()
+  {
+          QSqlQueryModel *m=new QSqlQueryModel();
+          QSqlQuery *querry=new QSqlQuery();
+          querry->prepare("SELECT REFDEV FROM DEVOIRS");
+          querry->exec();
+          m->setQuery(*querry);
+          ui->comboBox_devoirs->setModel(m);
+  }
 //**********************************************
+// COURS
+bool Education::controleEmail(QString test)
+  {
+      for(int i=0;i<test.length();i++)
+      {
+          if (test.at(i)=='@')
+          {
+              return true;
+          }
+      }
+      return false;
+  }
+
+bool Education::mail_verif()
+{
+    bool test =false;
+    if( ui->email->text() == ui->confirmer_email_2->text())
+    {
+        test = true;
+    }
+ return test;
+}
+bool Education::mail_verif_modif()
+{
+    bool test =false;
+    if( ui->email_2->text() == ui->confirmer_email_modif->text())
+    {
+        test = true;
+    }
+ return test;
+}
+
+void Education::on_b_ajoutC_clicked()
+{      int numero=ui->numero->text().toInt();
+       QString nomC=ui->nomC->text();
+       QString nomE=ui->nomE->text();
+       QString heureD=ui->heureD->text();
+       QString heureF=ui->heureF->text();
+       QString email=ui->email->text();
+       Cours1 C(nomC,nomE,heureD,heureF,numero,email);
+          QMessageBox msgBox;
+          bool verif = mail_verif();
+             bool test_mail = controleEmail(email);
+                if(test_mail == false)
+                {
+                    QMessageBox::information(nullptr,QObject::tr("erreur de saisie"),
+                                               QObject::tr("mail invalide!\n"
+                                                           "click Cancel to exit"),QMessageBox::Cancel);
+                }
+            else
+                {
+         if( (nomC == "") || (nomE == "") || (email == "") || (numero == 0) )
+            {
+             QMessageBox::information(nullptr,QObject::tr("Champ vide"),
+                                        QObject::tr("l'un des champs est vide!\n"
+                                                    "click Cancel to exit"),QMessageBox::Cancel);
+           }
+         else
+         {
+        if(verif == false)
+          {
+                 QMessageBox::information(nullptr,QObject::tr("erreur de saisie"),
+                                            QObject::tr("verifie votre email!\n"
+                                                        "click Cancel to exit"),QMessageBox::Cancel);
+
+         }
+        else{
+          bool test=C.ajouter();
+       if(test)
+       {
+
+
+
+             QMessageBox::information(nullptr,QObject::tr("ok"),
+                                    QObject::tr("Ajout effectué\n"
+                                                "click Cancel to exit"),QMessageBox::Cancel);
+           ui->coursView->setModel(C.afficher());
+            ui->contactView->setModel(D.afficher_contact());
+           update();
+           combo_num();
+           como_destinataire();
+
+}
+
+       else
+       {
+           QMessageBox::information(nullptr,QObject::tr("not ok"),
+                                    QObject::tr("Ajout n'est pas effectué\n"
+                                                "click Cancel to exit"),QMessageBox::Cancel);
+       }
+        }
+        }
+        }
+}
+
 void Education::on_suppCours_3_clicked()
 {
     QString NomC=ui->suppCours->text();
     bool test=C.supprimer(NomC);
+    if( NomC == "")
+    {
+        QMessageBox::information(nullptr,QObject::tr("Champ vide"),
+                                   QObject::tr("champ vide!\n"
+                                               "click Cancel to exit"),QMessageBox::Cancel);
+    }
+    else{
     if(test)
     {
         QMessageBox::information(nullptr,QObject::tr("ok"),
                                  QObject::tr("suppression effectué\n"
                                              "click Cancel to exit"),QMessageBox::Cancel);
         ui->coursView->setModel(C.afficher());
+        ui->contactView->setModel(D.afficher_contact());
         update();
     }
     else
@@ -177,6 +263,7 @@ void Education::on_suppCours_3_clicked()
         QMessageBox::information(nullptr,QObject::tr("Not Ok"),
                                  QObject::tr("suppression n'est pas effectué\n"
                                              "click Cancel to exit"),QMessageBox::Cancel);
+    }
     }
 }
 
@@ -189,14 +276,39 @@ void Education::on_modif_button_3_clicked()
     QString HEUREF=ui->heureF_3->text();
     QString email=ui->email_2->text();
     int Numero=ui->numC->currentText().toInt();
-    Cours1 C(NOMC,NOME,HEURED,HEUREF,email,Numero);
-    bool test=C.modifier();
+    Cours1 C(NOMC,NOME,HEURED,HEUREF,Numero,email);
+    bool verif = mail_verif_modif();
+       bool test_mail = controleEmail(email);
+       if (verif == false)
+       {
+           QMessageBox::information(nullptr,QObject::tr("erreur de saisie"),
+                                      QObject::tr("email incompatible!\n"
+                                                  "click Cancel to exit"),QMessageBox::Cancel);
+       }
+       else{
+          if(test_mail == false)
+          {
+              QMessageBox::information(nullptr,QObject::tr("erreur de saisie"),
+                                         QObject::tr("mail invalide!\n"
+                                                     "click Cancel to exit"),QMessageBox::Cancel);
+          }
+      else
+          {
+    if( (NOMC == "") || (NOME == "") || (email == "") || (Numero == 0) || (HEUREF == "") || (HEURED == "") )
+       {
+        QMessageBox::information(nullptr,QObject::tr("Champ vide"),
+                                   QObject::tr("l'un des champs est vide!\n"
+                                               "click Cancel to exit"),QMessageBox::Cancel);
+    }
+    else{
+         bool test=C.modifier();
     if(test)
     {
         QMessageBox::information(nullptr,QObject::tr("ok"),
                                  QObject::tr("Modification effectué\n"
                                              "click Cancel to exit"),QMessageBox::Cancel);
         ui->coursView->setModel(C.afficher());
+
         update();
     }
     else
@@ -205,6 +317,9 @@ void Education::on_modif_button_3_clicked()
                                  QObject::tr("Modification n'est pas effectué\n"
                                              "click Cancel to exit"),QMessageBox::Cancel);
     }
+    }
+    }
+       }
 }
 
 
@@ -212,7 +327,15 @@ void Education::on_chercher_clicked()
 {
     ui->coursView->setModel(C.afficher());
     QString NOM = ui->lineEdit_chercher->text();
+    if( NOM =="")
+    {
+        QMessageBox::information(nullptr,QObject::tr("Champ vide"),
+                                   QObject::tr("champs vide!\n"
+                                               "click Cancel to exit"),QMessageBox::Cancel);
+    }
+    else{
     ui->chercher_cours_2->setModel(C.chercher(NOM));
+    }
 }
 void Education::on_trier_cours_clicked()
 {   if(ui->radioButton_numero->isChecked())
@@ -245,10 +368,7 @@ void Education::on_coursView_activated(const QModelIndex &index)
                }
             }
 }
-void Education::on_coursView_clicked(const QModelIndex &index)
-{
-    id_eq=ui->coursView->model()->data(index).toInt();
-}
+
 void Education::on_pushButton_clicked()
 {
     QPrinter printer;
@@ -259,13 +379,49 @@ void Education::on_pushButton_clicked()
 }
 
 //DEVOIRS
+bool Education::verif_date()
+{
+     QString annee =QDateTime::currentDateTime().toString("yyyy");
+     QString mois =QDateTime::currentDateTime().toString("MM");
+     QString jour =QDateTime::currentDateTime().toString("dd");
+     QString Deadline=ui->dateEdit->text();
+     QString annee_2 = Deadline.mid(7,4);
+     QString mois_2 = Deadline.mid(4,2);
+     QString jour_2 = Deadline.mid(1,2);
+    /* QMessageBox::information(nullptr,QObject::tr("date!"),
+                                QObject::tr("annee_2"),QMessageBox::Cancel);
+                                */
+     if(annee_2.toInt()>annee.toInt())
+     {
+         return true;
+     }
+      else if( (annee_2.toInt() == annee.toInt()) && (mois_2.toInt() > mois.toInt()))
+     {
+        return true;
+     }
+     else if ((annee_2.toInt() == annee.toInt()) && (mois_2.toInt() == mois.toInt()) && (jour_2.toInt() > jour.toInt()))
+     {
+         return true;
+     }
+     return false;
+
+}
 void Education::on_b_ajout_dev_clicked()
 {
     QString nomD=ui->nomD_lineEdit->text();
     int RefDev=ui->numD_lineEdit->text().toInt();
     QString NomC=ui->comboBox->currentText();
-    QString Deadline=ui->deadline_lineEdit->text();
+    QString Deadline=ui->dateEdit->text();
     Devoirs D(nomD,RefDev,NomC,Deadline);
+
+
+    if(nomD == "" || RefDev == 0 )
+    {
+        QMessageBox::information(nullptr,QObject::tr("Champ vide"),
+                                   QObject::tr("l'un des champs est vide!\n"
+                                               "click Cancel to exit"),QMessageBox::Cancel);
+    }
+    else{
     bool test=D.ajouter();
     if(test)
     {
@@ -273,6 +429,8 @@ void Education::on_b_ajout_dev_clicked()
                                  QObject::tr("Ajout effectué\n"
                                              "click Cancel to exit"),QMessageBox::Cancel);
          ui->coursView_2->setModel(D.afficher());
+          combo_numero_devoirs();
+          combo_numero_devoirs();
     }
     else
     {
@@ -280,6 +438,8 @@ void Education::on_b_ajout_dev_clicked()
                                  QObject::tr("Ajout n'est pas effectué\n"
                                              "click Cancel to exit"),QMessageBox::Cancel);
     }
+    }
+
 }
 
 
@@ -287,6 +447,14 @@ void Education::on_b_ajout_dev_clicked()
 void Education::on_suppCours_4_clicked()
 {
         QString NomD=ui->suppCours_6->text();
+
+        if(NomD == "")
+        {
+            QMessageBox::information(nullptr,QObject::tr("Champ vide"),
+                                       QObject::tr("champs vide!\n"
+                                                   "click Cancel to exit"),QMessageBox::Cancel);
+        }
+        else{
         bool test=D.supprimer(NomD);
         if(test)
         {
@@ -294,12 +462,15 @@ void Education::on_suppCours_4_clicked()
                                      QObject::tr("supprission effectué\n"
                                                  "click Cancel to exit"),QMessageBox::Cancel);
            ui->coursView_2->setModel(D.afficher());
+           combo_numero_devoirs();
+           combo_numero_devoirs();
         }
         else
         {
             QMessageBox::information(nullptr,QObject::tr("Not Ok"),
                                      QObject::tr("supprission n'est pas effectué\n"
                                                  "click Cancel to exit"),QMessageBox::Cancel);
+        }
         }
 }
 
@@ -313,46 +484,34 @@ void Education::on_imprimer_devoirs_clicked()
     ui->coursView->render(&printer);
 }
 
-void Education::on_coursView_2_activated(const QModelIndex &indexx)
-{
-    QString vall=ui->coursView_2->model()->data(indexx).toString();
-              QSqlQuery qry;
-              qry.prepare("select * from DEVOIRS where"
-                          "NOMD ='"+vall+"' or REFDEV='"+vall+"' or DEADLINE='"+vall+"' or NOMC='"+vall+"' ");
-              if(qry.exec())
-                {while (qry.next())
-               { ui->nomD_modif->setText(qry.value(0).toString());
-                 ui->numD_modif->setText(qry.value(1).toString());
-                 ui->deadline_modif->setText(qry.value(2).toString());
-                 ui->nomC_modif->setText(qry.value(3).toString());
-               }
-            }
-}
-
-void Education::on_coursView_2_clicked(const QModelIndex &indexx)
-{
-    id_Dev=ui->coursView_2->model()->data(indexx).toInt();
-}
-
 void Education::on_modifier_clicked()
-{
+{   int REFDEV = ui->comboBox_devoirs->currentText().toInt();
     QString NOMD=ui->nomD_modif->text();
-    QString DEADLINE=ui->deadline_modif->text();
-    QString NOMC=ui->nomC_modif->text();
-    Devoirs D(NOMD,id_Dev,DEADLINE,NOMC);
-    bool test=D.modifier();
+    QString DEADLINE=ui->dateEdit_2->text();
+    QString NOMC=ui->nomC_modif->currentText();
+    Devoirs D(NOMD,REFDEV,NOMC,DEADLINE);
+
+    if(NOMD == "" || NOMC  == "" || REFDEV == 0)
+    {
+        QMessageBox::information(nullptr,QObject::tr("Champ vide"),
+                                   QObject::tr("l'un des champs est vide!\n"
+                                               "click Cancel to exit"),QMessageBox::Cancel);
+    }
+    else
+    {  bool test=D.modifier();
     if(test)
     {
         QMessageBox::information(nullptr,QObject::tr("ok"),
                                  QObject::tr("Modification effectué\n"
                                              "click Cancel to exit"),QMessageBox::Cancel);
-        ui->coursView->setModel(D.afficher());
+        ui->coursView_2->setModel(D.afficher());
     }
     else
     {
         QMessageBox::information(nullptr,QObject::tr("not ok"),
                                  QObject::tr("Modification n'est pas effectué\n"
                                              "click Cancel to exit"),QMessageBox::Cancel);
+    }
     }
 }
 
@@ -373,7 +532,16 @@ void Education::on_chercher_2_clicked()
 {
     ui->coursView_2->setModel(D.afficher());
     QString NOM = ui->lineEdit_chercher_2->text();
+    if(NOM == "")
+    {
+        QMessageBox::information(nullptr,QObject::tr("Champ vide"),
+                                   QObject::tr(" champs vide!\n"
+                                               "click Cancel to exit"),QMessageBox::Cancel);
+    }
+    else
+    {
     ui->chercher_cours_3->setModel(D.chercher(NOM));
+    }
 }
 void Education::on_lineEdit_chercher_2_textChanged(const QString &arg1)
 {
@@ -394,26 +562,18 @@ void Education::on_pushButton_2_clicked()
      file.flush();
      file.close();
 }
-bool Education::controleVide(QString test)
-{
-    if(test!="")
-        return  true;
-    return false;
-
-}
-
-bool Education::controleVideInt(int test)
-{
-    if(test!=0)
-        return  true;
-    return false;
-
-}
 void Education::on_envoyer_clicked()
 {
     QString mail_destinataire=ui->Destinataire->currentText();
     QString objet=ui->objet->text();
     QString message=ui->Message->text();
+    if(objet == "" || message == "" )
+    {
+        QMessageBox::information(nullptr,QObject::tr("Champ vide"),
+                                   QObject::tr("l'un des champs est vide!\n"
+                                               "click Cancel to exit"),QMessageBox::Cancel);
+    }
+    else{
 Smtp* smtp = new Smtp("jihedca111@gmail.com","Jiji@jiji123", "smtp.gmail.com");
 smtp->sendMail("jihedca111@gmail.com",ui->Destinataire->currentText(),ui->objet->text(),ui->Message->text());
 
@@ -423,6 +583,7 @@ QMessageBox::information(nullptr,QObject::tr("ok"),
  ui->Destinataire->clear();
  ui->objet->clear();
  ui->Message->clear();
+    }
 }
 
 //**********************************Activite***********************************
@@ -434,14 +595,23 @@ void Education::on_activite_ajouter_clicked()
       QString etat=ui->etat->currentText();
       Activite A(numero,cours,activite,etat);
       bool test;
-      test = A.ajouter();
+
          QMessageBox msgBox;
+         if (cours == "" || activite == "" || numero == 0)
+         {
+             QMessageBox::information(nullptr,QObject::tr("Champ vide"),
+                                        QObject::tr("l'un des champs est vide!\n"
+                                                    "click Cancel to exit"),QMessageBox::Cancel);
+         }
+         else{
+              test = A.ajouter();
       if(test)
       {
           QMessageBox::information(nullptr,QObject::tr("ok"),
                                    QObject::tr("Ajout effectué\n"
                                                "click Cancel to exit"),QMessageBox::Cancel);
         ui->coursView->setModel(C.afficher());
+          ui->activiteView->setModel(AC.afficher());
         update();
 }
 
@@ -452,28 +622,9 @@ void Education::on_activite_ajouter_clicked()
                                    QObject::tr("Ajout n'est pas effectué\n"
                                                "click Cancel to exit"),QMessageBox::Cancel);
       }
+         }
 }
-/*void Education::makePlot()
-{
-    // generate some data:
-    QVector<double> x(101), y(101); // initialize with entries 0..100
-    for (int i=0; i<101; ++i)
-    {
-      x[i] = i/50.0 - 1; // x goes from -1 to 1
-      y[i] = x[i]*x[i]; // let's plot a quadratic function
-    }
-    // create graph and assign data to it:
-    ui->customPlot->addGraph();
-      ui->customPlot->graph(0)->setData(x, y);
-    // give the axes some labels:
-      ui->customPlot->xAxis->setLabel("x");
-      ui->customPlot->yAxis->setLabel("y");
-    // set axes ranges, so we see all data:
-      ui->customPlot->xAxis->setRange(-1, 1);
-      ui->customPlot->yAxis->setRange(0, 1);
-      ui->customPlot->replot();
-}
-*/
+
 QVector<double> Education::Statistique()
 {
     QSqlQuery q;
@@ -626,7 +777,15 @@ void Education::on_activite_pushButton_modifier_clicked()
     QString ETAT=ui->etat_modifier->currentText();
     int NUMERO=ui->num_modifier->currentText().toInt();
     Activite AC(NUMERO,COURS,ACTIVITE,ETAT);
-    bool test=AC.modifier();
+
+    if(COURS == "" || ACTIVITE == "")
+    {
+        QMessageBox::information(nullptr,QObject::tr("Champ vide"),
+                                   QObject::tr("l'un des champs est vide!\n"
+                                               "click Cancel to exit"),QMessageBox::Cancel);
+    }
+    else{
+         bool test=AC.modifier();
     if(test)
     {
         QMessageBox::information(nullptr,QObject::tr("ok"),
@@ -641,5 +800,6 @@ void Education::on_activite_pushButton_modifier_clicked()
         QMessageBox::information(nullptr,QObject::tr("not ok"),
                                  QObject::tr("Modification n'est pas effectué\n"
                                              "click Cancel to exit"),QMessageBox::Cancel);
+    }
     }
 }

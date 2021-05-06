@@ -81,7 +81,7 @@ private slots:
 
     void on_tabWidget_2_tabBarClicked(int index);
 
-
+ void on_Excel_clicked();
 
     void on_pdf_clicked();
 

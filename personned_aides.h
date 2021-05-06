@@ -13,6 +13,7 @@ public:
      bool supprimer(int);
      bool modifier();
      QSqlQueryModel * AfficherTrieNom();
+     QSqlQueryModel * Find_personne_d_aides();
      QSqlQueryModel * rechercherNom(QString metier);
          int Getidentifiant() { return identifiant; }
             void Setidentifiant(int val) { this->identifiant = val; }

@@ -417,3 +417,32 @@ void mainwindow1::on_pdf_clicked()
 
                     delete document;
 }
+void mainwindow1::on_Excel_clicked()
+{
+     Personned_aides E;
+           QSqlQueryModel * model=new QSqlQueryModel();
+           model=E.Find_personne_d_aides();
+       QString textData= "identifiant ; nom ; prenom ; adresse ; email ; metier ; num_tel ;prix_heure \n";
+           int rows=model->rowCount();
+           int columns=model->columnCount();
+           for (int i = 0; i < rows; i++)
+           {
+               for (int j = 0; j < columns; j++)
+               {
+                   textData += model->data(model->index(i,j)).toString();
+                   textData +=" ; ";
+               }
+               textData += "\n";
+           }
+           QString fileName = QFileDialog::getSaveFileName(this, "Export Excel", QString(), "*.csv");
+           if (!fileName.isEmpty())
+               if (QFileInfo(fileName).suffix().isEmpty())
+                   fileName.append(".csv");
+           QFile csvfile(fileName);
+           if(csvfile.open(QIODevice::WriteOnly|QIODevice::Truncate))
+           {
+               QTextStream out(&csvfile);
+               out<<textData;
+           }
+           csvfile.close();
+}

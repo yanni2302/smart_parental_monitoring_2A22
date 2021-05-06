@@ -60,7 +60,7 @@ QTabBar::tab:selected {
     <enum>QTabWidget::Triangular</enum>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -157,7 +157,7 @@ selection-background-color: gray;
        <property name="geometry">
         <rect>
          <x>50</x>
-         <y>350</y>
+         <y>390</y>
          <width>141</width>
          <height>21</height>
         </rect>
@@ -198,7 +198,7 @@ selection-background-color: gray;
        <property name="geometry">
         <rect>
          <x>50</x>
-         <y>310</y>
+         <y>350</y>
          <width>141</width>
          <height>21</height>
         </rect>
@@ -452,7 +452,7 @@ text-align:center;
        <property name="geometry">
         <rect>
          <x>130</x>
-         <y>400</y>
+         <y>430</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -564,7 +564,7 @@ selection-background-color: gray;
        <property name="geometry">
         <rect>
          <x>210</x>
-         <y>310</y>
+         <y>350</y>
          <width>118</width>
          <height>22</height>
         </rect>
@@ -582,7 +582,7 @@ selection-background-color: gray;
        <property name="geometry">
         <rect>
          <x>210</x>
-         <y>350</y>
+         <y>390</y>
          <width>118</width>
          <height>22</height>
         </rect>
@@ -668,6 +668,47 @@ text-align:center;
         <string/>
        </property>
       </widget>
+      <widget class="QLabel" name="confirmer_email">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>310</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: #fade02;
+font: bold, &quot;Comic Sans MS&quot;;;
+text-align:center;
+</string>
+       </property>
+       <property name="text">
+        <string>Confirmer Email</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="confirmer_email_2">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>310</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;
+</string>
+       </property>
+      </widget>
       <zorder>groupBox_16</zorder>
       <zorder>background_3</zorder>
       <zorder>dev_pic</zorder>
@@ -685,6 +726,8 @@ text-align:center;
       <zorder>email</zorder>
       <zorder>label_17</zorder>
       <zorder>label_18</zorder>
+      <zorder>confirmer_email</zorder>
+      <zorder>confirmer_email_2</zorder>
      </widget>
      <widget class="QWidget" name="tab_4">
       <attribute name="title">
@@ -1047,7 +1090,7 @@ text-align:center;
        <property name="geometry">
         <rect>
          <x>700</x>
-         <y>270</y>
+         <y>310</y>
          <width>131</width>
          <height>21</height>
         </rect>
@@ -1070,7 +1113,7 @@ text-align:center;
        <property name="geometry">
         <rect>
          <x>700</x>
-         <y>310</y>
+         <y>350</y>
          <width>131</width>
          <height>21</height>
         </rect>
@@ -1093,7 +1136,7 @@ text-align:center;
        <property name="geometry">
         <rect>
          <x>860</x>
-         <y>350</y>
+         <y>390</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -1116,7 +1159,7 @@ font: bold, &quot;Comic Sans MS&quot;;
        <property name="geometry">
         <rect>
          <x>780</x>
-         <y>410</y>
+         <y>440</y>
          <width>161</width>
          <height>71</height>
         </rect>
@@ -1197,7 +1240,7 @@ text-align:center;
        <property name="geometry">
         <rect>
          <x>850</x>
-         <y>270</y>
+         <y>310</y>
          <width>118</width>
          <height>22</height>
         </rect>
@@ -1215,7 +1258,7 @@ selection-background-color: gray;
        <property name="geometry">
         <rect>
          <x>850</x>
-         <y>310</y>
+         <y>350</y>
          <width>118</width>
          <height>22</height>
         </rect>
@@ -1314,6 +1357,47 @@ text-align:center;
         <string/>
        </property>
       </widget>
+      <widget class="QLabel" name="label_35">
+       <property name="geometry">
+        <rect>
+         <x>700</x>
+         <y>270</y>
+         <width>131</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: #fade02;
+font: bold, &quot;Comic Sans MS&quot;;;
+text-align:center;
+</string>
+       </property>
+       <property name="text">
+        <string>Confirmer  Email</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="confirmer_email_modif">
+       <property name="geometry">
+        <rect>
+         <x>850</x>
+         <y>270</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;
+</string>
+       </property>
+      </widget>
       <zorder>groupBox_5</zorder>
       <zorder>groupBox_6</zorder>
       <zorder>background_4</zorder>
@@ -1335,6 +1419,8 @@ text-align:center;
       <zorder>numC</zorder>
       <zorder>email_2</zorder>
       <zorder>label_27</zorder>
+      <zorder>label_35</zorder>
+      <zorder>confirmer_email_modif</zorder>
      </widget>
      <widget class="QWidget" name="tab_10">
       <attribute name="title">
@@ -1572,7 +1658,7 @@ QTabBar::tab:selected {
       <enum>QTabWidget::Triangular</enum>
      </property>
      <property name="currentIndex">
-      <number>4</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab_6">
       <attribute name="title">
@@ -1613,24 +1699,6 @@ selection-background-color: gray;
          <rect>
           <x>180</x>
           <y>130</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid black;
-border-radius: 10px;
-padding: 0 8px;
-background: white;
-selection-background-color: gray;
-</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="deadline_lineEdit">
-        <property name="geometry">
-         <rect>
-          <x>180</x>
-          <y>180</y>
           <width>113</width>
           <height>22</height>
          </rect>
@@ -1989,6 +2057,23 @@ selection-background-color: gray;
 </string>
         </property>
        </widget>
+       <widget class="QDateEdit" name="dateEdit">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>180</y>
+          <width>110</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QLabel" name="devoirs">
        <property name="geometry">
@@ -2175,24 +2260,6 @@ font: bold, &quot;Comic Sans MS&quot;;
         <string/>
        </property>
       </widget>
-      <widget class="QLineEdit" name="nomC_modif">
-       <property name="geometry">
-        <rect>
-         <x>900</x>
-         <y>310</y>
-         <width>113</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border: 2px solid black;
-border-radius: 10px;
-padding: 0 8px;
-background: white;
-selection-background-color: gray;
-</string>
-       </property>
-      </widget>
       <widget class="QPushButton" name="modifier">
        <property name="geometry">
         <rect>
@@ -2246,24 +2313,6 @@ text-align:center;
         <string>  Nom de Cours </string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="deadline_modif">
-       <property name="geometry">
-        <rect>
-         <x>900</x>
-         <y>270</y>
-         <width>113</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border: 2px solid black;
-border-radius: 10px;
-padding: 0 8px;
-background: white;
-selection-background-color: gray;
-</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="deadline_2">
        <property name="geometry">
         <rect>
@@ -2287,11 +2336,11 @@ text-align:center;
         <string>     Deadline</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="numD_modif">
+      <widget class="QLineEdit" name="nomD_modif">
        <property name="geometry">
         <rect>
          <x>900</x>
-         <y>220</y>
+         <y>230</y>
          <width>113</width>
          <height>22</height>
         </rect>
@@ -2309,7 +2358,7 @@ selection-background-color: gray;
        <property name="geometry">
         <rect>
          <x>730</x>
-         <y>220</y>
+         <y>190</y>
          <width>141</width>
          <height>21</height>
         </rect>
@@ -2328,29 +2377,11 @@ text-align:center;
         <string>Numero De Devoir</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="nomD_modif">
-       <property name="geometry">
-        <rect>
-         <x>900</x>
-         <y>170</y>
-         <width>113</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border: 2px solid black;
-border-radius: 10px;
-padding: 0 8px;
-background: white;
-selection-background-color: gray;
-</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="nomD_2">
        <property name="geometry">
         <rect>
          <x>730</x>
-         <y>170</y>
+         <y>230</y>
          <width>141</width>
          <height>21</height>
         </rect>
@@ -2616,6 +2647,59 @@ text-align:center;
         <string/>
        </property>
       </widget>
+      <widget class="QDateEdit" name="dateEdit_2">
+       <property name="geometry">
+        <rect>
+         <x>900</x>
+         <y>270</y>
+         <width>110</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_devoirs">
+       <property name="geometry">
+        <rect>
+         <x>900</x>
+         <y>190</y>
+         <width>111</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;
+</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="nomC_modif">
+       <property name="geometry">
+        <rect>
+         <x>902</x>
+         <y>310</y>
+         <width>111</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+selection-background-color: gray;
+</string>
+       </property>
+      </widget>
       <zorder>groupBox_8</zorder>
       <zorder>groupBox_4</zorder>
       <zorder>background_2</zorder>
@@ -2625,15 +2709,15 @@ text-align:center;
       <zorder>radioButton_nom_2</zorder>
       <zorder>imprimer_devoirs</zorder>
       <zorder>logo_2</zorder>
-      <zorder>nomC_modif</zorder>
       <zorder>modifier</zorder>
       <zorder>nomC_3</zorder>
-      <zorder>deadline_modif</zorder>
       <zorder>deadline_2</zorder>
-      <zorder>numD_modif</zorder>
-      <zorder>numD_2</zorder>
       <zorder>nomD_modif</zorder>
+      <zorder>numD_2</zorder>
       <zorder>nomD_2</zorder>
+      <zorder>dateEdit_2</zorder>
+      <zorder>comboBox_devoirs</zorder>
+      <zorder>nomC_modif</zorder>
      </widget>
      <widget class="QWidget" name="tab_8">
       <attribute name="title">

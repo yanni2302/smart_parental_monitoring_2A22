@@ -18,7 +18,7 @@ Cours1::Cours1()
     email="";
 
 }
-Cours1::Cours1(QString nomC,QString nomE,QString heureD,QString heureF,QString email,int NUMERO)
+Cours1::Cours1(QString nomC,QString nomE,QString heureD,QString heureF,int NUMERO,QString email)
 {
  this->nomC = nomC;
  this->nomE = nomE;
@@ -81,8 +81,8 @@ QSqlQueryModel* Cours1::afficher()
    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom de l'enseignant"));
    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Heure de debut"));
    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Heure de fin"));
-   model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero"));
-   model->setHeaderData(5, Qt::Horizontal, QObject::tr("Email"));
+   model->setHeaderData(4, Qt::Horizontal, QObject::tr("EMAIL"));
+   model->setHeaderData(5, Qt::Horizontal, QObject::tr("NUMERO"));
    return model;
 }
 bool Cours1::supprimer(QString NOMC)
@@ -115,8 +115,8 @@ QSqlQueryModel* Cours1::chercher(QString NOMC)
    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom de l'enseignant"));
    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Heure de debut"));
    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Heure de fin"));
-   model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero "));
-   model->setHeaderData(5, Qt::Horizontal, QObject::tr("Email"));
+   model->setHeaderData(4, Qt::Horizontal, QObject::tr("EMAIL"));
+   model->setHeaderData(5, Qt::Horizontal, QObject::tr("NUMERO"));
    return model;
 }
 QSqlQueryModel * Cours1::trier_id()
@@ -127,8 +127,8 @@ QSqlQueryModel * Cours1::trier_id()
         model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom de l'enseignant"));
         model->setHeaderData(2, Qt::Horizontal, QObject::tr("Heure de debut"));
         model->setHeaderData(3, Qt::Horizontal, QObject::tr("Heure de fin"));
-        model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero "));
-        model->setHeaderData(5, Qt::Horizontal, QObject::tr("Email"));
+        model->setHeaderData(4, Qt::Horizontal, QObject::tr("EMAIL"));
+        model->setHeaderData(5, Qt::Horizontal, QObject::tr("NUMERO"));
         return model ;
 }
 QSqlQueryModel * Cours1::trier_nom()
@@ -139,7 +139,7 @@ QSqlQueryModel * Cours1::trier_nom()
         model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom de l'enseignant"));
         model->setHeaderData(2, Qt::Horizontal, QObject::tr("Heure de debut"));
         model->setHeaderData(3, Qt::Horizontal, QObject::tr("Heure de fin"));
-        model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero "));
-        model->setHeaderData(5, Qt::Horizontal, QObject::tr("Email"));
+        model->setHeaderData(4, Qt::Horizontal, QObject::tr("EMAIL"));
+        model->setHeaderData(5, Qt::Horizontal, QObject::tr("NUMERO"));
         return model ;
 }
