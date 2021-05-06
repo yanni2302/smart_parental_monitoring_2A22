@@ -16,7 +16,7 @@ Dialog1::Dialog1(QWidget *parent) :
     case(-1):qDebug() << "arduino is not available";
     }
     connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_login()));
-    connect(ui->QUIT,SIGNAL(clicked()),this,SLOT(quit()));
+    //connect(ui->QUIT,SIGNAL(clicked()),this,SLOT(quit()));
 
 icon=new QSystemTrayIcon(this);
 icon->setIcon(QIcon(":/img/myappico.png"));

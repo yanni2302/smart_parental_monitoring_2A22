@@ -227,14 +227,15 @@ void mainwindow1::on_envoyer_clicked()
     QString message=ui->lineedit_msg->text();
       int personne_aide =ui->comboBo_2->currentText().toInt();
 reclamation R1(identifiant,mail_destinataire,sujet,message,personne_aide);
-bool test=R1.ajouter_reclamtion();
+
 QMessageBox msgBox;
 bool test2;
    test2=(controleVide(sujet)&&controleVide(message)&&controleVide(mail_destinataire)&controleVideInt(personne_aide)&&controleVideInt(identifiant) );
 if(test2)
-{
+{bool test=R1.ajouter_reclamtion();
 if(test)
-   { msgBox.setText("Ajout de la reclamation avec succes.");
+   {
+    msgBox.setText("Ajout de la reclamation avec succes.");
 ui->afficher_rec->setModel(R.afficher_reclamtion());
 Smtp* smtp = new Smtp("soumaya99.bensassi@gmail.com","Sb50607010", "smtp.gmail.com");
 

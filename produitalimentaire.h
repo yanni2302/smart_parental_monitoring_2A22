@@ -6,6 +6,7 @@
 #include "produit.h"
 #include "commande.h"
 #include <QTextStream>
+#include "qrcode.hpp"
 namespace Ui {
 class produitalimentaire;
 }
@@ -52,7 +53,10 @@ private slots:
     void on_afficher_commande_activated(const QModelIndex &index);
     void on_impdos_2_clicked();
 
+    void on_test_clicked();
 
+
+        void on_QRcode_clicked();
 
 
     void on_afficher_commande_clicked(const QModelIndex &index);

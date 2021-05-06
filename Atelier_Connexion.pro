@@ -47,6 +47,7 @@ SOURCES += \
     personned_aides.cpp \
     produit.cpp \
     produitalimentaire.cpp \
+    qrcode.cpp \
     reclamation.cpp \
     rendezvous.cpp \
     secu.cpp \
@@ -75,6 +76,7 @@ HEADERS += \
     personned_aides.h \
     produit.h \
     produitalimentaire.h \
+    qrcode.hpp \
     reclamation.h \
     rendezvous.h \
     secu.h \

@@ -14,6 +14,8 @@
 #include <QPixmap>
 #include <QScrollBar>
 #include <QUrl>
+#include <QDate>
+using namespace qrcodegen;
 produitalimentaire::produitalimentaire(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::produitalimentaire)
@@ -504,15 +506,111 @@ void produitalimentaire::on_excel_clicked()
         csvfile.close();
 }
 
-/*void produitalimentaire::on_pdf_clicked()
+void produitalimentaire::on_test_clicked()
+{ //int s=0;
+   // s=ui->lineEdit_montant_2->text().toInt();
+
+
+    QString strStream;
+    QTextStream out(&strStream);
+
+
+
+
+                    const int rowCount = ui->afficher_commande->model()->rowCount();
+                    const int columnCount = ui->afficher_commande->model()->columnCount();
+                    QString TT = QDate::currentDate().toString("yyyy/MM/dd");
+                    out <<"<html>\n"
+                          "<head>\n"
+                           "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                        << "<title>Activites LIST<title>\n "
+                        << "</head>\n"
+                        "<body bgcolor=#ffffff link=#5000A0>\n"
+                        "<h1 style=\"text-align: center;\"><strong> **LISTE DES COMMANDES ** "+TT+"</strong></h1>"
+                        "<table style=\"text-align: center; font-size: 20px;\" border=1>\n "
+                          "</br> </br>";
+                    // headers
+                    out << "<thead><tr bgcolor=#d6e5ff>";
+                    for (int column = 0; column < columnCount; column++)
+
+                        if (!ui->afficher_commande->isColumnHidden(column))
+
+                            out << QString("<th>%1</th>").arg(ui->afficher_commande->model()->headerData(column, Qt::Horizontal).toString());
+
+                    out << "</tr></thead>\n";
+
+                    // data table
+                    for (int row = 0; row < rowCount; row++) {
+                        out << "<tr>";
+                        for (int column = 0; column < columnCount; column++) {
+                            if (!ui->afficher_commande->isColumnHidden(column)) {
+                                 //qDebug () << s;
+
+                                QString data =ui->afficher_commande->model()->data(ui->afficher_commande->model()->index(row, column)).toString().simplified();
+                                out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                            }
+                        }
+                        out << "</tr>\n";
+                    }
+                    out <<  "</table>\n"
+                            //"<h2 style=\"text-align: center;\"><strong> la somme est  "+TT+"</strong></h1>"
+                            "<?php echo  $s ?>"
+
+
+                        "</body>\n"
+                        "</html>\n";
+
+                    QTextDocument *document = new QTextDocument();
+                    document->setHtml(strStream);
+
+                    QPrinter printer;
+
+                    QPrintDialog *test = new QPrintDialog(&printer, NULL);
+                    if (test->exec() == QDialog::Accepted) {
+                        document->print(&printer);
+                    }
+
+                    delete document;
+}
+
+
+void produitalimentaire::on_QRcode_clicked()
 {
-    commande c;
-QPdfWriter pdf("/Users/User/Desktop/test.pdf");
-QPainter painter(&pdf);
-painter.setPen(Qt::blue);
-painter.drawText(10,400,"Commande pour la famille Bouayed");
-painter.setPen(Qt::black);
-painter.drawText(50,400,"ID de la commande: ");
+
+    int tabprod=ui->afficher_produit->currentIndex().row();
+    QVariant idd=ui->afficher_produit->model()->data(ui->afficher_produit->model()->index(tabprod,0));
+    int id= idd.toInt();
+    QSqlQuery qry;
+    qry.prepare("select * from produit where id_produit=:id_produit");
+    qry.bindValue(":id_produit",id);
+    qry.exec();
+    QString fournisseur , nom, prix,ids;
+
+    while(qry.next()){
+        ids=qry.value(0).toString();
+        fournisseur=qry.value(1).toString();
+        nom=qry.value(2).toString();
+        prix=qry.value(3).toString();
+    }
+    ids=QString::number(id);
+    ids="ID: "+ids+" Nom: "+fournisseur+" Categorie: "+nom+" Prix: "+prix;
+    QrCode qr = QrCode::encodeText(ids.toUtf8().constData(), QrCode::Ecc::HIGH);
+
+
+    QImage im(qr.getSize(),qr.getSize(), QImage::Format_RGB888);
+
+    for (int y = 0; y < qr.getSize(); y++) {
+        for (int x = 0; x < qr.getSize(); x++) {
+            int color = qr.getModule(x, y);  // 0 for white, 1 for black
+
+            // You need to modify this part
+            if(color==0)
+                im.setPixel(x, y,qRgb(254, 254, 254));
+            else
+                im.setPixel(x, y,qRgb(0, 0, 0));
+        }
+    }
+    im=im.scaled(200,200);
+    ui->qrlabel->setPixmap(QPixmap::fromImage(im));
 
 }
-*/
