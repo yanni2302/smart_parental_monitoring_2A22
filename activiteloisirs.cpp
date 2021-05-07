@@ -24,6 +24,7 @@ activiteloisirs::activiteloisirs(QWidget *parent) :
 
     update();
     update_rdv();
+    update_nom();
 }
 
 activiteloisirs::~activiteloisirs()
@@ -51,12 +52,39 @@ void activiteloisirs::update()
 
         QSqlQueryModel *m=new QSqlQueryModel();
             QSqlQuery *querry=new QSqlQuery();
-            querry->prepare("SELECT ID FROM ACTIVITEloi");
+            querry->prepare("SELECT ID FROM ACTIVITEloi ");
             querry->exec();
             m->setQuery(*querry);
 
-            ui->comboBox->setModel(m);
+            QSqlQueryModel *m1=new QSqlQueryModel();
+                QSqlQuery *querry1=new QSqlQuery();
+                querry1->prepare("SELECT identifiant FROM personne");
+                querry1->exec();
+               m1->setQuery(*querry1);
 
+            ui->comboBox->setModel(m);
+            ui->comboBox->setModel(m1);
+
+}
+void activiteloisirs::update_nom()
+{
+
+
+
+        QSqlQueryModel *m=new QSqlQueryModel();
+            QSqlQuery *querry=new QSqlQuery();
+            querry->prepare("SELECT prenom FROM ACTIVITEloi ");
+            querry->exec();
+            m->setQuery(*querry);
+
+            QSqlQueryModel *m1=new QSqlQueryModel();
+                QSqlQuery *querry1=new QSqlQuery();
+                querry1->prepare("SELECT prenom FROM personne");
+                querry1->exec();
+               m1->setQuery(*querry1);
+
+            ui->comboBox_2->setModel(m);
+            ui->comboBox_2->setModel(m1);
 
 }
 void activiteloisirs::update_rdv()
@@ -118,6 +146,9 @@ void activiteloisirs::on_ajout_clicked()
         if(test){
             ui->tabactivite->setModel(tmpactivite.afficher());
             QMessageBox::information(nullptr,"Ajout activite","activite ajouté avec succés");
+            update();
+            update_rdv();
+            update_nom();
         }
         else
                 QMessageBox::warning(nullptr,"Error","activite non ajouté");}
@@ -131,6 +162,9 @@ void activiteloisirs::on_sup_clicked()
     if(test){
         ui->tabactivite->setModel(tmpactivite.afficher());
         QMessageBox::information(nullptr,"suppression activite","activite supprimer avec succés");
+        update();
+        update_rdv();
+        update_nom();
     }
     else
             QMessageBox::warning(nullptr,"Error","activite non supprimer");
@@ -151,6 +185,9 @@ void activiteloisirs::on_modifier_clicked()
         ui->tabactivite->setModel(tmpactivite.afficher());
 
         QMessageBox::information(nullptr,"modification activite","activite modifie avec succés");
+        update();
+        update_rdv();
+        update_nom();
     }
     else
             QMessageBox::warning(nullptr,"Error","activite non modifie");
@@ -163,7 +200,7 @@ void activiteloisirs::on_Ajout_rdv_clicked()
     int id_rdv=ui->id_rdv_ajout->text().toInt();
     int id_activite2=ui->id_activite_ajout->text().toInt();
     QString nom=ui->nom_rdv_ajout->text();
-    QString prenom=ui->prenom_rdv_ajout->text();
+    QString prenom=ui->comboBox_2->currentText();
     QString email=ui->email_rdv_ajout->text();
     QString pro_rdv=ui->pro_rdv_ajout->text();
     QString heure=ui->heure_rdv_ajout->text();
@@ -215,6 +252,9 @@ void activiteloisirs::on_Modifier_rdv_clicked()
         ui->tabrdv->setModel(tmprendezvous.afficher());
 
         QMessageBox::information(nullptr,"modification Rendezvous","Rendezvous modifie avec succés");
+        update();
+        update_rdv();
+        update_nom();
     }
     else
             QMessageBox::warning(nullptr,"Error","Rendezvous non modifier");

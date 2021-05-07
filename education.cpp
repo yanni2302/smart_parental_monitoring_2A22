@@ -61,6 +61,12 @@ Education::Education(QWidget *parent) :
      int w2 = ui->devoirs->width();
      int h2 = ui->devoirs->height();
      ui->devoirs->setPixmap(pix2.scaled(w2,h2,Qt::KeepAspectRatio));
+     //activite
+
+             QPixmap pix11(":/img/activite.jpg");
+             int w11 = ui->activite_2->width();
+             int h11 = ui->activite_2->height();
+             ui->activite_2->setPixmap(pix11.scaled(w11,h11,Qt::KeepAspectRatio));
      //icons
      QPixmap pix3(":/img/home.png");
      QPixmap pix4(":/img/profil.png");
@@ -213,10 +219,24 @@ void Education::on_b_ajoutC_clicked()
           bool test=C.ajouter();
        if(test)
        {
+           if(ui->son_act->isChecked())
+           {
+           QMediaPlayer* player;
+           player= new QMediaPlayer;
+           player->setMedia(QUrl::fromLocalFile("C:/Users/souma/Desktop/smart_parental_monitoring_2A22-gestion_securite/song/cours_ajouter.mp3"));
+           player->play();
+            player->play();
+               qDebug()<<player->errorString();
+               QThread::sleep(1);
+               ui->coursView->setModel(C.afficher());
+                ui->contactView->setModel(D.afficher_contact());
+               update();
+               combo_num();
+               como_destinataire();
+           }
+           else{
 
-
-
-             QMessageBox::information(nullptr,QObject::tr("ok"),
+           QMessageBox::information(nullptr,QObject::tr("ok"),
                                     QObject::tr("Ajout effectué\n"
                                                 "click Cancel to exit"),QMessageBox::Cancel);
            ui->coursView->setModel(C.afficher());
@@ -224,6 +244,7 @@ void Education::on_b_ajoutC_clicked()
            update();
            combo_num();
            como_destinataire();
+           }
 
 }
 
@@ -251,12 +272,27 @@ void Education::on_suppCours_3_clicked()
     else{
     if(test)
     {
+        if(ui->son_act->isChecked())
+       { QMediaPlayer* player;
+        player= new QMediaPlayer;
+        player->setMedia(QUrl::fromLocalFile("C:/Users/souma/Desktop/smart_parental_monitoring_2A22-gestion_securite/song/cours_supprimer.mp3"));
+        player->play();
+         player->play();
+         qDebug()<<player->errorString();
+            QThread::sleep(1);
+            ui->coursView->setModel(C.afficher());
+            ui->contactView->setModel(D.afficher_contact());
+            update();
+        }
+        else
+        {
         QMessageBox::information(nullptr,QObject::tr("ok"),
                                  QObject::tr("suppression effectué\n"
                                              "click Cancel to exit"),QMessageBox::Cancel);
         ui->coursView->setModel(C.afficher());
         ui->contactView->setModel(D.afficher_contact());
         update();
+        }
     }
     else
     {
@@ -425,12 +461,27 @@ void Education::on_b_ajout_dev_clicked()
     bool test=D.ajouter();
     if(test)
     {
+         if(ui->son_act->isChecked())
+         {
+        QMediaPlayer* player;
+        player= new QMediaPlayer;
+        player->setMedia(QUrl::fromLocalFile("C:/Users/souma/Desktop/smart_parental_monitoring_2A22-gestion_securite/song/devoir_ajouter.mp3"));
+        player->play();
+            player->play();
+            qDebug()<<player->errorString();
+            QThread::sleep(1);
+            ui->coursView_2->setModel(D.afficher());
+             combo_numero_devoirs();
+             combo_numero_devoirs();
+         }else
+         {
         QMessageBox::information(nullptr,QObject::tr("ok"),
                                  QObject::tr("Ajout effectué\n"
                                              "click Cancel to exit"),QMessageBox::Cancel);
          ui->coursView_2->setModel(D.afficher());
           combo_numero_devoirs();
           combo_numero_devoirs();
+         }
     }
     else
     {
@@ -458,12 +509,28 @@ void Education::on_suppCours_4_clicked()
         bool test=D.supprimer(NomD);
         if(test)
         {
+            if(ui->son_act->isChecked())
+            {
+            QMediaPlayer* player;
+            player= new QMediaPlayer;
+            player->setMedia(QUrl::fromLocalFile("C:/Users/souma/Desktop/smart_parental_monitoring_2A22-gestion_securite/song/devoir_supprimer.mp3"));
+            player->play();
+                player->play();
+                qDebug()<<player->errorString();
+                QThread::sleep(1);
+                ui->coursView_2->setModel(D.afficher());
+                ui->chercher_cours_3->setModel(D.afficher());
+                combo_numero_devoirs();
+                combo_numero_devoirs();
+            }else{
             QMessageBox::information(nullptr,QObject::tr("ok"),
                                      QObject::tr("supprission effectué\n"
                                                  "click Cancel to exit"),QMessageBox::Cancel);
            ui->coursView_2->setModel(D.afficher());
+           ui->chercher_cours_3->setModel(D.afficher());
            combo_numero_devoirs();
            combo_numero_devoirs();
+            }
         }
         else
         {
@@ -481,7 +548,7 @@ void Education::on_imprimer_devoirs_clicked()
     printer.setPrinterName("printer");
     QPrintDialog dialog(&printer,this);
     if(dialog.exec()==QDialog::Rejected)return;
-    ui->coursView->render(&printer);
+    ui->coursView_2->render(&printer);
 }
 
 void Education::on_modifier_clicked()
@@ -551,7 +618,7 @@ void Education::on_lineEdit_chercher_2_textChanged(const QString &arg1)
 }
 void Education::on_pushButton_2_clicked()
 {   QString filter = "All File (*.*)";
-    QString file_name=QFileDialog::getOpenFileName(this,"Open a file","C:/Users/souma/Desktop/projetcpp/Supports/",filter);
+    QString file_name=QFileDialog::getOpenFileName(this,"Open a file","C:/Users/souma/Desktop/smart_parental_monitoring_2A22-gestion_securite/Supports/",filter);
     QFile file(file_name);
     if(!file.open(QFile::ReadOnly | QFile::Text)){
          QMessageBox::warning(this,"title","file not open");
@@ -607,12 +674,28 @@ void Education::on_activite_ajouter_clicked()
               test = A.ajouter();
       if(test)
       {
+          if(ui->son_act->isChecked())
+          {
+          QMediaPlayer* player;
+          player= new QMediaPlayer;
+          player->setMedia(QUrl::fromLocalFile("C:/Users/souma/Desktop/smart_parental_monitoring_2A22-gestion_securite/song/activite_ajouter.mp3"));
+          player->play();
+              player->play();
+              qDebug()<<player->errorString();
+              QThread::sleep(1);
+              ui->coursView->setModel(C.afficher());
+              ui->activiteView->setModel(AC.afficher());
+              combo_numero_activite();
+              update();
+          }else{
           QMessageBox::information(nullptr,QObject::tr("ok"),
                                    QObject::tr("Ajout effectué\n"
                                                "click Cancel to exit"),QMessageBox::Cancel);
         ui->coursView->setModel(C.afficher());
           ui->activiteView->setModel(AC.afficher());
+          combo_numero_activite();
         update();
+          }
 }
 
 
@@ -750,12 +833,26 @@ void Education::on_supprimer_activite_clicked()
     bool test=AC.supprimer(NUMERO);
     if(test)
     {
+        if(ui->son_act->isChecked())
+        {
+        QMediaPlayer* player;
+        player= new QMediaPlayer;
+        player->setMedia(QUrl::fromLocalFile("C:/Users/souma/Desktop/smart_parental_monitoring_2A22-gestion_securite/song/activite_supprimer.mp3"));
+        player->play();
+            player->play();
+            qDebug()<<player->errorString();
+            QThread::sleep(1);
+            ui->activiteView->setModel(AC.afficher());
+            combo_numero_activite();
+            update();
+        }else{
         QMessageBox::information(nullptr,QObject::tr("ok"),
                                  QObject::tr("suppression effectué\n"
                                              "click Cancel to exit"),QMessageBox::Cancel);
         ui->activiteView->setModel(AC.afficher());
         combo_numero_activite();
         update();
+        }
     }
     else
     {

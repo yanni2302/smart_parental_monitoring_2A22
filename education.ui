@@ -113,7 +113,7 @@ QTabBar::tab:selected {
       <enum>QTabWidget::Triangular</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <property name="elideMode">
       <enum>Qt::ElideMiddle</enum>
@@ -709,6 +709,72 @@ selection-background-color: gray;
 </string>
        </property>
       </widget>
+      <widget class="QRadioButton" name="son_act">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>40</y>
+         <width>97</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+color: rgb(255, 255, 255);
+background:#085394	;
+font: bold, &quot;Comic Sans MS&quot;;
+</string>
+       </property>
+       <property name="text">
+        <string>Activé</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="son_des">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>40</y>
+         <width>111</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+color: rgb(255, 255, 255);
+background:#085394	;
+font: bold, &quot;Comic Sans MS&quot;;
+</string>
+       </property>
+       <property name="text">
+        <string>désactivé</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>10</y>
+         <width>71</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+color: rgb(255, 255, 255);
+background:#085394	;
+font: bold, &quot;Comic Sans MS&quot;;
+</string>
+       </property>
+       <property name="text">
+        <string> SON</string>
+       </property>
+      </widget>
       <zorder>groupBox_16</zorder>
       <zorder>background_3</zorder>
       <zorder>dev_pic</zorder>
@@ -728,6 +794,9 @@ selection-background-color: gray;
       <zorder>label_18</zorder>
       <zorder>confirmer_email</zorder>
       <zorder>confirmer_email_2</zorder>
+      <zorder>son_act</zorder>
+      <zorder>son_des</zorder>
+      <zorder>label_8</zorder>
      </widget>
      <widget class="QWidget" name="tab_4">
       <attribute name="title">
@@ -1658,7 +1727,7 @@ QTabBar::tab:selected {
       <enum>QTabWidget::Triangular</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab_6">
       <attribute name="title">
@@ -2784,7 +2853,7 @@ text-align:center;
 </string>
         </property>
         <property name="text">
-         <string>Nom de Cours</string>
+         <string>Nom de Devoir</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="suppCours_6">
@@ -2927,7 +2996,7 @@ font: bold, &quot;Comic Sans MS&quot;;
 </string>
            </property>
            <property name="text">
-            <string>READ</string>
+            <string>Lire</string>
            </property>
           </widget>
          </item>
@@ -3311,7 +3380,7 @@ text-align:center;
        </property>
        <property name="font">
         <font>
-         <family>MS Shell Dlg 2</family>
+         <family>Comic Sans MS</family>
          <weight>75</weight>
          <italic>false</italic>
          <bold>true</bold>
@@ -3321,12 +3390,12 @@ text-align:center;
         <cursorShape>WaitCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: white;
-background:gray;
- border: 2px solid gray;
- border-radius: 10px;
-
-
+        <string notr="true">border: 2px solid black;
+border-radius: 10px;
+padding: 0 8px;
+color: rgb(255, 255, 255);
+background:#085394	;
+font: bold, &quot;Comic Sans MS&quot;;
 
 </string>
        </property>
@@ -3645,6 +3714,19 @@ selection-background-color: gray;
         <string/>
        </property>
       </widget>
+      <widget class="QLabel" name="activite_2">
+       <property name="geometry">
+        <rect>
+         <x>410</x>
+         <y>80</y>
+         <width>561</width>
+         <height>351</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
       <zorder>groupBox_15</zorder>
       <zorder>background_8</zorder>
       <zorder>label_15</zorder>
@@ -3656,6 +3738,7 @@ selection-background-color: gray;
       <zorder>activite</zorder>
       <zorder>cours</zorder>
       <zorder>etat</zorder>
+      <zorder>activite_2</zorder>
      </widget>
      <widget class="QWidget" name="tab_15">
       <attribute name="title">

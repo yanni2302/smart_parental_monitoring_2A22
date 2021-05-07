@@ -25,7 +25,7 @@ public:
     ~activiteloisirs();
     void update();
     void update_rdv();
-
+void update_nom();
 private slots:
 
 //void on_tabWidget_currentChanged(int index);

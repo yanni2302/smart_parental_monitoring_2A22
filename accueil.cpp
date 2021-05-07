@@ -6,6 +6,8 @@
 #include "education.h"
 #include "gestionc.h"
 #include "produitalimentaire.h"
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
 accueil::accueil(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::accueil)
@@ -79,12 +81,25 @@ void accueil::on_securite_clicked()
 void accueil::on_pushButton_3_clicked()
 {
     Education E;
+    QMediaPlayer* player;
+    player= new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/souma/Desktop/smart_parental_monitoring_2A22-gestion_securite/song/bienvenue.mp3"));
+    player->play();
+        player->play();
+        qDebug()<<player->errorString();
+        QThread::sleep(1);
     E.exec();
 }
 
 void accueil::on_pushButton_4_clicked()
 {
     Education E;
+    QMediaPlayer* player;
+    player= new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/souma/Desktop/smart_parental_monitoring_2A22-gestion_securite/song/bienvenue.mp3"));
+        player->play();
+        qDebug()<<player->errorString();
+        QThread::sleep(1);
     E.exec();
 }
 

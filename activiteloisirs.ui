@@ -80,7 +80,7 @@ QTabBar::tab:selected {
 }</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -1367,25 +1367,6 @@ font: bold, &quot;Comic Sans MS&quot;;;
 text-align:center;</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="prenom_rdv_ajout">
-       <property name="geometry">
-        <rect>
-         <x>240</x>
-         <y>170</y>
-         <width>181</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border: 2px solid black;
-font: 75 8pt &quot;MS Shell Dlg 2&quot;;
-border-radius: 10px;
-padding: 0 8px;
-background: white;
-font: bold, &quot;Comic Sans MS&quot;;;
-text-align:center;</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="email_rdv_ajout">
        <property name="geometry">
         <rect>
@@ -1622,6 +1603,26 @@ text-align:center;
         <rect>
          <x>240</x>
          <y>110</y>
+         <width>181</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 2px solid black;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border-radius: 10px;
+padding: 0 8px;
+background: white;
+font: bold, &quot;Comic Sans MS&quot;;;
+color: black;
+text-align:center;</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_2">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>170</y>
          <width>181</width>
          <height>22</height>
         </rect>
