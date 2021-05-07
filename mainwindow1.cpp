@@ -138,6 +138,8 @@ void mainwindow1::on_modifier_clicked()
     if (test)
     {
        ui->afficher_personne->setModel(P.afficher());
+       update_personne_list();
+       update_mail_list();
     QMessageBox::information(nullptr,QObject::tr("Modification Personnes"),
                              QObject::tr("personne modifié.\n"
                                          "Click Cancel to exit."), QMessageBox::Cancel);

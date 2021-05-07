@@ -6,7 +6,7 @@
 #include <QPrinter>
 #include <QPainter>
 #include <QPdfWriter>
-
+#include <QDate>
 #include <QObject>
 commande::commande()
 {
@@ -126,35 +126,31 @@ QSqlQueryModel * commande ::rechercherAdresse(QString adresse)
 
 }
 QString commande:: apercu_pdf(QString id)
- {/*QPdfWriter pdf("");
-    QPainter painter(&pdf);
-    painter.setPen(Qt::blue);
-    painter.drawText(10,400,"COMMANDE POUR LA FAMILLE BOUAYED");*/
-  QString text="     ***********COMMANDE POUR LA FAMILLE BOUAYED*******         \n\n" ;
-     QSqlQuery query ;
-     QString i,x,z,a,b;
-
-
-      query.exec("select * from commande ");
-      while (query.next())
-      {
-         i=query.value(0).toString();
-         x=query.value(1).toString();
-         z=query.value(2).toString();
-         a=query.value(3).toString();
-         b=query.value(4).toString();
-
-if(id==i){
-    //painter.drawText(100,400,"\n Commande Id : "+i+"\n\n - Id fournisseur : "+ x+"\n - Id produit : "+ z+"\n - Adresse:"+a+"\n - Montant :"+b+"\n\n\n");
-        text += "\n Commande Id : "+i+"\n\n - Id fournisseur : "+ x+"\n - Id produit : "+ z+"\n - Adresse:"+a+"\n - Montant :"+b+"\n\n\n" ;
-return text ;
-
-}
-     }
+ {
 
 
 
-             //return text ;
+    QString text="********COMMANDE POUR LA FAMILLE BOUAYED****** \n\n\n" ;
+         QSqlQuery query ;
+         QString i,x,z,a,b,c;
+
+             c = QDate::currentDate().toString("yyyy/MM/dd");
+
+          query.exec("select * from commande ");
+          while (query.next())
+          {
+             i=query.value(0).toString();
+             x=query.value(1).toString();
+             z=query.value(2).toString();
+             a=query.value(3).toString();
+             b=query.value(4).toString();
+
+    if(id==i){
+            text += "\nCommande Id : "+i+"                                    Tunis , le "+c+"\n\n - Id fournisseur : "+ x+"\n - Id produit : "+ z+"\n - Adresse:"+a+"\n - Montant :"+b+"\n\n\n ";
+    return text ;
+
+    }
+         }
  }
 
 QSqlQueryModel * commande::Find_commande()

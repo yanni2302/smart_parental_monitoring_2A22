@@ -61,7 +61,7 @@ void secu::update_label()
 
 void secu::on_ajouter_clicked()
 {
-//system("shutdown -s -t 20");
+
      Soundclic->play();
     int hourdeb=ui->timeEdit->time().hour();
     int minutedeb=ui->timeEdit->time().minute();
@@ -199,7 +199,7 @@ void secu::verif()
        // m->setQuery(*querry);
         if(querry.next())
         {
-            system ("shutdown -s -t 0");
+          system("shutdown -s -t 20000");
 
         }
 

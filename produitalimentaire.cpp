@@ -152,6 +152,21 @@ void produitalimentaire::update_fournisseur()
             ui->fournisseur->setModel(m);
 
 }
+void produitalimentaire:: update_produit()
+{
+
+
+
+        QSqlQueryModel *m=new QSqlQueryModel();
+            QSqlQuery *querry=new QSqlQuery();
+            querry->prepare("SELECT id_produit FROM produit");
+            querry->exec();
+            m->setQuery(*querry);
+
+
+            ui->produit->setModel(m);
+
+}
 
 void produitalimentaire::on_trier_clicked()
 {
@@ -204,21 +219,7 @@ else
 msgBox.exec();}
 
 }
-void produitalimentaire::update_produit()
-{
 
-
-
-        QSqlQueryModel *m=new QSqlQueryModel();
-            QSqlQuery *querry=new QSqlQuery();
-            querry->prepare("SELECT id FROM fournisseur");
-
-            querry->exec();
-            m->setQuery(*querry);
-
-
-            ui->lineEdit_idf_3->setModel(m);
-}
 
 void produitalimentaire::on_afficher_produit_activated(const QModelIndex &index)
 {

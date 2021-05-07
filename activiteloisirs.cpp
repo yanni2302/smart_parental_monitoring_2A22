@@ -63,7 +63,7 @@ void activiteloisirs::update()
                m1->setQuery(*querry1);
 
             ui->comboBox->setModel(m);
-            ui->comboBox->setModel(m1);
+           // ui->comboBox->setModel(m1);
 
 }
 void activiteloisirs::update_nom()
@@ -84,7 +84,7 @@ void activiteloisirs::update_nom()
                m1->setQuery(*querry1);
 
             ui->comboBox_2->setModel(m);
-            ui->comboBox_2->setModel(m1);
+           //ui->comboBox_2->setModel(m1);
 
 }
 void activiteloisirs::update_rdv()
@@ -214,7 +214,9 @@ void activiteloisirs::on_Ajout_rdv_clicked()
     bool test=tmprendezvous.ajouter();
     if(test){
         ui->tabrdv->setModel(tmprendezvous.afficher());
+        update();
         update_rdv();
+        update_nom();
         QMessageBox::information(nullptr,"Ajout rendezvous","Rendezvous ajouté avec succés");
     }
     else
@@ -228,7 +230,9 @@ void activiteloisirs::on_Supprimer_rdv_clicked()
     bool test=tmprendezvous.supprimer(id_rdvs);
     if(test){
         ui->tabrdv->setModel(tmprendezvous.afficher());
+        update();
         update_rdv();
+        update_nom();
         QMessageBox::information(nullptr,"suppression Rendezvous","Rendezvous supprimer avec succés");
     }
     else
